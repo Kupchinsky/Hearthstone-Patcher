@@ -99,7 +99,7 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lcom/unity3d/player/l;->c:Lcom/unity3d/player/g;
+    sget-object v0, Lcom/unity3d/player/l;->d:Lcom/unity3d/player/g;
 
     invoke-interface {v0}, Lcom/unity3d/player/g;->a()Z
 

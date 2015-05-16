@@ -76,10 +76,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->takeSurface(Landroid/view/SurfaceHolder$Callback2;)V
 
-    const v0, 0x1030007
-
-    invoke-virtual {p0, v0}, Lcom/unity3d/player/UnityPlayerNativeActivity;->setTheme(I)V
-
     invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayerNativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0

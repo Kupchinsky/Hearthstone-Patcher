@@ -17,6 +17,8 @@
 # static fields
 .field public static final BMA_TOKEN_SERVICE:Ljava/lang/String; = "com.blizzard.permission.BMA_TOKEN_SERVICE"
 
+.field public static final C2D_MESSAGE:Ljava/lang/String; = "com.blizzard.wtcg.hearthstone.permission.C2D_MESSAGE"
+
 
 # direct methods
 .method public constructor <init>()V

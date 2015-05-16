@@ -1,5 +1,5 @@
 version: 2.0.0-RC4
-apkFileName: com.blizzard.wtcg.hearthstone-1.apk
+apkFileName: com.blizzard.wtcg.hearthstone-2.apk
 isFrameworkApk: false
 usesFramework:
   ids:
@@ -10,6 +10,6 @@ sdkInfo:
 packageInfo:
   forced-package-id: '127'
 versionInfo:
-  versionCode: '849007'
-  versionName: 2.5.8490
+  versionCode: '883407'
+  versionName: 2.6.8834
 compressionType: false

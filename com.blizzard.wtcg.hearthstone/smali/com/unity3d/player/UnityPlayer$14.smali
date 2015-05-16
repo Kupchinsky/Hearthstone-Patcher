@@ -38,19 +38,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$14;->b:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->k(Lcom/unity3d/player/UnityPlayer;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$14;->b:Lcom/unity3d/player/UnityPlayer;
-
-    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->l(Lcom/unity3d/player/UnityPlayer;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$14;->b:Lcom/unity3d/player/UnityPlayer;
 
@@ -58,17 +46,7 @@
 
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$14;->a:Ljava/util/concurrent/Semaphore;
 
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/Semaphore;->release(I)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$14;->a:Ljava/util/concurrent/Semaphore;
-
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
 
-    goto :goto_0
+    return-void
 .end method

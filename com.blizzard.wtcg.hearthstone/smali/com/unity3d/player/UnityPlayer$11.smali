@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/unity3d/player/UnityPlayer;->a(Landroid/view/MotionEvent;)Z
+    value = Lcom/unity3d/player/UnityPlayer;->a(Landroid/view/KeyEvent;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,18 +14,18 @@
 
 
 # instance fields
-.field final synthetic a:Landroid/view/MotionEvent;
+.field final synthetic a:Landroid/view/KeyEvent;
 
 .field final synthetic b:Lcom/unity3d/player/UnityPlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/MotionEvent;)V
+.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/KeyEvent;)V
     .locals 1
 
     iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$11;->b:Lcom/unity3d/player/UnityPlayer;
 
-    iput-object p2, p0, Lcom/unity3d/player/UnityPlayer$11;->a:Landroid/view/MotionEvent;
+    iput-object p2, p0, Lcom/unity3d/player/UnityPlayer$11;->a:Landroid/view/KeyEvent;
 
     const/4 v0, 0x0
 
@@ -41,13 +41,9 @@
 
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$11;->b:Lcom/unity3d/player/UnityPlayer;
 
-    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$11;->a:Landroid/view/MotionEvent;
+    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$11;->a:Landroid/view/KeyEvent;
 
     invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Landroid/view/InputEvent;)Z
-
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$11;->a:Landroid/view/MotionEvent;
-
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
 
     return-void
 .end method

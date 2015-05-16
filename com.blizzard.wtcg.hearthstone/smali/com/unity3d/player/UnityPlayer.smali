@@ -181,15 +181,15 @@
 
     iput-object v1, p0, Lcom/unity3d/player/UnityPlayer;->F:Landroid/widget/ProgressBar;
 
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$17;
-
-    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$17;-><init>(Lcom/unity3d/player/UnityPlayer;)V
-
-    iput-object v0, p0, Lcom/unity3d/player/UnityPlayer;->G:Ljava/lang/Runnable;
-
     new-instance v0, Lcom/unity3d/player/UnityPlayer$18;
 
     invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$18;-><init>(Lcom/unity3d/player/UnityPlayer;)V
+
+    iput-object v0, p0, Lcom/unity3d/player/UnityPlayer;->G:Ljava/lang/Runnable;
+
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$19;
+
+    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$19;-><init>(Lcom/unity3d/player/UnityPlayer;)V
 
     iput-object v0, p0, Lcom/unity3d/player/UnityPlayer;->H:Ljava/lang/Runnable;
 
@@ -376,7 +376,7 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lcom/unity3d/player/l;->c:Lcom/unity3d/player/g;
+    sget-object v0, Lcom/unity3d/player/l;->d:Lcom/unity3d/player/g;
 
     invoke-interface {v0, p0}, Lcom/unity3d/player/g;->a(Landroid/view/View;)V
 
@@ -416,6 +416,14 @@
     move-result v0
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->nativeSetDefaultDisplay(I)V
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer;->m:Landroid/content/ContextWrapper;
+
+    invoke-direct {p0}, Lcom/unity3d/player/UnityPlayer;->l()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->setTheme(I)V
 
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayer;->a:Lcom/unity3d/player/UnityPlayer$b;
 
@@ -934,6 +942,14 @@
     return-void
 .end method
 
+.method static synthetic a(Lcom/unity3d/player/UnityPlayer;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/unity3d/player/UnityPlayer;->b(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method static synthetic a(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;)V
     .locals 0
 
@@ -1081,9 +1097,9 @@
 
     invoke-direct {v0, p1}, Landroid/view/KeyEvent;-><init>(Landroid/view/KeyEvent;)V
 
-    new-instance v1, Lcom/unity3d/player/UnityPlayer$10;
+    new-instance v1, Lcom/unity3d/player/UnityPlayer$11;
 
-    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$10;-><init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/KeyEvent;)V
+    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$11;-><init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/KeyEvent;)V
 
     invoke-direct {p0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer$c;)V
 
@@ -1109,9 +1125,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/unity3d/player/UnityPlayer$11;
+    new-instance v1, Lcom/unity3d/player/UnityPlayer$13;
 
-    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$11;-><init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/MotionEvent;)V
+    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$13;-><init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/MotionEvent;)V
 
     invoke-direct {p0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer$c;)V
 
@@ -1363,6 +1379,62 @@
     iput p1, p0, Lcom/unity3d/player/UnityPlayer;->w:I
 
     return p1
+.end method
+
+.method private static b(Z)I
+    .locals 3
+
+    const/16 v2, 0x15
+
+    const/16 v1, 0xe
+
+    if-eqz p0, :cond_2
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v2, :cond_0
+
+    const v0, 0x103022f
+
+    :goto_0
+    return v0
+
+    :cond_0
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v1, :cond_1
+
+    const v0, 0x103006d
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x1030007
+
+    goto :goto_0
+
+    :cond_2
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v2, :cond_3
+
+    const v0, 0x103022e
+
+    goto :goto_0
+
+    :cond_3
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    if-lt v0, v1, :cond_4
+
+    const v0, 0x103006c
+
+    goto :goto_0
+
+    :cond_4
+    const v0, 0x1030006
+
+    goto :goto_0
 .end method
 
 .method private b()V
@@ -1710,9 +1782,9 @@
     invoke-direct {p0}, Lcom/unity3d/player/UnityPlayer;->k()V
 
     :cond_3
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$15;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$16;
 
-    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$15;-><init>(Lcom/unity3d/player/UnityPlayer;)V
+    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$16;-><init>(Lcom/unity3d/player/UnityPlayer;)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->c(Ljava/lang/Runnable;)V
 
@@ -1969,6 +2041,58 @@
     move-result v0
 
     return v0
+.end method
+
+.method private l()I
+    .locals 3
+
+    const v1, 0x1030007
+
+    :try_start_0
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer;->m:Landroid/content/ContextWrapper;
+
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->theme:I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->getSettings()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "hide_status_bar"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->b(Z)I
+
+    move-result v0
+
+    :cond_0
+    return v0
+
+    :catch_0
+    move-exception v0
+
+    const/4 v0, 0x5
+
+    const-string v2, "Failed to obtain current theme, applying best theme available on device"
+
+    invoke-static {v0, v2}, Lcom/unity3d/player/i;->Log(ILjava/lang/String;)V
+
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method static synthetic l(Lcom/unity3d/player/UnityPlayer;)Z
@@ -2509,23 +2633,37 @@
 .end method
 
 .method protected hideSoftInput()V
-    .locals 1
+    .locals 2
 
     new-instance v0, Lcom/unity3d/player/UnityPlayer$4;
 
     invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$4;-><init>(Lcom/unity3d/player/UnityPlayer;)V
 
+    sget-boolean v1, Lcom/unity3d/player/l;->c:Z
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Lcom/unity3d/player/UnityPlayer$5;
+
+    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$5;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/Runnable;)V
+
+    invoke-direct {p0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer$c;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->b(Ljava/lang/Runnable;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method protected hideVideoPlayer()V
     .locals 1
 
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$9;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$10;
 
-    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$9;-><init>(Lcom/unity3d/player/UnityPlayer;)V
+    invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer$10;-><init>(Lcom/unity3d/player/UnityPlayer;)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->b(Ljava/lang/Runnable;)V
 
@@ -2826,7 +2964,7 @@
 
     move-result-object v4
 
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$7;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$8;
 
     move-object v1, p0
 
@@ -2834,7 +2972,7 @@
 
     move-object v5, p1
 
-    invoke-direct/range {v0 .. v5}, Lcom/unity3d/player/UnityPlayer$7;-><init>(Lcom/unity3d/player/UnityPlayer;I[BLandroid/hardware/Camera$Size;Lcom/unity3d/player/a;)V
+    invoke-direct/range {v0 .. v5}, Lcom/unity3d/player/UnityPlayer$8;-><init>(Lcom/unity3d/player/UnityPlayer;I[BLandroid/hardware/Camera$Size;Lcom/unity3d/player/a;)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer$c;)V
 
@@ -2967,9 +3105,9 @@
 
     if-eqz v1, :cond_5
 
-    new-instance v1, Lcom/unity3d/player/UnityPlayer$13;
+    new-instance v1, Lcom/unity3d/player/UnityPlayer$14;
 
-    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$13;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/util/concurrent/Semaphore;)V
+    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$14;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/util/concurrent/Semaphore;)V
 
     invoke-direct {p0, v1}, Lcom/unity3d/player/UnityPlayer;->c(Ljava/lang/Runnable;)V
 
@@ -3034,9 +3172,9 @@
     goto :goto_0
 
     :cond_5
-    new-instance v1, Lcom/unity3d/player/UnityPlayer$14;
+    new-instance v1, Lcom/unity3d/player/UnityPlayer$15;
 
-    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$14;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/util/concurrent/Semaphore;)V
+    invoke-direct {v1, p0, v0}, Lcom/unity3d/player/UnityPlayer$15;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/util/concurrent/Semaphore;)V
 
     invoke-direct {p0, v1}, Lcom/unity3d/player/UnityPlayer;->c(Ljava/lang/Runnable;)V
 
@@ -3134,9 +3272,9 @@
     invoke-virtual {p0}, Lcom/unity3d/player/UnityPlayer;->hideSoftInput()V
 
     :cond_0
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$6;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$7;
 
-    invoke-direct {v0, p0, p3, p1, p2}, Lcom/unity3d/player/UnityPlayer$6;-><init>(Lcom/unity3d/player/UnityPlayer;ZLjava/lang/String;I)V
+    invoke-direct {v0, p0, p3, p1, p2}, Lcom/unity3d/player/UnityPlayer$7;-><init>(Lcom/unity3d/player/UnityPlayer;ZLjava/lang/String;I)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer$c;)V
 
@@ -3164,7 +3302,7 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/unity3d/player/l;->c:Lcom/unity3d/player/g;
+    sget-object v0, Lcom/unity3d/player/l;->d:Lcom/unity3d/player/g;
 
     invoke-interface {v0, p0}, Lcom/unity3d/player/g;->b(Landroid/view/View;)V
 
@@ -3278,9 +3416,9 @@
 .method protected setSoftInputStr(Ljava/lang/String;)V
     .locals 1
 
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$5;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$6;
 
-    invoke-direct {v0, p0, p1}, Lcom/unity3d/player/UnityPlayer$5;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Lcom/unity3d/player/UnityPlayer$6;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->b(Ljava/lang/Runnable;)V
 
@@ -3320,7 +3458,7 @@
 .method protected showVideoPlayer(Ljava/lang/String;IIIZII)V
     .locals 9
 
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$8;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$9;
 
     move-object v1, p0
 
@@ -3338,7 +3476,7 @@
 
     move/from16 v8, p7
 
-    invoke-direct/range {v0 .. v8}, Lcom/unity3d/player/UnityPlayer$8;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;IIIZII)V
+    invoke-direct/range {v0 .. v8}, Lcom/unity3d/player/UnityPlayer$9;-><init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;IIIZII)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->b(Ljava/lang/Runnable;)V
 
@@ -3403,9 +3541,9 @@
     invoke-virtual {p0, v0, v1, v2}, Lcom/unity3d/player/UnityPlayer;->reportSoftInputStr(Ljava/lang/String;IZ)V
 
     :cond_0
-    new-instance v0, Lcom/unity3d/player/UnityPlayer$16;
+    new-instance v0, Lcom/unity3d/player/UnityPlayer$17;
 
-    invoke-direct {v0, p0, p1}, Lcom/unity3d/player/UnityPlayer$16;-><init>(Lcom/unity3d/player/UnityPlayer;Z)V
+    invoke-direct {v0, p0, p1}, Lcom/unity3d/player/UnityPlayer$17;-><init>(Lcom/unity3d/player/UnityPlayer;Z)V
 
     invoke-direct {p0, v0}, Lcom/unity3d/player/UnityPlayer;->c(Ljava/lang/Runnable;)V
 

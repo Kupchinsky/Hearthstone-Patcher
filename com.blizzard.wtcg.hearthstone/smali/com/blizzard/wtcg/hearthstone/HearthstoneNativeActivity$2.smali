@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity$2;->this$0:Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity;
 
-    .line 72
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +43,7 @@
     .param p2, "id"    # I
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity$2;->this$0:Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity;
 
     # getter for: Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity;->m_loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
@@ -53,6 +53,6 @@
 
     invoke-virtual {v0}, Lcom/blizzard/wtcg/hearthstone/LoadingScreen;->Start()V
 
-    .line 75
+    .line 77
     return-void
 .end method

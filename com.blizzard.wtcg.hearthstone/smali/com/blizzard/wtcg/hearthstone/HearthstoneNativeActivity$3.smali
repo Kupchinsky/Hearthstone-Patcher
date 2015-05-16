@@ -26,7 +26,7 @@
     .line 1
     iput-object p1, p0, Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity$3;->this$0:Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity;
 
-    .line 118
+    .line 120
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
@@ -38,7 +38,7 @@
     .locals 4
 
     .prologue
-    .line 124
+    .line 126
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -47,14 +47,14 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 126
+    .line 128
     :goto_1
     invoke-static {}, Lcom/blizzard/wtcg/hearthstone/WebLoginActivity;->Show()V
 
-    .line 127
+    .line 129
     return-void
 
-    .line 124
+    .line 126
     :cond_0
     const-wide/16 v2, 0x64
 
@@ -67,7 +67,7 @@
 
     goto :goto_0
 
-    .line 125
+    .line 127
     :catch_0
     move-exception v1
 

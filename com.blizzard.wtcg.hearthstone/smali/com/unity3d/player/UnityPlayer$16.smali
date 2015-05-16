@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/unity3d/player/UnityPlayer;->windowFocusChanged(Z)V
+    value = Lcom/unity3d/player/UnityPlayer;->g()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,18 +17,14 @@
 
 
 # instance fields
-.field final synthetic a:Z
-
-.field final synthetic b:Lcom/unity3d/player/UnityPlayer;
+.field final synthetic a:Lcom/unity3d/player/UnityPlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Z)V
+.method constructor <init>(Lcom/unity3d/player/UnityPlayer;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$16;->b:Lcom/unity3d/player/UnityPlayer;
-
-    iput-boolean p2, p0, Lcom/unity3d/player/UnityPlayer$16;->a:Z
+    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$16;->a:Lcom/unity3d/player/UnityPlayer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,13 +34,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$16;->b:Lcom/unity3d/player/UnityPlayer;
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$16;->a:Lcom/unity3d/player/UnityPlayer;
 
-    iget-boolean v1, p0, Lcom/unity3d/player/UnityPlayer$16;->a:Z
-
-    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Z)V
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->m(Lcom/unity3d/player/UnityPlayer;)V
 
     return-void
 .end method

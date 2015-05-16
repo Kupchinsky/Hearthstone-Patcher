@@ -103,7 +103,7 @@
 
     const/4 v4, 0x0
 
-    const-string v5, "4.6.3p1"
+    const-string v5, "4.6.4p4"
 
     aput-object v5, v3, v4
 

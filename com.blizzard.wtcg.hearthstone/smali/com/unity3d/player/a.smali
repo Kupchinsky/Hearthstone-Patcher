@@ -535,7 +535,7 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lcom/unity3d/player/l;->c:Lcom/unity3d/player/g;
+    sget-object v0, Lcom/unity3d/player/l;->d:Lcom/unity3d/player/g;
 
     iget-object v2, p0, Lcom/unity3d/player/a;->a:Landroid/hardware/Camera;
 

@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity$1;->this$0:Lcom/blizzard/wtcg/hearthstone/HearthstoneNativeActivity;
 
-    .line 66
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,11 +43,11 @@
     .param p2, "id"    # I
 
     .prologue
-    .line 68
+    .line 70
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
-    .line 69
+    .line 71
     return-void
 .end method

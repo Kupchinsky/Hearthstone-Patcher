@@ -38,7 +38,7 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/unity3d/player/l;->d:Lcom/unity3d/player/f;
+    sget-object v0, Lcom/unity3d/player/l;->e:Lcom/unity3d/player/f;
 
     invoke-interface {v0, p0, p1}, Lcom/unity3d/player/f;->a(Landroid/view/View;Landroid/view/MotionEvent;)Z
 

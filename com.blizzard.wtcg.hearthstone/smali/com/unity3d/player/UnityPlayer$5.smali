@@ -1,13 +1,10 @@
 .class final Lcom/unity3d/player/UnityPlayer$5;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Ljava/lang/Runnable;
+.super Lcom/unity3d/player/UnityPlayer$c;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/unity3d/player/UnityPlayer;->setSoftInputStr(Ljava/lang/String;)V
+    value = Lcom/unity3d/player/UnityPlayer;->hideSoftInput()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,47 +14,36 @@
 
 
 # instance fields
-.field final synthetic a:Ljava/lang/String;
+.field final synthetic a:Ljava/lang/Runnable;
 
 .field final synthetic b:Lcom/unity3d/player/UnityPlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;)V
-    .locals 0
+.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Ljava/lang/Runnable;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$5;->b:Lcom/unity3d/player/UnityPlayer;
 
-    iput-object p2, p0, Lcom/unity3d/player/UnityPlayer$5;->a:Ljava/lang/String;
+    iput-object p2, p0, Lcom/unity3d/player/UnityPlayer$5;->a:Ljava/lang/Runnable;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/unity3d/player/UnityPlayer$c;-><init>(Lcom/unity3d/player/UnityPlayer;B)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final a()V
     .locals 2
 
     iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$5;->b:Lcom/unity3d/player/UnityPlayer;
 
-    iget-object v0, v0, Lcom/unity3d/player/UnityPlayer;->b:Lcom/unity3d/player/n;
+    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$5;->a:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Ljava/lang/Runnable;)V
 
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$5;->a:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$5;->b:Lcom/unity3d/player/UnityPlayer;
-
-    iget-object v0, v0, Lcom/unity3d/player/UnityPlayer;->b:Lcom/unity3d/player/n;
-
-    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$5;->a:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/unity3d/player/n;->a(Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method

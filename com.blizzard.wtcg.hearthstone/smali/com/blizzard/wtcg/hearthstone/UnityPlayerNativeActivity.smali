@@ -25,7 +25,7 @@
     .param p1, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 76
+    .line 75
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
@@ -34,14 +34,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 77
+    .line 76
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
 
     move-result v0
 
-    .line 78
+    .line 77
     :goto_0
     return v0
 
@@ -58,15 +58,15 @@
     .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
-    .line 61
+    .line 60
     invoke-super {p0, p1}, Landroid/app/NativeActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 62
+    .line 61
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->configurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 63
+    .line 62
     return-void
 .end method
 
@@ -95,11 +95,6 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->takeSurface(Landroid/view/SurfaceHolder$Callback2;)V
 
     .line 25
-    const v0, 0x1030007
-
-    invoke-virtual {p0, v0}, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->setTheme(I)V
-
-    .line 26
     invoke-virtual {p0}, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -108,14 +103,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setFormat(I)V
 
-    .line 28
+    .line 27
     new-instance v0, Lcom/unity3d/player/UnityPlayer;
 
     invoke-direct {v0, p0}, Lcom/unity3d/player/UnityPlayer;-><init>(Landroid/content/ContextWrapper;)V
 
     iput-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
-    .line 29
+    .line 28
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->getSettings()Landroid/os/Bundle;
@@ -130,25 +125,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 30
+    .line 29
     invoke-virtual {p0}, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     invoke-virtual {v0, v3, v3}, Landroid/view/Window;->setFlags(II)V
 
-    .line 33
+    .line 32
     :cond_0
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {p0, v0}, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->setContentView(Landroid/view/View;)V
 
-    .line 34
+    .line 33
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->requestFocus()Z
 
-    .line 35
+    .line 34
     return-void
 .end method
 
@@ -156,15 +151,15 @@
     .locals 1
 
     .prologue
-    .line 40
+    .line 39
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->quit()V
 
-    .line 41
+    .line 40
     invoke-super {p0}, Landroid/app/NativeActivity;->onDestroy()V
 
-    .line 42
+    .line 41
     return-void
 .end method
 
@@ -173,7 +168,7 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 85
+    .line 84
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
@@ -189,7 +184,7 @@
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 83
+    .line 82
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p2}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
@@ -205,7 +200,7 @@
     .param p2, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 82
+    .line 81
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p2}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
@@ -219,15 +214,15 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 46
     invoke-super {p0}, Landroid/app/NativeActivity;->onPause()V
 
-    .line 48
+    .line 47
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->pause()V
 
-    .line 49
+    .line 48
     return-void
 .end method
 
@@ -235,15 +230,15 @@
     .locals 1
 
     .prologue
-    .line 54
+    .line 53
     invoke-super {p0}, Landroid/app/NativeActivity;->onResume()V
 
-    .line 55
+    .line 54
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->resume()V
 
-    .line 56
+    .line 55
     return-void
 .end method
 
@@ -252,7 +247,7 @@
     .param p1, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 84
+    .line 83
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->injectEvent(Landroid/view/InputEvent;)Z
@@ -267,14 +262,14 @@
     .param p1, "hasFocus"    # Z
 
     .prologue
-    .line 68
+    .line 67
     invoke-super {p0, p1}, Landroid/app/NativeActivity;->onWindowFocusChanged(Z)V
 
-    .line 69
+    .line 68
     iget-object v0, p0, Lcom/blizzard/wtcg/hearthstone/UnityPlayerNativeActivity;->mUnityPlayer:Lcom/unity3d/player/UnityPlayer;
 
     invoke-virtual {v0, p1}, Lcom/unity3d/player/UnityPlayer;->windowFocusChanged(Z)V
 
-    .line 70
+    .line 69
     return-void
 .end method

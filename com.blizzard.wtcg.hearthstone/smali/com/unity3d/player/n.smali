@@ -6,6 +6,12 @@
 .implements Landroid/view/View$OnClickListener;
 
 
+# static fields
+.field private static c:I
+
+.field private static d:I
+
+
 # instance fields
 .field private a:Landroid/content/Context;
 
@@ -13,6 +19,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/high16 v0, -0x22000000
+
+    sput v0, Lcom/unity3d/player/n;->c:I
+
+    const/4 v0, -0x1
+
+    sput v0, Lcom/unity3d/player/n;->d:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;IZZZLjava/lang/String;)V
     .locals 9
 
@@ -46,23 +66,33 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->requestFeature(I)Z
 
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-
     invoke-virtual {p0}, Lcom/unity3d/player/n;->getWindow()Landroid/view/Window;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    new-instance v1, Landroid/graphics/drawable/ColorDrawable;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p0}, Lcom/unity3d/player/n;->createSoftInputView()Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/unity3d/player/n;->setContentView(Landroid/view/View;)V
+
+    invoke-virtual {p0}, Lcom/unity3d/player/n;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/4 v1, -0x1
+
+    const/4 v2, -0x2
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/Window;->setLayout(II)V
 
     invoke-virtual {p0}, Lcom/unity3d/player/n;->getWindow()Landroid/view/Window;
 
@@ -358,15 +388,15 @@
 .method protected final createSoftInputView()Landroid/view/View;
     .locals 10
 
-    const v9, 0x3f050002
+    const/16 v9, 0xf
 
-    const v8, 0x3f050001
-
-    const/16 v7, 0xf
+    const/4 v8, 0x0
 
     const/4 v3, -0x1
 
-    const/4 v6, -0x2
+    const/4 v7, -0x2
+
+    const/16 v6, 0x10
 
     new-instance v1, Landroid/widget/RelativeLayout;
 
@@ -380,6 +410,10 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    sget v0, Lcom/unity3d/player/n;->d:I
+
+    invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->setBackgroundColor(I)V
+
     new-instance v0, Lcom/unity3d/player/n$2;
 
     iget-object v2, p0, Lcom/unity3d/player/n;->a:Landroid/content/Context;
@@ -388,17 +422,23 @@
 
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
-    invoke-direct {v2, v3, v6}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v3, v7}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v2, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
+    invoke-virtual {v2, v9}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
 
-    const/4 v3, 0x0
+    const v3, 0x3f050002
 
-    invoke-virtual {v2, v3, v9}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
+    invoke-virtual {v2, v8, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {v0, v8}, Landroid/widget/EditText;->setId(I)V
+    sget v2, Lcom/unity3d/player/n;->c:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/EditText;->setTextColor(I)V
+
+    const v2, 0x3f050001
+
+    invoke-virtual {v0, v2}, Landroid/widget/EditText;->setId(I)V
 
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
 
@@ -428,9 +468,9 @@
 
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
-    invoke-direct {v2, v6, v6}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v7, v7}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v2, v7}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
+    invoke-virtual {v2, v9}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
 
     const/16 v3, 0xb
 
@@ -438,11 +478,21 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {v0, v9}, Landroid/widget/Button;->setId(I)V
+    const v2, 0x3f050002
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setId(I)V
+
+    invoke-virtual {v0, v8}, Landroid/widget/Button;->setBackgroundColor(I)V
+
+    sget v2, Lcom/unity3d/player/n;->c:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setTextColor(I)V
 
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
 
-    invoke-virtual {v1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v0, 0x3f050001
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -453,6 +503,8 @@
     invoke-direct {v2, p0}, Lcom/unity3d/player/n$3;-><init>(Lcom/unity3d/player/n;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+
+    invoke-virtual {v1, v6, v6, v6, v6}, Landroid/view/View;->setPadding(IIII)V
 
     return-object v1
 .end method

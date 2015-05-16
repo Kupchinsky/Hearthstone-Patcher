@@ -1,10 +1,13 @@
 .class final Lcom/unity3d/player/UnityPlayer$10;
-.super Lcom/unity3d/player/UnityPlayer$c;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/unity3d/player/UnityPlayer;->a(Landroid/view/KeyEvent;)Z
+    value = Lcom/unity3d/player/UnityPlayer;->hideVideoPlayer()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,36 +17,76 @@
 
 
 # instance fields
-.field final synthetic a:Landroid/view/KeyEvent;
-
-.field final synthetic b:Lcom/unity3d/player/UnityPlayer;
+.field final synthetic a:Lcom/unity3d/player/UnityPlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/unity3d/player/UnityPlayer;Landroid/view/KeyEvent;)V
-    .locals 1
+.method constructor <init>(Lcom/unity3d/player/UnityPlayer;)V
+    .locals 0
 
-    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$10;->b:Lcom/unity3d/player/UnityPlayer;
+    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
 
-    iput-object p2, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Landroid/view/KeyEvent;
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/unity3d/player/UnityPlayer$c;-><init>(Lcom/unity3d/player/UnityPlayer;B)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final a()V
+.method public final run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->b:Lcom/unity3d/player/UnityPlayer;
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
 
-    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Landroid/view/KeyEvent;
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->u(Lcom/unity3d/player/UnityPlayer;)Lcom/unity3d/player/r;
 
-    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Landroid/view/InputEvent;)Z
+    move-result-object v0
 
+    if-nez v0, :cond_0
+
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->v(Lcom/unity3d/player/UnityPlayer;)Lcom/unity3d/player/o;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    invoke-static {v1}, Lcom/unity3d/player/UnityPlayer;->h(Lcom/unity3d/player/UnityPlayer;)Landroid/view/SurfaceView;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/unity3d/player/o;->c(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    invoke-static {v1}, Lcom/unity3d/player/UnityPlayer;->u(Lcom/unity3d/player/UnityPlayer;)Lcom/unity3d/player/r;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/unity3d/player/UnityPlayer;->removeView(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Lcom/unity3d/player/r;)Lcom/unity3d/player/r;
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    invoke-virtual {v0}, Lcom/unity3d/player/UnityPlayer;->resume()V
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$10;->a:Lcom/unity3d/player/UnityPlayer;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->c(Lcom/unity3d/player/UnityPlayer;Z)V
+
+    goto :goto_0
 .end method

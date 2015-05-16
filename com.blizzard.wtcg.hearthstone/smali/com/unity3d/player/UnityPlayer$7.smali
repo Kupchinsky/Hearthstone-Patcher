@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/unity3d/player/UnityPlayer;->onCameraFrame(Lcom/unity3d/player/a;[B)V
+    value = Lcom/unity3d/player/UnityPlayer;->reportSoftInputStr(Ljava/lang/String;IZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,30 +14,26 @@
 
 
 # instance fields
-.field final synthetic a:I
+.field final synthetic a:Z
 
-.field final synthetic b:[B
+.field final synthetic b:Ljava/lang/String;
 
-.field final synthetic c:Landroid/hardware/Camera$Size;
+.field final synthetic c:I
 
-.field final synthetic d:Lcom/unity3d/player/a;
-
-.field final synthetic e:Lcom/unity3d/player/UnityPlayer;
+.field final synthetic d:Lcom/unity3d/player/UnityPlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/unity3d/player/UnityPlayer;I[BLandroid/hardware/Camera$Size;Lcom/unity3d/player/a;)V
+.method constructor <init>(Lcom/unity3d/player/UnityPlayer;ZLjava/lang/String;I)V
     .locals 1
 
-    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$7;->e:Lcom/unity3d/player/UnityPlayer;
+    iput-object p1, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/UnityPlayer;
 
-    iput p2, p0, Lcom/unity3d/player/UnityPlayer$7;->a:I
+    iput-boolean p2, p0, Lcom/unity3d/player/UnityPlayer$7;->a:Z
 
-    iput-object p3, p0, Lcom/unity3d/player/UnityPlayer$7;->b:[B
+    iput-object p3, p0, Lcom/unity3d/player/UnityPlayer$7;->b:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/unity3d/player/UnityPlayer$7;->c:Landroid/hardware/Camera$Size;
-
-    iput-object p5, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/a;
+    iput p4, p0, Lcom/unity3d/player/UnityPlayer$7;->c:I
 
     const/4 v0, 0x0
 
@@ -49,29 +45,41 @@
 
 # virtual methods
 .method public final a()V
-    .locals 5
+    .locals 2
 
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->e:Lcom/unity3d/player/UnityPlayer;
+    iget-boolean v0, p0, Lcom/unity3d/player/UnityPlayer$7;->a:Z
 
-    iget v1, p0, Lcom/unity3d/player/UnityPlayer$7;->a:I
+    if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lcom/unity3d/player/UnityPlayer$7;->b:[B
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/UnityPlayer;
 
-    iget-object v3, p0, Lcom/unity3d/player/UnityPlayer$7;->c:Landroid/hardware/Camera$Size;
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->s(Lcom/unity3d/player/UnityPlayer;)V
 
-    iget v3, v3, Landroid/hardware/Camera$Size;->width:I
+    :cond_0
+    :goto_0
+    iget v0, p0, Lcom/unity3d/player/UnityPlayer$7;->c:I
 
-    iget-object v4, p0, Lcom/unity3d/player/UnityPlayer$7;->c:Landroid/hardware/Camera$Size;
+    const/4 v1, 0x1
 
-    iget v4, v4, Landroid/hardware/Camera$Size;->height:I
+    if-ne v0, v1, :cond_1
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;I[BII)V
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/UnityPlayer;
 
-    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/a;
+    invoke-static {v0}, Lcom/unity3d/player/UnityPlayer;->t(Lcom/unity3d/player/UnityPlayer;)V
 
-    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$7;->b:[B
-
-    invoke-virtual {v0, v1}, Lcom/unity3d/player/a;->a([B)V
-
+    :cond_1
     return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->b:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/unity3d/player/UnityPlayer$7;->d:Lcom/unity3d/player/UnityPlayer;
+
+    iget-object v1, p0, Lcom/unity3d/player/UnityPlayer$7;->b:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/unity3d/player/UnityPlayer;->a(Lcom/unity3d/player/UnityPlayer;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
