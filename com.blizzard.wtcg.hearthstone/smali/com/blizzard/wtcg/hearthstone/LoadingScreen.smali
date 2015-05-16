@@ -1143,15 +1143,11 @@
 .end method
 
 .method public static getFilesDir()Ljava/io/File;
-    .registers 3
+    .registers 1
 
     .prologue
-    .line 17
-    new-instance v0, Ljava/io/File;
-
-    const-string v1, "/storage/sdcard0/Android/data/com.blizzard.wtcg.hearthstone/files"
-
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    .line 999
+    sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
     return-object v0
 
@@ -2685,35 +2681,36 @@
 .end method
 
 .method public getObbPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
-    .param p1, "paramString"    # Ljava/lang/String;
+    .locals 4
+    .param p1, "type"    # Ljava/lang/String;
 
     .prologue
-    .line 20
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 591
+    const-string v1, "main"
 
-    const-string v1, "/storage/sdcard0/Android/obb/com.blizzard.wtcg.hearthstone/"
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 592
+    .local v0, "main":Z
+    iget-object v1, p0, Lcom/blizzard/wtcg/hearthstone/LoadingScreen;->_this:Landroid/app/Activity;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/blizzard/wtcg/hearthstone/LoadingScreen;->_this:Landroid/app/Activity;
 
-    .line 21
-    const-string v1, ".849007.com.blizzard.wtcg.hearthstone.obb"
+    iget-object v3, p0, Lcom/blizzard/wtcg/hearthstone/LoadingScreen;->m_packageInfo:Landroid/content/pm/PackageInfo;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, v3, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    move-result-object v0
+    invoke-static {v2, v0, v3}, Lcom/google/android/vending/expansion/downloader/Helpers;->getExpansionAPKFileName(Landroid/content/Context;ZI)Ljava/lang/String;
 
-    .line 20
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-static {v1, v2}, Lcom/google/android/vending/expansion/downloader/Helpers;->generateSaveFileName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    return-object v0
+    move-result-object v1
 
+    return-object v1
 .end method
 
 .method public getStoreFromClientConfig()Ljava/lang/String;

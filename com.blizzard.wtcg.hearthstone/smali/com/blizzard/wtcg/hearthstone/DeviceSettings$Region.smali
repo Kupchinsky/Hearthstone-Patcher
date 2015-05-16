@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 19
+    .line 23
     new-instance v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
     const-string v1, "US"
@@ -57,7 +57,7 @@
 
     sput-object v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
-    .line 20
+    .line 24
     new-instance v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
     const-string v1, "EU"
@@ -66,7 +66,7 @@
 
     sput-object v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
-    .line 21
+    .line 25
     new-instance v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
     const-string v1, "KR"
@@ -75,7 +75,7 @@
 
     sput-object v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->KR:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
-    .line 22
+    .line 26
     new-instance v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
     const-string v1, "CN"
@@ -84,7 +84,7 @@
 
     sput-object v0, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->CN:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
 
-    .line 17
+    .line 21
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -114,7 +114,7 @@
     .locals 0
 
     .prologue
-    .line 17
+    .line 21
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void

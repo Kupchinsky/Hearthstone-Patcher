@@ -727,6 +727,7 @@
 
     sget-object v7, Lru/killer666/hearthstone/CachePathChecker;->setPathClick:Landroid/content/DialogInterface$OnClickListener;
 
+
     const/4 v8, 0x1
 
     .line 718

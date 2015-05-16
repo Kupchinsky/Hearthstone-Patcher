@@ -29,10 +29,10 @@
     .locals 2
 
     .prologue
-    .line 25
+    .line 31
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
 
-    .line 27
+    .line 33
     const-string v0, "AD"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -57,7 +57,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 28
+    .line 34
     const-string v0, "AM"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -82,7 +82,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 29
+    .line 35
     const-string v0, "AU"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -107,7 +107,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 30
+    .line 36
     const-string v0, "BD"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -132,7 +132,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 31
+    .line 37
     const-string v0, "BH"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -157,7 +157,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 32
+    .line 38
     const-string v0, "BN"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -182,7 +182,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 33
+    .line 39
     const-string v0, "BT"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -207,7 +207,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 34
+    .line 40
     const-string v0, "CA"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -232,7 +232,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 35
+    .line 41
     const-string v0, "CH"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -257,7 +257,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 36
+    .line 42
     const-string v0, "CN"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->CN:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -282,7 +282,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 37
+    .line 43
     const-string v0, "CV"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -307,7 +307,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 38
+    .line 44
     const-string v0, "DJ"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -332,7 +332,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 39
+    .line 45
     const-string v0, "DZ"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -357,7 +357,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 40
+    .line 46
     const-string v0, "ER"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -382,7 +382,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 41
+    .line 47
     const-string v0, "FJ"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -407,7 +407,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
+    .line 48
     const-string v0, "GA"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -432,7 +432,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 43
+    .line 49
     const-string v0, "GL"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -457,7 +457,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 44
+    .line 50
     const-string v0, "GR"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -482,7 +482,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 45
+    .line 51
     const-string v0, "GY"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -507,7 +507,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 46
+    .line 52
     const-string v0, "HT"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -532,7 +532,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 47
+    .line 53
     const-string v0, "IL"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -557,7 +557,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
+    .line 54
     const-string v0, "IR"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -582,7 +582,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 49
+    .line 55
     const-string v0, "JO"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -607,7 +607,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 50
+    .line 56
     const-string v0, "KH"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -632,7 +632,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 51
+    .line 57
     const-string v0, "KR"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->KR:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -657,7 +657,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 52
+    .line 58
     const-string v0, "LA"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -682,7 +682,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
+    .line 59
     const-string v0, "LK"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -707,7 +707,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 54
+    .line 60
     const-string v0, "LU"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -732,7 +732,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
+    .line 61
     const-string v0, "MC"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -757,7 +757,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 56
+    .line 62
     const-string v0, "MK"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -782,7 +782,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 57
+    .line 63
     const-string v0, "MO"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->KR:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -807,7 +807,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 58
+    .line 64
     const-string v0, "MV"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -832,7 +832,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
+    .line 65
     const-string v0, "MZ"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -857,7 +857,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 60
+    .line 66
     const-string v0, "NG"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -882,7 +882,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 61
+    .line 67
     const-string v0, "NP"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -907,7 +907,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 62
+    .line 68
     const-string v0, "PA"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -932,7 +932,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
+    .line 69
     const-string v0, "PH"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -957,7 +957,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
+    .line 70
     const-string v0, "PY"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -982,7 +982,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
+    .line 71
     const-string v0, "RU"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1007,7 +1007,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 66
+    .line 72
     const-string v0, "SC"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1032,7 +1032,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
+    .line 73
     const-string v0, "SH"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1057,7 +1057,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 68
+    .line 74
     const-string v0, "SN"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1082,7 +1082,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
+    .line 75
     const-string v0, "SV"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1107,7 +1107,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
+    .line 76
     const-string v0, "TG"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1132,7 +1132,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 71
+    .line 77
     const-string v0, "TM"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1157,7 +1157,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 72
+    .line 78
     const-string v0, "TT"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1182,7 +1182,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
+    .line 79
     const-string v0, "UA"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1207,7 +1207,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 74
+    .line 80
     const-string v0, "UZ"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1232,7 +1232,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 75
+    .line 81
     const-string v0, "VN"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->US:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
@@ -1257,7 +1257,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 76
+    .line 82
     const-string v0, "YU"
 
     sget-object v1, Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;->EU:Lcom/blizzard/wtcg/hearthstone/DeviceSettings$Region;
