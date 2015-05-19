@@ -58,6 +58,17 @@
 		file_put_contents($filename, $data1_first . $newcode . PHP_EOL . $data1_second);
 	}
 
+	// Disable updatechecker clinit
+	patchmethodpart_replace(
+		SMALI . 'ru' . DIRECTORY_SEPARATOR . 'killer666' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'UpdateChecker.smali',
+		'.method static constructor <clinit>()V',
+		'const/4 v0, 0x1
+
+',
+		'    sput v0, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+',
+		'    # sput v0, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I');
+
 	// MinSpec disable
 	patchmethod(
 		SMALI . 'com' . DIRECTORY_SEPARATOR . 'blizzard' . DIRECTORY_SEPARATOR . 'wtcg' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'MinSpecCheck.smali',

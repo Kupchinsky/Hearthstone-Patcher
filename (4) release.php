@@ -28,7 +28,7 @@
 
 	foreach (explode("\r\n", file_get_contents(SMALI . 'ru' . DIRECTORY_SEPARATOR . 'killer666' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'UpdateChecker.smali')) as $line)
 	{
-		if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+		if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
 			$build = (int)hexdec($matches[1]);
 			break;

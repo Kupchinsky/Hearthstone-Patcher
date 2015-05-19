@@ -31,7 +31,7 @@ public class UpdateChecker extends WaitableTask
 	private static final String	prefsFile		= "updater_settings";
 	private final int			checkInterval	= 3600;
 	private final String		versionUrl		= "http://goo.gl/u85goJ";
-	private static final int	currentBuild	= 1;
+	private static int			currentBuild	= 1;
 
 	private String convertStreamToString(InputStream is)
 	{
@@ -134,8 +134,8 @@ public class UpdateChecker extends WaitableTask
 				&& (remoteVersionCode > versionCode || (remoteVersionCode == versionCode && remoteVersionBuild > currentBuild)))
 		{
 			// Downloading
-			Log.i(TAG, "Found update! (Current: " + versionCode + ", New: " + remoteVersionCode + ", "
-					+ remoteVersionBuild + ")");
+			Log.i(TAG, "Found update! (Current: " + versionCode + ", " + currentBuild + "; New: " + remoteVersionCode
+					+ ", " + remoteVersionBuild + ")");
 
 			final CustomInfo customInfo = new CustomInfo(remoteVersionCode, remoteVersionBuild, remoteVersionName,
 					remoteData);

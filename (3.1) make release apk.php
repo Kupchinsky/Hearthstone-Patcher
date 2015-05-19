@@ -45,7 +45,7 @@
 
 	foreach (explode("\r\n", file_get_contents(UPDATER_FILE2)) as $line)
 	{
-		if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+		if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
 			$build = (int)hexdec($matches[1]);
 			break;
@@ -54,7 +54,7 @@
 
 	$old_version_data = json_decode(file_get_contents(JSON_FILE), true);
 
-	if ($old_version_data['code'] == $version_code && $build == $old_version_data['build'])
+	if ($old_version_data['code'] == $version_code && $build == $old_version_data['build'] || $build == 0)
 	{
 		echo 'Increment build number? (old: ' . $build . '): ';
 		$ask = trim(fgets(STDIN));
@@ -79,18 +79,18 @@
 
 		foreach ($updater_file as &$line)
 		{
-			if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($build), $line);
+				$line = preg_replace('/^.field private static currentBuild:I = 0x(.*)$/', '.field private static currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}
 
 		foreach ($updater_file2 as &$line)
 		{
-			if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($build), $line);
+				$line = preg_replace('/^.field private static currentBuild:I = 0x(.*)$/', '.field private static currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}

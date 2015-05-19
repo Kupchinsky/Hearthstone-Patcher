@@ -74,17 +74,6 @@
 	patchmethod(
 		SMALI . 'com' . DIRECTORY_SEPARATOR . 'blizzard' . DIRECTORY_SEPARATOR . 'wtcg' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'LoadingScreen.smali',
 		'.method public static getFilesDir()Ljava/io/File;',
-		'    .registers 1
-
-    .prologue
-    .line 999
-    sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
-
-    return-object v0');
-
-	patchmethod(
-		SMALI . 'com' . DIRECTORY_SEPARATOR . 'blizzard' . DIRECTORY_SEPARATOR . 'wtcg' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'LoadingScreen.smali',
-		'.method public static getFilesDir()Ljava/io/File;',
 		'    .registers 3
 
     .prologue

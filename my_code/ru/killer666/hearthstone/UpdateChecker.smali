@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static final currentBuild:I = 0x2
+.field private static currentBuild:I = 0x0
 
 .field private static final prefsFile:Ljava/lang/String; = "updater_settings"
 
@@ -24,6 +24,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .registers 1
+
+    .prologue
+    .line 34
+    const/4 v0, 0x1
+
+    sput v0, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .registers 2
 
@@ -286,7 +298,7 @@
 
     move/from16 v20, v0
     :try_end_4b
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_37 .. :try_end_4b} :catch_129
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_37 .. :try_end_4b} :catch_135
 
     .line 96
     new-instance v8, Lorg/apache/http/impl/client/DefaultHttpClient;
@@ -322,7 +334,7 @@
 
     move-result-object v23
 
-    const/16 v24, 0x1
+    sget v24, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
 
     invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -379,7 +391,7 @@
 
     invoke-direct {v15, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
     :try_end_9b
-    .catch Ljava/lang/Exception; {:try_start_82 .. :try_end_9b} :catch_131
+    .catch Ljava/lang/Exception; {:try_start_82 .. :try_end_9b} :catch_13d
 
     .line 109
     .end local v14    # "remoteData":Lorg/json/JSONObject;
@@ -387,7 +399,7 @@
     :try_start_9b
     invoke-virtual {v10}, Ljava/io/InputStream;->close()V
     :try_end_9e
-    .catch Ljava/lang/Exception; {:try_start_9b .. :try_end_9e} :catch_197
+    .catch Ljava/lang/Exception; {:try_start_9b .. :try_end_9e} :catch_1a3
 
     .line 117
     const/16 v17, 0x0
@@ -427,12 +439,12 @@
 
     invoke-virtual {v15, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
     :try_end_bb
-    .catch Lorg/json/JSONException; {:try_start_a4 .. :try_end_bb} :catch_139
+    .catch Lorg/json/JSONException; {:try_start_a4 .. :try_end_bb} :catch_145
 
     move-result-object v18
 
     .line 133
-    if-eqz v20, :cond_141
+    if-eqz v20, :cond_14d
 
     .line 134
     move/from16 v0, v17
@@ -445,15 +457,15 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_141
+    if-ne v0, v1, :cond_14d
 
-    const/16 v21, 0x1
+    sget v21, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
 
     move/from16 v0, v16
 
     move/from16 v1, v21
 
-    if-le v0, v1, :cond_141
+    if-le v0, v1, :cond_14d
 
     .line 137
     :cond_d2
@@ -473,7 +485,19 @@
 
     move-result-object v22
 
-    const-string v23, ", New: "
+    const-string v23, ", "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    sget v23, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    const-string v23, "; New: "
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -487,13 +511,13 @@
 
     move-result-object v22
 
+    .line 138
     const-string v23, ", "
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v22
 
-    .line 138
     move-object/from16 v0, v22
 
     move/from16 v1, v16
@@ -555,7 +579,7 @@
     .end local v17    # "remoteVersionCode":I
     .end local v18    # "remoteVersionName":Ljava/lang/String;
     .end local v19    # "response":Lorg/apache/http/HttpResponse;
-    :catch_129
+    :catch_135
     move-exception v6
 
     .line 91
@@ -572,12 +596,12 @@
     .restart local v8    # "httpclient":Lorg/apache/http/client/HttpClient;
     .restart local v9    # "httpget":Lorg/apache/http/client/methods/HttpGet;
     .restart local v14    # "remoteData":Lorg/json/JSONObject;
-    :catch_131
+    :catch_13d
     move-exception v6
 
     .line 113
     .local v6, "e":Ljava/lang/Exception;
-    :goto_132
+    :goto_13e
     invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 114
@@ -594,7 +618,7 @@
     .restart local v17    # "remoteVersionCode":I
     .restart local v18    # "remoteVersionName":Ljava/lang/String;
     .restart local v19    # "response":Lorg/apache/http/HttpResponse;
-    :catch_139
+    :catch_145
     move-exception v6
 
     .line 129
@@ -608,7 +632,7 @@
 
     .line 203
     .end local v6    # "e":Lorg/json/JSONException;
-    :cond_141
+    :cond_14d
     const-string v21, "HearthstoneWrapper"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -703,12 +727,12 @@
     .end local v16    # "remoteVersionBuild":I
     .end local v17    # "remoteVersionCode":I
     .end local v18    # "remoteVersionName":Ljava/lang/String;
-    :catch_197
+    :catch_1a3
     move-exception v6
 
     move-object v14, v15
 
     .end local v15    # "remoteData":Lorg/json/JSONObject;
     .restart local v14    # "remoteData":Lorg/json/JSONObject;
-    goto :goto_132
+    goto :goto_13e
 .end method
