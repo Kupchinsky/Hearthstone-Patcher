@@ -69,7 +69,11 @@
 
 	if (isset($mode) && ($ask == 'y' || $ask == 'yes'))
 	{
-		$new_build = ($mode == 0 ? ++$build: 1);
+		if ($mode == 0)
+			$build++;
+		else
+			$build = 1;
+
 		$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
 		$updater_file2 = explode("\r\n", file_get_contents(UPDATER_FILE2));
 
@@ -77,7 +81,7 @@
 		{
 			if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($new_build), $line);
+				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}
@@ -86,7 +90,7 @@
 		{
 			if (preg_match('/^.field private static final currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($new_build), $line);
+				$line = preg_replace('/^.field private static final currentBuild:I = 0x(.*)$/', '.field private static final currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}

@@ -1,9 +1,0 @@
-Assembly-CSharp.dll -> MobileCallbackManager.cs:
-
-public static bool IsAndroidDeviceTabletSized()
-{
-	AndroidJavaClass settingsClass = new AndroidJavaClass("ru.killer666.hearthstone.InterfaceSelector");
-	AndroidJavaObject selectedIface = settingsClass.GetStatic<AndroidJavaObject>("selectedIface");
-
-	return selectedIface.Get<bool>("isTablet");
-}
