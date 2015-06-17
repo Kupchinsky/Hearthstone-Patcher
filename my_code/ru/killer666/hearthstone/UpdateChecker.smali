@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static currentBuild:I = 0x0
+.field private static currentBuild:I = 0x1
 
 .field private static final prefsFile:Ljava/lang/String; = "updater_settings"
 

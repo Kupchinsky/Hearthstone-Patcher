@@ -53,8 +53,9 @@
 	}
 
 	$old_version_data = json_decode(file_get_contents(JSON_FILE), true);
+	//print_r(array($old_version_data, $version_code, $build));
 
-	if ($old_version_data['code'] == $version_code && $build == $old_version_data['build'] || $build == 0)
+	if ($old_version_data['code'] == $version_code && $build == $old_version_data['build'])
 	{
 		echo 'Increment build number? (old: ' . $build . '): ';
 		$ask = trim(fgets(STDIN));
@@ -109,7 +110,7 @@
 
 	foreach ($manifest_file as &$line)
 	{
-		if (startsWith(trim($line), '<manifest xmlns:android="http://schemas.android.com/apk/res/android"'))
+		if (startsWith(trim($line), '<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android"'))
 		{
 			$line = preg_replace('/^<manifest (.*) package="(.*)" platformBuildVersionCode="(.*)" platformBuildVersionName="(.*)">/', '<manifest ${1} package="com.blizzard.wtcg.hearthstone" platformBuildVersionCode="${3}" platformBuildVersionName="${4}">', $line);
 			break;
