@@ -1,6 +1,7 @@
 package ru.killer666.hearthstone;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,11 +18,16 @@ import com.unity3d.player.UnityPlayer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Environment;
 import android.util.Log;
 
 import static ru.killer666.hearthstone.Wrapper.TAG;
@@ -30,7 +36,7 @@ public class UpdateChecker extends WaitableTask
 {
 	private static final String	prefsFile		= "updater_settings";
 	private final int			checkInterval	= 3600;
-	private final String		versionUrl		= "http://goo.gl/u85goJ";
+	private final String		versionUrl		= "http://hearthstone-update-server.killer666.ru/version.json";
 	private static int			currentBuild	= 1;
 
 	private String convertStreamToString(InputStream is)
@@ -166,18 +172,56 @@ public class UpdateChecker extends WaitableTask
 								return;
 							}
 
-							activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+							Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).mkdirs();
 
-							AlertDialog.Builder dlgAlert = new AlertDialog.Builder(activity);
-							dlgAlert.setMessage("...");
-							dlgAlert.setTitle("Hearthstone");
-							dlgAlert.setPositiveButton("Выход", new DialogInterface.OnClickListener()
+							DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+
+							request.setAllowedNetworkTypes(
+									DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+									.setAllowedOverRoaming(false)
+									.setDescription(
+											"Обновление до версии " + customInfo.getRemoteVersionName() + ", "
+													+ customInfo.getRemoteVersionCode() + ", сборка "
+													+ customInfo.getRemoteVersionBuild());
+							request.setTitle("Hearthstone Mod Updater");
+							request.allowScanningByMediaScanner();
+							request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+							final String targetFilename = "Hearthstone-" + customInfo.getRemoteVersionName() + "-"
+									+ customInfo.getRemoteVersionCode() + "-build-"
+									+ customInfo.getRemoteVersionBuild() + ".apk";
+							request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, targetFilename);
+
+							DownloadManager manager = (DownloadManager) activity
+									.getSystemService(Context.DOWNLOAD_SERVICE);
+							manager.enqueue(request);
+
+							BroadcastReceiver receiver = new BroadcastReceiver()
 							{
-								public void onClick(DialogInterface dialog, int which)
+								public void onReceive(Context ctxt, Intent intent)
 								{
+									File file = new File(Environment
+											.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+											targetFilename);
+									file.setReadable(true, false);
+
+									Intent newIntent = new Intent(Intent.ACTION_VIEW);
+									newIntent.setDataAndType(Uri.fromFile(file),
+											"application/vnd.android.package-archive");
+									activity.startActivity(newIntent);
+
 									System.exit(0);
 								}
-							});
+							};
+
+							activity.registerReceiver(receiver, new IntentFilter(
+									DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+							activity.registerReceiver(receiver, new IntentFilter(
+									DownloadManager.ACTION_NOTIFICATION_CLICKED));
+
+							AlertDialog.Builder dlgAlert = new AlertDialog.Builder(activity);
+							dlgAlert.setMessage("Ожидайте загрузки нового APK...");
+							dlgAlert.setTitle("Hearthstone");
 
 							dlgAlert.setCancelable(false);
 							dlgAlert.create().show();
