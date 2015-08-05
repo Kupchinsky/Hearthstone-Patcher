@@ -33,7 +33,7 @@
 
     iput-object p2, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->val$input:Landroid/widget/EditText;
 
-    .line 101
+    .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,7 +47,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 105
+    .line 131
     iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     # getter for: Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
@@ -73,7 +73,7 @@
     # invokes: Lru/killer666/hearthstone/CachePathChecker;->setCachePath(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lru/killer666/hearthstone/CachePathChecker;->access$0(Lru/killer666/hearthstone/CachePathChecker;Ljava/lang/String;)V
 
-    .line 106
+    .line 132
     iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     # getter for: Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
@@ -88,6 +88,6 @@
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/CachePathChecker;->endTask()V
 
-    .line 107
+    .line 133
     return-void
 .end method

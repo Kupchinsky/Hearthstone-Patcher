@@ -22,7 +22,7 @@
     .registers 1
 
     .prologue
-    .line 18
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1
@@ -37,7 +37,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 24
+    .line 25
     const-string v1, "cache_settings"
 
     invoke-static {v1}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
@@ -48,31 +48,31 @@
 
     move-result-object v0
 
-    .line 26
+    .line 27
     .local v0, "edit":Landroid/content/SharedPreferences$Editor;
     const-string v1, "cache_path"
 
     invoke-interface {v0, v1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 27
+    .line 28
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 29
+    .line 30
     const/4 v1, 0x1
 
     sput-boolean v1, Lru/killer666/hearthstone/CachePathChecker;->restartRequired:Z
 
-    .line 31
+    .line 32
     sget-object v1, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
     if-eqz v1, :cond_1e
 
-    .line 32
+    .line 33
     sget-object v1, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
     invoke-virtual {v1}, Lru/killer666/hearthstone/CachePathChecker;->doTask()Z
 
-    .line 33
+    .line 34
     :cond_1e
     return-void
 .end method

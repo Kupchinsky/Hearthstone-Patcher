@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$3;->this$0:Lru/killer666/hearthstone/CachePathChecker;
 
-    .line 138
+    .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,11 +43,11 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 142
+    .line 168
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
-    .line 143
+    .line 169
     return-void
 .end method
