@@ -14,6 +14,7 @@ import org.apache.http.params.CoreProtocolPNames;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
 import com.unity3d.player.UnityPlayer;
 
 import android.app.Activity;
@@ -37,7 +38,7 @@ public class UpdateChecker extends WaitableTask
 	private static final String	prefsFile		= "updater_settings";
 	private final int			checkInterval	= 3600;
 	private final String		versionUrl		= "http://hearthstone-update-server.killer666.ru/version.json";
-	private static int			currentBuild	= 1;
+	static int					currentBuild	= 1;
 
 	private String convertStreamToString(InputStream is)
 	{
@@ -250,6 +251,27 @@ public class UpdateChecker extends WaitableTask
 			SharedPreferences.Editor edit = preferences.edit();
 			edit.putLong("lastcheck", System.currentTimeMillis() / 1000);
 			edit.commit();
+
+			if (!preferences.getBoolean("infoshown", false))
+			{
+				HearthstoneAlert
+						.showAlert(
+								"",
+								"Внимание! Для своевременного получения обновлений модификации игры обращайтесь в личку на 4pda.ru/forum к автору модификации killer666_.",
+								"ОК", new DialogInterface.OnClickListener()
+								{
+									public void onClick(DialogInterface dialog, int item)
+									{
+										dialog.dismiss();
+										endTask();
+									}
+								}, "", null, false);
+
+				edit.putBoolean("infoshown", true);
+				edit.commit();
+
+				return true;
+			}
 		}
 
 		return false;

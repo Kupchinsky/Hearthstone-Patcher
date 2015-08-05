@@ -50,13 +50,22 @@
     .line 59
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
+    new-instance v1, Lru/killer666/hearthstone/VersionChangesHistory;
+
+    invoke-direct {v1}, Lru/killer666/hearthstone/VersionChangesHistory;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 60
+    sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
+
     new-instance v1, Lru/killer666/hearthstone/InterfaceSelector;
 
     invoke-direct {v1}, Lru/killer666/hearthstone/InterfaceSelector;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 60
+    .line 61
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/CachePathChecker;
@@ -65,7 +74,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 61
+    .line 62
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/UpdateChecker;
@@ -74,10 +83,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 63
+    .line 64
     invoke-static {}, Lru/killer666/hearthstone/Wrapper;->runTasks()V
 
-    .line 64
+    .line 65
     return-void
 .end method
 

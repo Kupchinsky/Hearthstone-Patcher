@@ -29,7 +29,7 @@
     .line 1
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1$2;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
-    .line 230
+    .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +43,7 @@
     .param p2, "which"    # I
 
     .prologue
-    .line 234
+    .line 235
     iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$1$2;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
     # getter for: Lru/killer666/hearthstone/UpdateChecker$1;->this$0:Lru/killer666/hearthstone/UpdateChecker;
@@ -53,6 +53,6 @@
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/UpdateChecker;->endTask()V
 
-    .line 235
+    .line 236
     return-void
 .end method

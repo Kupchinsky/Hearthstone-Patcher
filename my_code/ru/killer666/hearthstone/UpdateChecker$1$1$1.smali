@@ -34,7 +34,7 @@
 
     iput-object p3, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$activity:Landroid/app/Activity;
 
-    .line 199
+    .line 200
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -50,55 +50,55 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 203
+    .line 204
     new-instance v0, Ljava/io/File;
 
-    .line 204
+    .line 205
     sget-object v2, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v2
 
-    .line 205
+    .line 206
     iget-object v3, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$targetFilename:Ljava/lang/String;
 
-    .line 203
+    .line 204
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 206
+    .line 207
     .local v0, "file":Ljava/io/File;
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2, v4}, Ljava/io/File;->setReadable(ZZ)Z
 
-    .line 208
+    .line 209
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.VIEW"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 209
+    .line 210
     .local v1, "newIntent":Landroid/content/Intent;
     invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
     move-result-object v2
 
-    .line 210
+    .line 211
     const-string v3, "application/vnd.android.package-archive"
 
-    .line 209
+    .line 210
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 211
+    .line 212
     iget-object v2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v2, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 213
+    .line 214
     invoke-static {v4}, Ljava/lang/System;->exit(I)V
 
-    .line 214
+    .line 215
     return-void
 .end method

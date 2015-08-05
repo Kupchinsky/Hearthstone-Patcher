@@ -33,7 +33,7 @@
 
     iput-object p2, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->val$input:Landroid/widget/EditText;
 
-    .line 127
+    .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,7 +47,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 131
+    .line 118
     iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     # getter for: Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
@@ -73,21 +73,6 @@
     # invokes: Lru/killer666/hearthstone/CachePathChecker;->setCachePath(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lru/killer666/hearthstone/CachePathChecker;->access$0(Lru/killer666/hearthstone/CachePathChecker;Ljava/lang/String;)V
 
-    .line 132
-    iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
-
-    # getter for: Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
-    invoke-static {v0}, Lru/killer666/hearthstone/CachePathChecker$2$1;->access$0(Lru/killer666/hearthstone/CachePathChecker$2$1;)Lru/killer666/hearthstone/CachePathChecker$2;
-
-    move-result-object v0
-
-    # getter for: Lru/killer666/hearthstone/CachePathChecker$2;->this$0:Lru/killer666/hearthstone/CachePathChecker;
-    invoke-static {v0}, Lru/killer666/hearthstone/CachePathChecker$2;->access$0(Lru/killer666/hearthstone/CachePathChecker$2;)Lru/killer666/hearthstone/CachePathChecker;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lru/killer666/hearthstone/CachePathChecker;->endTask()V
-
-    .line 133
+    .line 119
     return-void
 .end method

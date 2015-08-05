@@ -45,7 +45,7 @@
 
 	foreach (explode("\r\n", file_get_contents(UPDATER_FILE2)) as $line)
 	{
-		if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+		if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
 			$build = (int)hexdec($matches[1]);
 			break;
@@ -55,17 +55,17 @@
 	$old_version_data = json_decode(file_get_contents(JSON_FILE), true);
 	//print_r(array($old_version_data, $version_code, $build));
 
-	if ($old_version_data['code'] == $version_code && $build == $old_version_data['build'])
-	{
-		echo 'Increment build number? (old: ' . $build . '): ';
-		$ask = trim(fgets(STDIN));
-		$mode = 0;
-	}
-	elseif ($version_code > $old_version_data['code'])
+	if ($version_code > $old_version_data['code'])
 	{
 		echo 'Version changed (was ' . $old_version_data['code'] . ', new ' . $version_code . ')! Reset build to 1? ';
 		$ask = trim(fgets(STDIN));
 		$mode = 1;
+	}
+	else
+	{
+		echo 'Increment build number? (old: ' . $build . '): ';
+		$ask = trim(fgets(STDIN));
+		$mode = 0;
 	}
 
 	if (isset($mode) && ($ask == 'y' || $ask == 'yes'))
@@ -80,18 +80,18 @@
 
 		foreach ($updater_file as &$line)
 		{
-			if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static currentBuild:I = 0x(.*)$/', '.field private static currentBuild:I = 0x' . dechex($build), $line);
+				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}
 
 		foreach ($updater_file2 as &$line)
 		{
-			if (preg_match('/^.field private static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field private static currentBuild:I = 0x(.*)$/', '.field private static currentBuild:I = 0x' . dechex($build), $line);
+				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}

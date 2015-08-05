@@ -56,6 +56,7 @@ public class Wrapper
 
 	public static void LoadingScreen_DownloadObbFromGoogle_run()
 	{
+		tasks.add(new VersionChangesHistory());
 		tasks.add(new InterfaceSelector());
 		tasks.add(new CachePathChecker());
 		tasks.add(new UpdateChecker());

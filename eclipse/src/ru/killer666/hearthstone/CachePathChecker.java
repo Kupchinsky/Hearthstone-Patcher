@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.text.InputType;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
@@ -12,6 +13,8 @@ import com.unity3d.player.UnityPlayer;
 
 import java.io.File;
 import java.util.LinkedList;
+
+import static ru.killer666.hearthstone.Wrapper.TAG;
 
 public class CachePathChecker extends WaitableTask
 {
@@ -59,15 +62,10 @@ public class CachePathChecker extends WaitableTask
 			{
 				LinkedList<CharSequence> items = new LinkedList<CharSequence>();
 
-				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT)
-					items.add("SD-карта (KitKat/Lollipop) (/storage/emulated/...)");
-				else
-				{
-					items.add("SD-карта 0 (/storage/sdcard0/...)");
-					items.add("SD-карта 1 (/storage/sdcard1/...)");
-					items.add("Внешнее устройство (/mnt/usbotg/...)");
-				}
-
+				items.add("SD-карта (KitKat/Lollipop) (" + Environment.getExternalStorageDirectory() + "...)");
+				items.add("SD-карта 0 (/storage/sdcard0/...)");
+				items.add("SD-карта 1 (/storage/sdcard1/...)");
+				items.add("Внешнее устройство (/mnt/usbotg/...)");
 				items.add("Другой путь (указать вручную)");
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
@@ -81,33 +79,22 @@ public class CachePathChecker extends WaitableTask
 							{
 								String targetPath = null;
 
-								if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT)
+								switch (item)
 								{
-									switch (item)
-									{
-										case 0:
-											targetPath = Environment.getExternalStorageDirectory().toString();
-											break;
-										case 1:
-											break;
-									}
-								}
-								else
-								{
-									switch (item)
-									{
-										case 0:
-											targetPath = "/storage/sdcard0";
-											break;
-										case 1:
-											targetPath = "/storage/sdcard1";
-											break;
-										case 2:
-											targetPath = "/mnt/usbotg";
-											break;
-										case 3:
-											break;
-									}
+									case 0:
+										targetPath = "" + Environment.getExternalStorageDirectory();
+										break;
+									case 1:
+										targetPath = "/storage/sdcard0";
+										break;
+									case 2:
+										targetPath = "/storage/sdcard1";
+										break;
+									case 3:
+										targetPath = "/mnt/usbotg";
+										break;
+									default:
+										break;
 								}
 
 								dialog.dismiss();
@@ -129,17 +116,12 @@ public class CachePathChecker extends WaitableTask
 										public void onClick(DialogInterface dialog, int item)
 										{
 											setCachePath(input.getText().toString());
-											endTask();
 										}
 									});
 
 									builder.create().show();
 								}
-								else
-								{
-									setCachePath(targetPath + "/Android/data/com.blizzard.wtcg.hearthstone/files");
-									endTask();
-								}
+								else setCachePath(targetPath + "/Android/data/com.blizzard.wtcg.hearthstone/files");
 							}
 						});
 
@@ -152,20 +134,52 @@ public class CachePathChecker extends WaitableTask
 
 	private void setCachePath(String path)
 	{
-		cachePath = new File(path);
+		Log.i(TAG, "Attempt to set cache path to " + path);
 
-		SharedPreferences.Editor edit = Wrapper.getPreferences(prefsFile).edit();
-
-		edit.putString("cache_path", path);
-		edit.commit();
-
-		if (restartRequired)
+		try
 		{
-			HearthstoneAlert.showAlert("", "Требуется перезапуск", "Да", new DialogInterface.OnClickListener()
+			cachePath = new File(path);
+			cachePath.mkdirs();
+
+			File file = new File(cachePath, "emptyfile_" + System.currentTimeMillis());
+
+			file.createNewFile();
+			file.delete();
+
+			endTask();
+
+			SharedPreferences.Editor edit = Wrapper.getPreferences(prefsFile).edit();
+
+			edit.putString("cache_path", path);
+			edit.commit();
+
+			Log.i(TAG, "Cache path successfully set to " + path);
+
+			if (restartRequired)
+			{
+				HearthstoneAlert.showAlert("", "Требуется перезапуск", "ОК", new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int item)
+					{
+						System.exit(0);
+					}
+				}, "", null, false);
+			}
+		}
+		catch (Exception e)
+		{
+			Log.i(TAG,
+					"Failed to set cache path to " + path + ": " + e.getClass().getCanonicalName() + " ("
+							+ e.getMessage() + ")");
+
+			HearthstoneAlert.showAlert("", "Вы выбрали путь: " + path
+					+ "\nПри попытке создать там файл мы получили ошибку: " + e.getClass().getCanonicalName() + " ("
+					+ e.getMessage() + ")\n\nУкажите другой путь!", "ОК", new DialogInterface.OnClickListener()
 			{
 				public void onClick(DialogInterface dialog, int item)
 				{
-					System.exit(0);
+					dialog.dismiss();
+					instance.doTask();
 				}
 			}, "", null, false);
 		}
