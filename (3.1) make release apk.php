@@ -7,7 +7,6 @@
 	define('DIST_LIB', DIST . 'lib' . DIRECTORY_SEPARATOR);
 	define('JSON_FILE', ROOT . 'version.json');
 	define('UPDATER_FILE', SMALI . 'ru' . DIRECTORY_SEPARATOR . 'killer666' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'UpdateChecker.smali');
-	define('UPDATER_FILE2', ROOT . 'my_code' . DIRECTORY_SEPARATOR . 'ru' . DIRECTORY_SEPARATOR . 'killer666' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'UpdateChecker.smali');
 	define('MANIFEST_FILE', APK . 'AndroidManifest.xml');
 
 	function my_exec($cmd, $input = '')
@@ -43,7 +42,7 @@
 		}
 	}
 
-	foreach (explode("\r\n", file_get_contents(UPDATER_FILE2)) as $line)
+	foreach (explode("\r\n", file_get_contents(UPDATER_FILE)) as $line)
 	{
 		if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
@@ -53,7 +52,6 @@
 	}
 
 	$old_version_data = json_decode(file_get_contents(JSON_FILE), true);
-	//print_r(array($old_version_data, $version_code, $build));
 
 	if ($version_code > $old_version_data['code'])
 	{
@@ -63,41 +61,32 @@
 	}
 	else
 	{
-		echo 'Increment build number? (old: ' . $build . '): ';
+		echo 'Old build number: ' . $build . '. Set new build to: ';
 		$ask = trim(fgets(STDIN));
 		$mode = 0;
 	}
 
-	if (isset($mode) && ($ask == 'y' || $ask == 'yes'))
+	if (isset($mode))
 	{
 		if ($mode == 0)
-			$build++;
-		else
+			$build = intval(trim($ask));
+		else if ($ask == 'y' || $ask == 'yes')
+		{
 			$build = 1;
 
-		$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
-		$updater_file2 = explode("\r\n", file_get_contents(UPDATER_FILE2));
+			$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
 
-		foreach ($updater_file as &$line)
-		{
-			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			foreach ($updater_file as &$line)
 			{
-				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
-				break;
+				if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+				{
+					$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
+					break;
+				}
 			}
-		}
 
-		foreach ($updater_file2 as &$line)
-		{
-			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
-			{
-				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
-				break;
-			}
+			file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
 		}
-
-		file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
-		file_put_contents(UPDATER_FILE2, implode("\r\n", $updater_file2));
 	}
 
 	$manifest_file = explode("\r\n", file_get_contents(MANIFEST_FILE));
