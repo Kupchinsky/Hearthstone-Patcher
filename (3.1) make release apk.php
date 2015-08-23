@@ -71,22 +71,20 @@
 		if ($mode == 0)
 			$build = intval(trim($ask));
 		else if ($ask == 'y' || $ask == 'yes')
-		{
 			$build = 1;
 
-			$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
+		$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
 
-			foreach ($updater_file as &$line)
+		foreach ($updater_file as &$line)
+		{
+			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
-				{
-					$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
-					break;
-				}
+				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
+				break;
 			}
-
-			file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
 		}
+
+		file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
 	}
 
 	$manifest_file = explode("\r\n", file_get_contents(MANIFEST_FILE));

@@ -62,7 +62,7 @@
     .registers 2
 
     .prologue
-    .line 135
+    .line 121
     invoke-direct {p0, p1}, Lru/killer666/hearthstone/CachePathChecker;->setCachePath(Ljava/lang/String;)V
 
     return-void
@@ -77,7 +77,7 @@
 
     const/4 v10, 0x0
 
-    .line 137
+    .line 123
     const-string v0, "HearthstoneWrapper"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -96,7 +96,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 127
     :try_start_16
     new-instance v0, Ljava/io/File;
 
@@ -104,12 +104,12 @@
 
     sput-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
-    .line 142
+    .line 128
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 144
+    .line 130
     new-instance v9, Ljava/io/File;
 
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
@@ -134,17 +134,17 @@
 
     invoke-direct {v9, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 146
+    .line 132
     .local v9, "file":Ljava/io/File;
     invoke-virtual {v9}, Ljava/io/File;->createNewFile()Z
 
-    .line 147
+    .line 133
     invoke-virtual {v9}, Ljava/io/File;->delete()Z
 
-    .line 149
+    .line 135
     invoke-virtual {p0}, Lru/killer666/hearthstone/CachePathChecker;->endTask()V
 
-    .line 151
+    .line 137
     const-string v0, "cache_settings"
 
     invoke-static {v0}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
@@ -155,16 +155,16 @@
 
     move-result-object v8
 
-    .line 153
+    .line 139
     .local v8, "edit":Landroid/content/SharedPreferences$Editor;
     const-string v0, "cache_path"
 
     invoke-interface {v8, v0, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 154
+    .line 140
     invoke-interface {v8}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 156
+    .line 142
     const-string v0, "HearthstoneWrapper"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -183,12 +183,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 158
+    .line 144
     sget-boolean v0, Lru/killer666/hearthstone/CachePathChecker;->restartRequired:Z
 
     if-eqz v0, :cond_81
 
-    .line 160
+    .line 146
     const-string v0, ""
 
     const-string v1, "\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u043a"
@@ -199,34 +199,34 @@
 
     invoke-direct {v3, p0}, Lru/killer666/hearthstone/CachePathChecker$3;-><init>(Lru/killer666/hearthstone/CachePathChecker;)V
 
-    .line 166
+    .line 152
     const-string v4, ""
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    .line 160
+    .line 146
     invoke-static/range {v0 .. v6}, Lcom/blizzard/wtcg/hearthstone/HearthstoneAlert;->showAlert(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Z)V
     :try_end_81
     .catch Ljava/lang/Exception; {:try_start_16 .. :try_end_81} :catch_82
 
-    .line 186
+    .line 172
     .end local v8    # "edit":Landroid/content/SharedPreferences$Editor;
     .end local v9    # "file":Ljava/io/File;
     :cond_81
     :goto_81
     return-void
 
-    .line 169
+    .line 155
     :catch_82
     move-exception v7
 
-    .line 171
+    .line 157
     .local v7, "e":Ljava/lang/Exception;
     const-string v0, "HearthstoneWrapper"
 
-    .line 172
+    .line 158
     new-instance v1, Ljava/lang/StringBuilder;
 
     const-string v2, "Failed to set cache path to "
@@ -261,7 +261,7 @@
 
     move-result-object v1
 
-    .line 173
+    .line 159
     invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -276,15 +276,15 @@
 
     move-result-object v1
 
-    .line 172
+    .line 158
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 171
+    .line 157
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 175
+    .line 161
     const-string v0, ""
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -297,7 +297,7 @@
 
     move-result-object v1
 
-    .line 176
+    .line 162
     const-string v2, "\n\u041f\u0440\u0438 \u043f\u043e\u043f\u044b\u0442\u043a\u0435 \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0442\u0430\u043c \u0444\u0430\u0439\u043b \u043c\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u0438 \u043e\u0448\u0438\u0431\u043a\u0443: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -322,7 +322,7 @@
 
     move-result-object v1
 
-    .line 177
+    .line 163
     invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -347,14 +347,14 @@
 
     invoke-direct {v3, p0}, Lru/killer666/hearthstone/CachePathChecker$4;-><init>(Lru/killer666/hearthstone/CachePathChecker;)V
 
-    .line 184
+    .line 170
     const-string v4, ""
 
     move-object v5, v11
 
     move v6, v10
 
-    .line 175
+    .line 161
     invoke-static/range {v0 .. v6}, Lcom/blizzard/wtcg/hearthstone/HearthstoneAlert;->showAlert(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Z)V
 
     goto/16 :goto_81
@@ -395,7 +395,7 @@
     .line 56
     const/4 v1, 0x0
 
-    .line 132
+    .line 118
     :goto_17
     return v1
 
@@ -409,7 +409,7 @@
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 132
+    .line 118
     const/4 v1, 0x1
 
     goto :goto_17

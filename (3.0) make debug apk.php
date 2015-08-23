@@ -51,10 +51,10 @@
 	foreach ($manifest_file as &$line)
 	{
 		if (startsWith(trim($line), '<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android"'))
-		{
+			$line = preg_replace('/^<manifest (.*) package="(.*)" platformBuildVersionCode="(.*)" platformBuildVersionName="(.*)">/', '<manifest ${1} package="com.blizzard.wtcg.hearthstonex" platformBuildVersionCode="${3}" platformBuildVersionName="${4}">', $line);
+		else if (startsWith(trim($line), '<activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|touchscreen|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.blizzard.wtcg.hearthstone.HearthstoneNativeActivity"'))
 			$line = preg_replace('/^<manifest (.*) package="(.*)" platformBuildVersionCode="(.*)" platformBuildVersionName="(.*)">/', '<manifest ${1} package="com.blizzard.wtcg.hearthstonex" platformBuildVersionCode="${3}" platformBuildVersionName="${4}">', $line);
 			break;
-		}
 	}
 
 	file_put_contents(MANIFEST_FILE, implode("\r\n", $manifest_file));

@@ -12,7 +12,7 @@ import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
 import com.unity3d.player.UnityPlayer;
 
 import java.io.File;
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 
 import static ru.killer666.hearthstone.Wrapper.TAG;
 
@@ -60,70 +60,56 @@ public class CachePathChecker extends WaitableTask
 		{
 			public void run()
 			{
-				LinkedList<CharSequence> items = new LinkedList<CharSequence>();
+				final LinkedHashMap<CharSequence, String> items = new LinkedHashMap<CharSequence, String>();
 
-				items.add("SD-карта (KitKat/Lollipop) (" + Environment.getExternalStorageDirectory() + "...)");
-				items.add("SD-карта 0 (/storage/sdcard0/...)");
-				items.add("SD-карта 1 (/storage/sdcard1/...)");
-				items.add("Внешнее устройство (/mnt/usbotg/...)");
-				items.add("Другой путь (указать вручную)");
+				items.put("SD-карта по умолчанию для KitKat/Lollipop+ (" + Environment.getExternalStorageDirectory()
+						+ "...)", "" + Environment.getExternalStorageDirectory());
 
+				if (System.getenv("SECONDARY_STORAGE") != null)
+					items.put("SD-карта (Secondary)", System.getenv("SECONDARY_STORAGE"));
+
+				items.put("SD-карта 0 (/storage/sdcard0/...)", "/storage/sdcard0");
+				items.put("SD-карта 1 (/storage/sdcard1/...)", "/storage/sdcard1");
+				items.put("Другой путь (указать вручную)", null);
+
+				final CharSequence[] items_keys = items.keySet().toArray(new CharSequence[items.size()]);
 				AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
 
 				builder.setTitle("Укажите путь для хранения ящиков:");
 				builder.setCancelable(false);
-				builder.setSingleChoiceItems(items.toArray(new CharSequence[items.size()]), -1,
-						new DialogInterface.OnClickListener()
+				builder.setSingleChoiceItems(items_keys, -1, new DialogInterface.OnClickListener()
+				{
+					public void onClick(DialogInterface dialog, int item)
+					{
+						String targetPath = items.get(items_keys[item]);
+
+						dialog.dismiss();
+
+						if (targetPath == null)
 						{
-							public void onClick(DialogInterface dialog, int item)
+							AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
+							builder.setTitle("Укажите путь для хранения ящиков:");
+							builder.setCancelable(false);
+
+							final EditText input = new EditText(UnityPlayer.currentActivity);
+							input.setInputType(InputType.TYPE_CLASS_TEXT);
+							input.setText(preferencesPath == null ? Environment.getExternalStorageDirectory()
+									+ "/Android/data/com.blizzard.wtcg.hearthstone/files" : preferencesPath);
+
+							builder.setView(input);
+							builder.setPositiveButton("Принять", new DialogInterface.OnClickListener()
 							{
-								String targetPath = null;
-
-								switch (item)
+								public void onClick(DialogInterface dialog, int item)
 								{
-									case 0:
-										targetPath = "" + Environment.getExternalStorageDirectory();
-										break;
-									case 1:
-										targetPath = "/storage/sdcard0";
-										break;
-									case 2:
-										targetPath = "/storage/sdcard1";
-										break;
-									case 3:
-										targetPath = "/mnt/usbotg";
-										break;
-									default:
-										break;
+									setCachePath(input.getText().toString());
 								}
+							});
 
-								dialog.dismiss();
-
-								if (targetPath == null)
-								{
-									AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
-									builder.setTitle("Укажите путь для хранения ящиков:");
-									builder.setCancelable(false);
-
-									final EditText input = new EditText(UnityPlayer.currentActivity);
-									input.setInputType(InputType.TYPE_CLASS_TEXT);
-									input.setText(preferencesPath == null ? Environment.getExternalStorageDirectory()
-											+ "/Android/data/com.blizzard.wtcg.hearthstone/files" : preferencesPath);
-
-									builder.setView(input);
-									builder.setPositiveButton("Принять", new DialogInterface.OnClickListener()
-									{
-										public void onClick(DialogInterface dialog, int item)
-										{
-											setCachePath(input.getText().toString());
-										}
-									});
-
-									builder.create().show();
-								}
-								else setCachePath(targetPath + "/Android/data/com.blizzard.wtcg.hearthstone/files");
-							}
-						});
+							builder.create().show();
+						}
+						else setCachePath(targetPath + "/Android/data/com.blizzard.wtcg.hearthstone/files");
+					}
+				});
 
 				builder.create().show();
 			}
