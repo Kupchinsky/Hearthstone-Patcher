@@ -49,7 +49,7 @@
     iput v0, p0, Lru/killer666/hearthstone/UpdateChecker;->checkInterval:I
 
     .line 40
-    const-string v0, "http://hearthstone-update-server.killer666.ru:8090/version.json"
+    const-string v0, "http://hearthstone-update-server.killer666.ru/version.json"
 
     iput-object v0, p0, Lru/killer666/hearthstone/UpdateChecker;->versionUrl:Ljava/lang/String;
 
@@ -344,7 +344,7 @@
     .line 107
     new-instance v16, Lorg/apache/http/client/methods/HttpGet;
 
-    const-string v4, "http://hearthstone-update-server.killer666.ru:8090/version.json"
+    const-string v4, "http://hearthstone-update-server.killer666.ru/version.json"
 
     move-object/from16 v0, v16
 

@@ -47,15 +47,6 @@
     .registers 2
 
     .prologue
-    .line 59
-    sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
-
-    new-instance v1, Lru/killer666/hearthstone/VersionChangesHistory;
-
-    invoke-direct {v1}, Lru/killer666/hearthstone/VersionChangesHistory;-><init>()V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     .line 60
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 

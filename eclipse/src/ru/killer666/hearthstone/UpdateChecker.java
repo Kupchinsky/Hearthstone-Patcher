@@ -37,8 +37,8 @@ public class UpdateChecker extends WaitableTask
 {
 	private static final String	prefsFile		= "updater_settings";
 	private final int			checkInterval	= 3600;
-	private final String		versionUrl		= "http://hearthstone-update-server.killer666.ru:8090/version.json";
-	static int					currentBuild	= 1;
+	private final String		versionUrl		= "http://hearthstone-update-server.killer666.ru/version.json";
+	static int					currentBuild	= 1; // Здесь содержать число 1, иначе патчинг кода Smali будет неверным
 
 	private String convertStreamToString(InputStream is)
 	{
