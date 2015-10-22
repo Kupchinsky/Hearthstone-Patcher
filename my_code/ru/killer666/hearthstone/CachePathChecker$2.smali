@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lru/killer666/hearthstone/CachePathChecker;
 
-.field private final synthetic val$preferencesPath:Ljava/lang/String;
+.field final synthetic val$preferencesPath:Ljava/lang/String;
 
 
 # direct methods
@@ -28,25 +28,14 @@
     .registers 3
 
     .prologue
-    .line 1
+    .line 60
     iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$2;->this$0:Lru/killer666/hearthstone/CachePathChecker;
 
     iput-object p2, p0, Lru/killer666/hearthstone/CachePathChecker$2;->val$preferencesPath:Ljava/lang/String;
 
-    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$0(Lru/killer666/hearthstone/CachePathChecker$2;)Lru/killer666/hearthstone/CachePathChecker;
-    .registers 2
-
-    .prologue
-    .line 59
-    iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2;->this$0:Lru/killer666/hearthstone/CachePathChecker;
-
-    return-object v0
 .end method
 
 
@@ -64,9 +53,13 @@
     .local v1, "items":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<Ljava/lang/CharSequence;Ljava/lang/String;>;"
     new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v4, "SD-\u043a\u0430\u0440\u0442\u0430 \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e \u0434\u043b\u044f KitKat/Lollipop+ ("
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v4, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd KitKat/Lollipop+ ("
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
@@ -76,7 +69,6 @@
 
     move-result-object v3
 
-    .line 66
     const-string v4, "...)"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -91,6 +83,12 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v5, ""
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v5
@@ -103,7 +101,6 @@
 
     move-result-object v4
 
-    .line 65
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
@@ -113,10 +110,10 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_45
+    if-eqz v3, :cond_4f
 
     .line 69
-    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 (Secondary)"
+    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd (Secondary)"
 
     const-string v4, "SECONDARY_STORAGE"
 
@@ -127,22 +124,22 @@
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 71
-    :cond_45
-    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 0 (/storage/sdcard0/...)"
+    :cond_4f
+    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd 0 (/storage/sdcard0/...)"
 
     const-string v4, "/storage/sdcard0"
 
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 72
-    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 1 (/storage/sdcard1/...)"
+    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd 1 (/storage/sdcard1/...)"
 
     const-string v4, "/storage/sdcard1"
 
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
-    const-string v3, "\u0414\u0440\u0443\u0433\u043e\u0439 \u043f\u0443\u0442\u044c (\u0443\u043a\u0430\u0437\u0430\u0442\u044c \u0432\u0440\u0443\u0447\u043d\u0443\u044e)"
+    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd (\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd)"
 
     const/4 v4, 0x0
 
@@ -175,7 +172,7 @@
 
     .line 78
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v3, "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u0434\u043b\u044f \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u044f\u0449\u0438\u043a\u043e\u0432:"
+    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd:"
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -189,9 +186,7 @@
 
     new-instance v4, Lru/killer666/hearthstone/CachePathChecker$2$1;
 
-    iget-object v5, p0, Lru/killer666/hearthstone/CachePathChecker$2;->val$preferencesPath:Ljava/lang/String;
-
-    invoke-direct {v4, p0, v1, v2, v5}, Lru/killer666/hearthstone/CachePathChecker$2$1;-><init>(Lru/killer666/hearthstone/CachePathChecker$2;Ljava/util/LinkedHashMap;[Ljava/lang/CharSequence;Ljava/lang/String;)V
+    invoke-direct {v4, p0, v1, v2}, Lru/killer666/hearthstone/CachePathChecker$2$1;-><init>(Lru/killer666/hearthstone/CachePathChecker$2;Ljava/util/LinkedHashMap;[Ljava/lang/CharSequence;)V
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

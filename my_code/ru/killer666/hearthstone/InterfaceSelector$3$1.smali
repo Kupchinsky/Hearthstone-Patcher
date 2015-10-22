@@ -20,20 +20,15 @@
 # instance fields
 .field final synthetic this$1:Lru/killer666/hearthstone/InterfaceSelector$3;
 
-.field private final synthetic val$preferences:Landroid/content/SharedPreferences;
-
 
 # direct methods
-.method constructor <init>(Lru/killer666/hearthstone/InterfaceSelector$3;Landroid/content/SharedPreferences;)V
-    .registers 3
+.method constructor <init>(Lru/killer666/hearthstone/InterfaceSelector$3;)V
+    .registers 2
 
     .prologue
-    .line 1
+    .line 86
     iput-object p1, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->this$1:Lru/killer666/hearthstone/InterfaceSelector$3;
 
-    iput-object p2, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->val$preferences:Landroid/content/SharedPreferences;
-
-    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,7 +46,9 @@
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
     .line 91
-    iget-object v1, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->val$preferences:Landroid/content/SharedPreferences;
+    iget-object v1, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->this$1:Lru/killer666/hearthstone/InterfaceSelector$3;
+
+    iget-object v1, v1, Lru/killer666/hearthstone/InterfaceSelector$3;->val$preferences:Landroid/content/SharedPreferences;
 
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
@@ -69,24 +66,18 @@
     .line 96
     iget-object v1, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->this$1:Lru/killer666/hearthstone/InterfaceSelector$3;
 
-    # getter for: Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
-    invoke-static {v1}, Lru/killer666/hearthstone/InterfaceSelector$3;->access$0(Lru/killer666/hearthstone/InterfaceSelector$3;)Lru/killer666/hearthstone/InterfaceSelector;
-
-    move-result-object v1
+    iget-object v1, v1, Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     # invokes: Lru/killer666/hearthstone/InterfaceSelector;->setInterface(I)V
-    invoke-static {v1, p2}, Lru/killer666/hearthstone/InterfaceSelector;->access$0(Lru/killer666/hearthstone/InterfaceSelector;I)V
+    invoke-static {v1, p2}, Lru/killer666/hearthstone/InterfaceSelector;->access$000(Lru/killer666/hearthstone/InterfaceSelector;I)V
 
     .line 97
     iget-object v1, p0, Lru/killer666/hearthstone/InterfaceSelector$3$1;->this$1:Lru/killer666/hearthstone/InterfaceSelector$3;
 
-    # getter for: Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
-    invoke-static {v1}, Lru/killer666/hearthstone/InterfaceSelector$3;->access$0(Lru/killer666/hearthstone/InterfaceSelector$3;)Lru/killer666/hearthstone/InterfaceSelector;
-
-    move-result-object v1
+    iget-object v1, v1, Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     # invokes: Lru/killer666/hearthstone/InterfaceSelector;->askToNotAsk()V
-    invoke-static {v1}, Lru/killer666/hearthstone/InterfaceSelector;->access$1(Lru/killer666/hearthstone/InterfaceSelector;)V
+    invoke-static {v1}, Lru/killer666/hearthstone/InterfaceSelector;->access$100(Lru/killer666/hearthstone/InterfaceSelector;)V
 
     .line 98
     return-void

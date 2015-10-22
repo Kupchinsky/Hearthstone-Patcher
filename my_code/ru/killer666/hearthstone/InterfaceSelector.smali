@@ -39,24 +39,28 @@
     .line 10
     invoke-direct {p0}, Lru/killer666/hearthstone/WaitableTask;-><init>()V
 
+    .line 107
     return-void
 .end method
 
-.method static synthetic access$0(Lru/killer666/hearthstone/InterfaceSelector;I)V
+.method static synthetic access$000(Lru/killer666/hearthstone/InterfaceSelector;I)V
     .registers 2
+    .param p0, "x0"    # Lru/killer666/hearthstone/InterfaceSelector;
+    .param p1, "x1"    # I
 
     .prologue
-    .line 15
+    .line 10
     invoke-direct {p0, p1}, Lru/killer666/hearthstone/InterfaceSelector;->setInterface(I)V
 
     return-void
 .end method
 
-.method static synthetic access$1(Lru/killer666/hearthstone/InterfaceSelector;)V
+.method static synthetic access$100(Lru/killer666/hearthstone/InterfaceSelector;)V
     .registers 1
+    .param p0, "x0"    # Lru/killer666/hearthstone/InterfaceSelector;
 
     .prologue
-    .line 21
+    .line 10
     invoke-direct {p0}, Lru/killer666/hearthstone/InterfaceSelector;->askToNotAsk()V
 
     return-void
@@ -75,27 +79,30 @@
 
     .line 25
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v1, "\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f "
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string v2, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     sget-object v1, Lru/killer666/hearthstone/InterfaceSelector;->selectedIface:Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;
 
     iget-boolean v1, v1, Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;->isTablet:Z
 
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_50
 
-    const-string v1, "\u043f\u043b\u0430\u043d\u0448\u0435\u0442\u043e\u0432"
+    const-string v1, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
 
-    :goto_16
+    :goto_1a
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 26
-    const-string v2, " \u0438 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u0441\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0442\u044c?"
+    const-string v2, " \ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -105,7 +112,6 @@
 
     move-result-object v1
 
-    .line 25
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 27
@@ -114,7 +120,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 28
-    const-string v1, "\u0414\u0430"
+    const-string v1, "\ufffd\ufffd"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$1;
 
@@ -123,7 +129,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 41
-    const-string v1, "\u041d\u0435\u0442"
+    const-string v1, "\ufffd\ufffd\ufffd"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$2;
 
@@ -147,10 +153,10 @@
     return-void
 
     .line 25
-    :cond_4c
-    const-string v1, "\u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432"
+    :cond_50
+    const-string v1, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
 
-    goto :goto_16
+    goto :goto_1a
 .end method
 
 .method private setInterface(I)V
@@ -220,22 +226,26 @@
 
     .line 66
     .local v0, "prefIface":I
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_44
 
-    if-eq v0, v6, :cond_40
+    if-eq v0, v6, :cond_44
 
     const/4 v4, 0x2
 
-    if-eq v0, v4, :cond_40
+    if-eq v0, v4, :cond_44
 
     .line 68
     const-string v4, "HearthstoneWrapper"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string v6, "Force use "
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -257,11 +267,11 @@
     invoke-direct {p0, v0}, Lru/killer666/hearthstone/InterfaceSelector;->setInterface(I)V
 
     .line 104
-    :goto_3f
+    :goto_43
     return v3
 
     .line 73
-    :cond_40
+    :cond_44
     const-string v3, "HearthstoneWrapper"
 
     const-string v4, "Showing dialog..."
@@ -280,5 +290,5 @@
     .line 104
     const/4 v3, 0x1
 
-    goto :goto_3f
+    goto :goto_43
 .end method

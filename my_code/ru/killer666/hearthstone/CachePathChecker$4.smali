@@ -1,4 +1,4 @@
-.class Lru/killer666/hearthstone/CachePathChecker$3;
+.class Lru/killer666/hearthstone/CachePathChecker$4;
 .super Ljava/lang/Object;
 .source "CachePathChecker.java"
 
@@ -26,8 +26,8 @@
     .registers 2
 
     .prologue
-    .line 147
-    iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$3;->this$0:Lru/killer666/hearthstone/CachePathChecker;
+    .line 164
+    iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$4;->this$0:Lru/killer666/hearthstone/CachePathChecker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,11 +42,14 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 150
-    const/4 v0, 0x0
+    .line 167
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    invoke-static {v0}, Ljava/lang/System;->exit(I)V
+    .line 168
+    sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
-    .line 151
+    invoke-virtual {v0}, Lru/killer666/hearthstone/CachePathChecker;->doTask()Z
+
+    .line 169
     return-void
 .end method

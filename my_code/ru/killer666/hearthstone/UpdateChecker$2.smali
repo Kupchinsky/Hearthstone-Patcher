@@ -1,4 +1,4 @@
-.class Lru/killer666/hearthstone/UpdateChecker$1$2;
+.class Lru/killer666/hearthstone/UpdateChecker$2;
 .super Ljava/lang/Object;
 .source "UpdateChecker.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lru/killer666/hearthstone/UpdateChecker$1;->run()V
+    value = Lru/killer666/hearthstone/UpdateChecker;->doTask()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,16 +18,16 @@
 
 
 # instance fields
-.field final synthetic this$1:Lru/killer666/hearthstone/UpdateChecker$1;
+.field final synthetic this$0:Lru/killer666/hearthstone/UpdateChecker;
 
 
 # direct methods
-.method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1;)V
+.method constructor <init>(Lru/killer666/hearthstone/UpdateChecker;)V
     .registers 2
 
     .prologue
-    .line 232
-    iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1$2;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
+    .line 262
+    iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,16 +39,17 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .registers 4
     .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
+    .param p2, "item"    # I
 
     .prologue
-    .line 235
-    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$1$2;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
+    .line 265
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    iget-object v0, v0, Lru/killer666/hearthstone/UpdateChecker$1;->this$0:Lru/killer666/hearthstone/UpdateChecker;
+    .line 266
+    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/UpdateChecker;->endTask()V
 
-    .line 236
+    .line 267
     return-void
 .end method

@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lru/killer666/hearthstone/UpdateChecker;->versionUrl:Ljava/lang/String;
 
-    .line 36
+    .line 280
     return-void
 .end method
 
@@ -86,38 +86,19 @@
     :goto_10
     :try_start_10
     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-    :try_end_13
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_13} :catch_35
-    .catchall {:try_start_10 .. :try_end_13} :catchall_42
 
     move-result-object v1
 
-    if-nez v1, :cond_1e
-
-    .line 64
-    :try_start_16
-    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
-    :try_end_19
-    .catch Ljava/io/IOException; {:try_start_16 .. :try_end_19} :catch_4c
-
-    .line 72
-    :goto_19
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    return-object v4
+    if-eqz v1, :cond_39
 
     .line 53
-    :cond_1e
-    :try_start_1e
     new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
     const-string v5, "\n"
 
@@ -130,67 +111,82 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_34
-    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_34} :catch_35
-    .catchall {:try_start_1e .. :try_end_34} :catchall_42
+    :try_end_2c
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_2c} :catch_2d
+    .catchall {:try_start_10 .. :try_end_2c} :catchall_47
 
     goto :goto_10
 
     .line 56
-    :catch_35
+    :catch_2d
     move-exception v0
 
     .line 58
     .local v0, "e":Ljava/io/IOException;
-    :try_start_36
+    :try_start_2e
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_39
-    .catchall {:try_start_36 .. :try_end_39} :catchall_42
+    :try_end_31
+    .catchall {:try_start_2e .. :try_end_31} :catchall_47
 
     .line 64
+    :try_start_31
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+    :try_end_34
+    .catch Ljava/io/IOException; {:try_start_31 .. :try_end_34} :catch_42
+
+    .line 72
+    .end local v0    # "e":Ljava/io/IOException;
+    :goto_34
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    return-object v4
+
+    .line 64
+    :cond_39
     :try_start_39
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
     :try_end_3c
     .catch Ljava/io/IOException; {:try_start_39 .. :try_end_3c} :catch_3d
 
-    goto :goto_19
+    goto :goto_34
 
     .line 66
     :catch_3d
     move-exception v0
 
     .line 68
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-
-    goto :goto_19
-
-    .line 61
-    .end local v0    # "e":Ljava/io/IOException;
-    :catchall_42
-    move-exception v4
-
-    .line 64
-    :try_start_43
-    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
-    :try_end_46
-    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_47
-
-    .line 70
-    :goto_46
-    throw v4
-
-    .line 66
-    :catch_47
-    move-exception v0
-
-    .line 68
     .restart local v0    # "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_46
+    goto :goto_34
 
     .line 66
+    :catch_42
+    move-exception v0
+
+    .line 68
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_34
+
+    .line 62
     .end local v0    # "e":Ljava/io/IOException;
+    :catchall_47
+    move-exception v4
+
+    .line 64
+    :try_start_48
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+    :try_end_4b
+    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_4b} :catch_4c
+
+    .line 69
+    :goto_4b
+    throw v4
+
+    .line 66
     :catch_4c
     move-exception v0
 
@@ -198,7 +194,7 @@
     .restart local v0    # "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_19
+    goto :goto_4b
 .end method
 
 
@@ -294,7 +290,7 @@
 
     move/from16 v27, v0
     :try_end_44
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_33 .. :try_end_44} :catch_124
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_33 .. :try_end_44} :catch_12c
 
     .line 103
     new-instance v15, Lorg/apache/http/impl/client/DefaultHttpClient;
@@ -309,12 +305,15 @@
 
     const-string v5, "http.useragent"
 
-    .line 105
     new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v7, "Hearthstone Android/"
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
 
     move/from16 v0, v27
 
@@ -338,7 +337,6 @@
 
     move-result-object v6
 
-    .line 104
     invoke-interface {v4, v5, v6}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
 
     .line 107
@@ -356,7 +354,7 @@
 
     .line 112
     .local v21, "remoteData":Lorg/json/JSONObject;
-    :try_start_7a
+    :try_start_7e
     invoke-interface/range {v15 .. v16}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
 
     move-result-object v26
@@ -386,16 +384,16 @@
     move-object/from16 v0, v22
 
     invoke-direct {v0, v4}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_95
-    .catch Ljava/lang/Exception; {:try_start_7a .. :try_end_95} :catch_12b
+    :try_end_99
+    .catch Ljava/lang/Exception; {:try_start_7e .. :try_end_99} :catch_133
 
     .line 116
     .end local v21    # "remoteData":Lorg/json/JSONObject;
     .local v22, "remoteData":Lorg/json/JSONObject;
-    :try_start_95
+    :try_start_99
     invoke-virtual/range {v17 .. v17}, Ljava/io/InputStream;->close()V
-    :try_end_98
-    .catch Ljava/lang/Exception; {:try_start_95 .. :try_end_98} :catch_1ae
+    :try_end_9c
+    .catch Ljava/lang/Exception; {:try_start_99 .. :try_end_9c} :catch_1ba
 
     .line 124
     const/16 v24, 0x0
@@ -410,7 +408,7 @@
 
     .line 130
     .local v25, "remoteVersionName":Ljava/lang/String;
-    :try_start_9e
+    :try_start_a2
     const-string v4, "code"
 
     move-object/from16 v0, v22
@@ -434,42 +432,45 @@
     move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_b5
-    .catch Lorg/json/JSONException; {:try_start_9e .. :try_end_b5} :catch_132
+    :try_end_b9
+    .catch Lorg/json/JSONException; {:try_start_a2 .. :try_end_b9} :catch_13a
 
     move-result-object v25
 
     .line 140
-    if-eqz v27, :cond_139
-
-    .line 141
-    move/from16 v0, v24
-
-    move/from16 v1, v27
-
-    if-gt v0, v1, :cond_ca
+    if-eqz v27, :cond_141
 
     move/from16 v0, v24
 
     move/from16 v1, v27
 
-    if-ne v0, v1, :cond_139
+    if-gt v0, v1, :cond_ce
+
+    move/from16 v0, v24
+
+    move/from16 v1, v27
+
+    if-ne v0, v1, :cond_141
 
     sget v4, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
 
     move/from16 v0, v23
 
-    if-le v0, v4, :cond_139
+    if-le v0, v4, :cond_141
 
     .line 144
-    :cond_ca
+    :cond_ce
     const-string v4, "HearthstoneWrapper"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string v6, "Found update! (Current: "
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     move/from16 v0, v27
 
@@ -501,7 +502,6 @@
 
     move-result-object v5
 
-    .line 145
     const-string v6, ", "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -524,7 +524,6 @@
 
     move-result-object v5
 
-    .line 144
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 147
@@ -565,7 +564,7 @@
     .end local v24    # "remoteVersionCode":I
     .end local v25    # "remoteVersionName":Ljava/lang/String;
     .end local v26    # "response":Lorg/apache/http/HttpResponse;
-    :catch_124
+    :catch_12c
     move-exception v13
 
     .line 98
@@ -582,12 +581,12 @@
     .restart local v15    # "httpclient":Lorg/apache/http/client/HttpClient;
     .restart local v16    # "httpget":Lorg/apache/http/client/methods/HttpGet;
     .restart local v21    # "remoteData":Lorg/json/JSONObject;
-    :catch_12b
+    :catch_133
     move-exception v13
 
     .line 120
     .local v13, "e":Ljava/lang/Exception;
-    :goto_12c
+    :goto_134
     invoke-virtual {v13}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 121
@@ -604,7 +603,7 @@
     .restart local v24    # "remoteVersionCode":I
     .restart local v25    # "remoteVersionName":Ljava/lang/String;
     .restart local v26    # "response":Lorg/apache/http/HttpResponse;
-    :catch_132
+    :catch_13a
     move-exception v13
 
     .line 136
@@ -618,14 +617,18 @@
 
     .line 248
     .end local v13    # "e":Lorg/json/JSONException;
-    :cond_139
+    :cond_141
     const-string v4, "HearthstoneWrapper"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string v6, "Version is actually! (Current: "
 
-    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
 
     move/from16 v0, v27
 
@@ -651,7 +654,6 @@
 
     move-result-object v5
 
-    .line 249
     move/from16 v0, v23
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
@@ -668,7 +670,6 @@
 
     move-result-object v5
 
-    .line 248
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 251
@@ -704,16 +705,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_1ab
+    if-nez v4, :cond_1b7
 
-    .line 259
+    .line 257
     const-string v4, ""
 
-    .line 260
-    const-string v5, "\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435! \u0414\u043b\u044f \u0441\u0432\u043e\u0435\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0439 \u043c\u043e\u0434\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438 \u0438\u0433\u0440\u044b \u043e\u0431\u0440\u0430\u0449\u0430\u0439\u0442\u0435\u0441\u044c \u0432 \u043b\u0438\u0447\u043a\u0443 \u043d\u0430 4pda.ru/forum \u043a \u0430\u0432\u0442\u043e\u0440\u0443 \u043c\u043e\u0434\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438 killer666_."
+    const-string v5, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd! \ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd \ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd 4pda.ru/forum \ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd killer666_."
 
-    .line 261
-    const-string v6, "\u041e\u041a"
+    const-string v6, "\ufffd\ufffd"
 
     new-instance v7, Lru/killer666/hearthstone/UpdateChecker$2;
 
@@ -721,14 +720,12 @@
 
     invoke-direct {v7, v0}, Lru/killer666/hearthstone/UpdateChecker$2;-><init>(Lru/killer666/hearthstone/UpdateChecker;)V
 
-    .line 268
     const-string v8, ""
 
     const/4 v9, 0x0
 
     const/4 v10, 0x0
 
-    .line 258
     invoke-static/range {v4 .. v10}, Lcom/blizzard/wtcg/hearthstone/HearthstoneAlert;->showAlert(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Z)V
 
     .line 270
@@ -747,7 +744,7 @@
     goto/16 :goto_2e
 
     .line 277
-    :cond_1ab
+    :cond_1b7
     const/4 v4, 0x0
 
     goto/16 :goto_2e
@@ -757,12 +754,12 @@
     .end local v23    # "remoteVersionBuild":I
     .end local v24    # "remoteVersionCode":I
     .end local v25    # "remoteVersionName":Ljava/lang/String;
-    :catch_1ae
+    :catch_1ba
     move-exception v13
 
     move-object/from16 v21, v22
 
     .end local v22    # "remoteData":Lorg/json/JSONObject;
     .restart local v21    # "remoteData":Lorg/json/JSONObject;
-    goto/16 :goto_12c
+    goto/16 :goto_134
 .end method

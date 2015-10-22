@@ -29,7 +29,6 @@
 
     iput-boolean v0, p0, Lru/killer666/hearthstone/WaitableTask;->taskEnded:Z
 
-    .line 3
     return-void
 .end method
 
@@ -58,13 +57,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 14
+    .line 17
     monitor-exit v1
 
     .line 18
     return-void
 
-    .line 14
+    .line 17
     :catchall_d
     move-exception v0
 

@@ -17,24 +17,19 @@
 # instance fields
 .field final synthetic this$2:Lru/killer666/hearthstone/UpdateChecker$1$1;
 
-.field private final synthetic val$activity:Landroid/app/Activity;
-
-.field private final synthetic val$targetFilename:Ljava/lang/String;
+.field final synthetic val$targetFilename:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1$1;Ljava/lang/String;Landroid/app/Activity;)V
-    .registers 4
+.method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1$1;Ljava/lang/String;)V
+    .registers 3
 
     .prologue
-    .line 1
+    .line 201
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->this$2:Lru/killer666/hearthstone/UpdateChecker$1$1;
 
     iput-object p2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$targetFilename:Ljava/lang/String;
 
-    iput-object p3, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$activity:Landroid/app/Activity;
-
-    .line 200
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -53,17 +48,14 @@
     .line 204
     new-instance v0, Ljava/io/File;
 
-    .line 205
     sget-object v2, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v2
 
-    .line 206
     iget-object v3, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$targetFilename:Ljava/lang/String;
 
-    .line 204
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 207
@@ -85,14 +77,16 @@
 
     move-result-object v2
 
-    .line 211
     const-string v3, "application/vnd.android.package-archive"
 
-    .line 210
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 212
-    iget-object v2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$activity:Landroid/app/Activity;
+    iget-object v2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->this$2:Lru/killer666/hearthstone/UpdateChecker$1$1;
+
+    iget-object v2, v2, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
+
+    iget-object v2, v2, Lru/killer666/hearthstone/UpdateChecker$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v2, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 

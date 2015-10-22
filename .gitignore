@@ -1,0 +1,9 @@
+*.iml
+*.class
+.idea/
+tmp/
+com.blizzard.wtcg.hearthstone-old/
+com.blizzard.wtcg.hearthstone/
+releases/
+my_assemblies/
+*.jar

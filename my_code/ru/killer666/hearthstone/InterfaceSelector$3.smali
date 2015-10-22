@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
-.field private final synthetic val$preferences:Landroid/content/SharedPreferences;
+.field final synthetic val$preferences:Landroid/content/SharedPreferences;
 
 
 # direct methods
@@ -28,25 +28,14 @@
     .registers 3
 
     .prologue
-    .line 1
+    .line 76
     iput-object p1, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     iput-object p2, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->val$preferences:Landroid/content/SharedPreferences;
 
-    .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$0(Lru/killer666/hearthstone/InterfaceSelector$3;)Lru/killer666/hearthstone/InterfaceSelector;
-    .registers 2
-
-    .prologue
-    .line 75
-    iget-object v0, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
-
-    return-object v0
 .end method
 
 
@@ -62,13 +51,13 @@
 
     new-array v1, v2, [Ljava/lang/CharSequence;
 
-    const-string v2, "\u0414\u043b\u044f \u043f\u043b\u0430\u043d\u0448\u0435\u0442\u043e\u0432"
+    const-string v2, "\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
 
     aput-object v2, v1, v4
 
     const/4 v2, 0x1
 
-    const-string v3, "\u0414\u043b\u044f \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432 (\u0431\u043e\u043b\u0435\u0435 \u043a\u0440\u0443\u043f\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442)"
+    const-string v3, "\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd (\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd)"
 
     aput-object v3, v1, v2
 
@@ -82,7 +71,7 @@
 
     .line 83
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v2, "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441:"
+    const-string v2, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd:"
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -94,9 +83,7 @@
 
     new-instance v3, Lru/killer666/hearthstone/InterfaceSelector$3$1;
 
-    iget-object v4, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->val$preferences:Landroid/content/SharedPreferences;
-
-    invoke-direct {v3, p0, v4}, Lru/killer666/hearthstone/InterfaceSelector$3$1;-><init>(Lru/killer666/hearthstone/InterfaceSelector$3;Landroid/content/SharedPreferences;)V
+    invoke-direct {v3, p0}, Lru/killer666/hearthstone/InterfaceSelector$3$1;-><init>(Lru/killer666/hearthstone/InterfaceSelector$3;)V
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

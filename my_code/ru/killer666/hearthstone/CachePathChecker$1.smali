@@ -1,4 +1,4 @@
-.class Lru/killer666/hearthstone/CachePathChecker$1;
+.class final Lru/killer666/hearthstone/CachePathChecker$1;
 .super Ljava/lang/Object;
 .source "CachePathChecker.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
@@ -22,10 +22,9 @@
     .registers 1
 
     .prologue
-    .line 22
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1
     return-void
 .end method
 
@@ -37,7 +36,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 28
+    .line 27
     const-string v1, "cache_settings"
 
     invoke-static {v1}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
