@@ -211,3 +211,26 @@
     const-string v4, "Изменить путь"
 
     sget-object v5, Lru/killer666/hearthstone/CachePathChecker;->setPathClick:Landroid/content/DialogInterface$OnClickListener;');
+
+	// Disable hardware check ?
+	patchmethod(
+		SMALI . 'com' . DIRECTORY_SEPARATOR . 'unity3d' . DIRECTORY_SEPARATOR . 'player' . DIRECTORY_SEPARATOR . 't.smali',
+		'.method static constructor <clinit>()V',
+'	.locals 1
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/unity3d/player/t;->a:Z
+
+    return-void');
+
+		patchmethod(
+		SMALI . 'com' . DIRECTORY_SEPARATOR . 'unity3d' . DIRECTORY_SEPARATOR . 'player' . DIRECTORY_SEPARATOR . 't.smali',
+		'.method static b()V',
+'	.locals 1
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/unity3d/player/t;->a:Z
+
+    return-void');
