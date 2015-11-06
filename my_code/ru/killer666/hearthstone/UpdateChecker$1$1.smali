@@ -97,7 +97,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd "
+    const-string v9, "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u043e \u0432\u0435\u0440\u0441\u0438\u0438 "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -133,7 +133,7 @@
 
     move-result-object v8
 
-    const-string v9, ", \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd "
+    const-string v9, ", \u0441\u0431\u043e\u0440\u043a\u0430 "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -305,7 +305,7 @@
 
     .line 224
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
-    const-string v7, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd APK..."
+    const-string v7, "\u041e\u0436\u0438\u0434\u0430\u0439\u0442\u0435 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u043d\u043e\u0432\u043e\u0433\u043e APK..."
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 

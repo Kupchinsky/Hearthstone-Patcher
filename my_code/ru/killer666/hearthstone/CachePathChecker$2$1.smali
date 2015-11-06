@@ -79,7 +79,7 @@
 
     .line 91
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd:"
+    const-string v3, "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u0434\u043b\u044f \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u044f\u0449\u0438\u043a\u043e\u0432:"
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -137,7 +137,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 100
-    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
+    const-string v3, "\u041f\u0440\u0438\u043d\u044f\u0442\u044c"
 
     new-instance v4, Lru/killer666/hearthstone/CachePathChecker$2$1$1;
 

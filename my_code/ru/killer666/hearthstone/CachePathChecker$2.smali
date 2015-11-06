@@ -55,7 +55,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd KitKat/Lollipop+ ("
+    const-string v4, "SD-\u043a\u0430\u0440\u0442\u0430 \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e \u0434\u043b\u044f KitKat/Lollipop+ ("
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -113,7 +113,7 @@
     if-eqz v3, :cond_4f
 
     .line 69
-    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd (Secondary)"
+    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 (Secondary)"
 
     const-string v4, "SECONDARY_STORAGE"
 
@@ -125,21 +125,21 @@
 
     .line 71
     :cond_4f
-    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd 0 (/storage/sdcard0/...)"
+    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 0 (/storage/sdcard0/...)"
 
     const-string v4, "/storage/sdcard0"
 
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 72
-    const-string v3, "SD-\ufffd\ufffd\ufffd\ufffd\ufffd 1 (/storage/sdcard1/...)"
+    const-string v3, "SD-\u043a\u0430\u0440\u0442\u0430 1 (/storage/sdcard1/...)"
 
     const-string v4, "/storage/sdcard1"
 
     invoke-virtual {v1, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
-    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd (\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd)"
+    const-string v3, "\u0414\u0440\u0443\u0433\u043e\u0439 \u043f\u0443\u0442\u044c (\u0443\u043a\u0430\u0437\u0430\u0442\u044c \u0432\u0440\u0443\u0447\u043d\u0443\u044e)"
 
     const/4 v4, 0x0
 
@@ -172,7 +172,7 @@
 
     .line 78
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v3, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd:"
+    const-string v3, "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u0434\u043b\u044f \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u044f\u0449\u0438\u043a\u043e\u0432:"
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 

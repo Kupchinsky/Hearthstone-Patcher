@@ -61,7 +61,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd "
+    const-string v2, "\u041d\u0430\u0439\u0434\u0435\u043d\u0430 \u043d\u043e\u0432\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -93,7 +93,7 @@
 
     move-result-object v1
 
-    const-string v2, ", \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd "
+    const-string v2, ", \u0441\u0431\u043e\u0440\u043a\u0430 "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    const-string v2, ")! \ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd?"
+    const-string v2, ")! \u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -127,7 +127,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 160
-    const-string v1, "\ufffd\ufffd"
+    const-string v1, "\u0414\u0430"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$1;
 
@@ -136,7 +136,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 231
-    const-string v1, "\ufffd\ufffd\ufffd"
+    const-string v1, "\u041d\u0435\u0442"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$2;
 

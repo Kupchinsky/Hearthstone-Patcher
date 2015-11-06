@@ -62,20 +62,20 @@ public class CachePathChecker extends WaitableTask
 			{
 				final LinkedHashMap<CharSequence, String> items = new LinkedHashMap<CharSequence, String>();
 
-				items.put("SD-карта по умолчанию для KitKat/Lollipop+ (" + Environment.getExternalStorageDirectory()
+				items.put("SD-РєР°СЂС‚Р° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РґР»СЏ KitKat/Lollipop+ (" + Environment.getExternalStorageDirectory()
 						+ "...)", "" + Environment.getExternalStorageDirectory());
 
 				if (System.getenv("SECONDARY_STORAGE") != null)
-					items.put("SD-карта (Secondary)", System.getenv("SECONDARY_STORAGE"));
+					items.put("SD-РєР°СЂС‚Р° (Secondary)", System.getenv("SECONDARY_STORAGE"));
 
-				items.put("SD-карта 0 (/storage/sdcard0/...)", "/storage/sdcard0");
-				items.put("SD-карта 1 (/storage/sdcard1/...)", "/storage/sdcard1");
-				items.put("Другой путь (указать вручную)", null);
+				items.put("SD-РєР°СЂС‚Р° 0 (/storage/sdcard0/...)", "/storage/sdcard0");
+				items.put("SD-РєР°СЂС‚Р° 1 (/storage/sdcard1/...)", "/storage/sdcard1");
+				items.put("Р”СЂСѓРіРѕР№ РїСѓС‚СЊ (СѓРєР°Р·Р°С‚СЊ РІСЂСѓС‡РЅСѓСЋ)", null);
 
 				final CharSequence[] items_keys = items.keySet().toArray(new CharSequence[items.size()]);
 				AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
 
-				builder.setTitle("Укажите путь для хранения ящиков:");
+				builder.setTitle("РЈРєР°Р¶РёС‚Рµ РїСѓС‚СЊ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЏС‰РёРєРѕРІ:");
 				builder.setCancelable(false);
 				builder.setSingleChoiceItems(items_keys, -1, new DialogInterface.OnClickListener()
 				{
@@ -88,7 +88,7 @@ public class CachePathChecker extends WaitableTask
 						if (targetPath == null)
 						{
 							AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
-							builder.setTitle("Укажите путь для хранения ящиков:");
+							builder.setTitle("РЈРєР°Р¶РёС‚Рµ РїСѓС‚СЊ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЏС‰РёРєРѕРІ:");
 							builder.setCancelable(false);
 
 							final EditText input = new EditText(UnityPlayer.currentActivity);
@@ -97,7 +97,7 @@ public class CachePathChecker extends WaitableTask
 									+ "/Android/data/com.blizzard.wtcg.hearthstone/files" : preferencesPath);
 
 							builder.setView(input);
-							builder.setPositiveButton("Принять", new DialogInterface.OnClickListener()
+							builder.setPositiveButton("РџСЂРёРЅСЏС‚СЊ", new DialogInterface.OnClickListener()
 							{
 								public void onClick(DialogInterface dialog, int item)
 								{
@@ -143,7 +143,7 @@ public class CachePathChecker extends WaitableTask
 
 			if (restartRequired)
 			{
-				HearthstoneAlert.showAlert("", "Требуется перезапуск", "ОК", new DialogInterface.OnClickListener()
+				HearthstoneAlert.showAlert("", "РўСЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РїСѓСЃРє", "РћРљ", new DialogInterface.OnClickListener()
 				{
 					public void onClick(DialogInterface dialog, int item)
 					{
@@ -158,9 +158,9 @@ public class CachePathChecker extends WaitableTask
 					"Failed to set cache path to " + path + ": " + e.getClass().getCanonicalName() + " ("
 							+ e.getMessage() + ")");
 
-			HearthstoneAlert.showAlert("", "Вы выбрали путь: " + path
-					+ "\nПри попытке создать там файл мы получили ошибку: " + e.getClass().getCanonicalName() + " ("
-					+ e.getMessage() + ")\n\nУкажите другой путь!", "ОК", new DialogInterface.OnClickListener()
+			HearthstoneAlert.showAlert("", "Р’С‹ РІС‹Р±СЂР°Р»Рё РїСѓС‚СЊ: " + path
+					+ "\nРџСЂРё РїРѕРїС‹С‚РєРµ СЃРѕР·РґР°С‚СЊ С‚Р°Рј С„Р°Р№Р» РјС‹ РїРѕР»СѓС‡РёР»Рё РѕС€РёР±РєСѓ: " + e.getClass().getCanonicalName() + " ("
+					+ e.getMessage() + ")\n\nРЈРєР°Р¶РёС‚Рµ РґСЂСѓРіРѕР№ РїСѓС‚СЊ!", "РћРљ", new DialogInterface.OnClickListener()
 			{
 				public void onClick(DialogInterface dialog, int item)
 				{

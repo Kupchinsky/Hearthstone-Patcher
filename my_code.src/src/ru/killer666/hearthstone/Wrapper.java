@@ -1,13 +1,12 @@
 package ru.killer666.hearthstone;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.unity3d.player.UnityPlayer;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import com.unity3d.player.UnityPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Wrapper
 {
@@ -56,7 +55,7 @@ public class Wrapper
 
 	public static void LoadingScreen_DownloadObbFromGoogle_run()
 	{
-		//tasks.add(new VersionChangesHistory());
+		tasks.add(new VersionChangesHistory());
 		tasks.add(new InterfaceSelector());
 		tasks.add(new CachePathChecker());
 		tasks.add(new UpdateChecker());

@@ -38,7 +38,7 @@ public class UpdateChecker extends WaitableTask
 	private static final String	prefsFile		= "updater_settings";
 	private final int			checkInterval	= 3600;
 	private final String		versionUrl		= "http://hearthstone-update-server.killer666.ru/version.json";
-	static int					currentBuild	= 1; // Здесь содержать число 1, иначе патчинг кода Smali будет неверным
+	static int					currentBuild	= 1; // Р—РґРµСЃСЊ СЃРѕРґРµСЂР¶Р°С‚СЊ С‡РёСЃР»Рѕ 1, РёРЅР°С‡Рµ РїР°С‚С‡РёРЅРі РєРѕРґР° Smali Р±СѓРґРµС‚ РЅРµРІРµСЂРЅС‹Рј
 
 	private String convertStreamToString(InputStream is)
 	{
@@ -153,11 +153,11 @@ public class UpdateChecker extends WaitableTask
 				{
 					AlertDialog.Builder dlgAlert = new AlertDialog.Builder(activity);
 
-					dlgAlert.setMessage("Найдена новая версия " + customInfo.getRemoteVersionName() + " ("
-							+ customInfo.getRemoteVersionCode() + ", сборка " + customInfo.getRemoteVersionBuild()
-							+ ")! Обновить?");
+					dlgAlert.setMessage("РќР°Р№РґРµРЅР° РЅРѕРІР°СЏ РІРµСЂСЃРёСЏ " + customInfo.getRemoteVersionName() + " ("
+							+ customInfo.getRemoteVersionCode() + ", СЃР±РѕСЂРєР° " + customInfo.getRemoteVersionBuild()
+							+ ")! РћР±РЅРѕРІРёС‚СЊ?");
 					dlgAlert.setTitle("Hearthstone");
-					dlgAlert.setPositiveButton("Да", new DialogInterface.OnClickListener()
+					dlgAlert.setPositiveButton("Р”Р°", new DialogInterface.OnClickListener()
 					{
 						public void onClick(DialogInterface dialog, int which)
 						{
@@ -181,8 +181,8 @@ public class UpdateChecker extends WaitableTask
 									DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
 									.setAllowedOverRoaming(false)
 									.setDescription(
-											"Обновление до версии " + customInfo.getRemoteVersionName() + ", "
-													+ customInfo.getRemoteVersionCode() + ", сборка "
+											"РћР±РЅРѕРІР»РµРЅРёРµ РґРѕ РІРµСЂСЃРёРё " + customInfo.getRemoteVersionName() + ", "
+													+ customInfo.getRemoteVersionCode() + ", СЃР±РѕСЂРєР° "
 													+ customInfo.getRemoteVersionBuild());
 							request.setTitle("Hearthstone Mod Updater");
 							request.allowScanningByMediaScanner();
@@ -221,14 +221,14 @@ public class UpdateChecker extends WaitableTask
 									DownloadManager.ACTION_NOTIFICATION_CLICKED));
 
 							AlertDialog.Builder dlgAlert = new AlertDialog.Builder(activity);
-							dlgAlert.setMessage("Ожидайте загрузки нового APK...");
+							dlgAlert.setMessage("РћР¶РёРґР°Р№С‚Рµ Р·Р°РіСЂСѓР·РєРё РЅРѕРІРѕРіРѕ APK...");
 							dlgAlert.setTitle("Hearthstone");
 
 							dlgAlert.setCancelable(false);
 							dlgAlert.create().show();
 						}
 					});
-					dlgAlert.setNegativeButton("Нет", new DialogInterface.OnClickListener()
+					dlgAlert.setNegativeButton("РќРµС‚", new DialogInterface.OnClickListener()
 					{
 						public void onClick(DialogInterface dialog, int which)
 						{
@@ -257,8 +257,8 @@ public class UpdateChecker extends WaitableTask
 				HearthstoneAlert
 						.showAlert(
 								"",
-								"Внимание! Для своевременного получения обновлений модификации игры обращайтесь в личку на 4pda.ru/forum к автору модификации killer666_.",
-								"ОК", new DialogInterface.OnClickListener()
+								"Р’РЅРёРјР°РЅРёРµ! Р”Р»СЏ СЃРІРѕРµРІСЂРµРјРµРЅРЅРѕРіРѕ РїРѕР»СѓС‡РµРЅРёСЏ РѕР±РЅРѕРІР»РµРЅРёР№ РјРѕРґРёС„РёРєР°С†РёРё РёРіСЂС‹ РѕР±СЂР°С‰Р°Р№С‚РµСЃСЊ РІ Р»РёС‡РєСѓ РЅР° 4pda.ru/forum Рє Р°РІС‚РѕСЂСѓ РјРѕРґРёС„РёРєР°С†РёРё killer666_.",
+								"РћРљ", new DialogInterface.OnClickListener()
 								{
 									public void onClick(DialogInterface dialog, int item)
 									{

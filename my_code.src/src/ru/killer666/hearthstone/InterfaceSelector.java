@@ -22,10 +22,10 @@ class InterfaceSelector extends WaitableTask
 	{
 		AlertDialog.Builder dlgAlert = new AlertDialog.Builder(UnityPlayer.currentActivity);
 
-		dlgAlert.setMessage("Применить интерфейс для " + (selectedIface.isTablet ? "планшетов" : "телефонов")
-				+ " и больше не спрашивать?");
+		dlgAlert.setMessage("РџСЂРёРјРµРЅРёС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ " + (selectedIface.isTablet ? "РїР»Р°РЅС€РµС‚РѕРІ" : "С‚РµР»РµС„РѕРЅРѕРІ")
+				+ " Рё Р±РѕР»СЊС€Рµ РЅРµ СЃРїСЂР°С€РёРІР°С‚СЊ?");
 		dlgAlert.setTitle("Hearthstone");
-		dlgAlert.setPositiveButton("Да", new DialogInterface.OnClickListener()
+		dlgAlert.setPositiveButton("Р”Р°", new DialogInterface.OnClickListener()
 		{
 			public void onClick(DialogInterface dialog, int which)
 			{
@@ -38,7 +38,7 @@ class InterfaceSelector extends WaitableTask
 				endTask();
 			}
 		});
-		dlgAlert.setNegativeButton("Нет", new DialogInterface.OnClickListener()
+		dlgAlert.setNegativeButton("РќРµС‚", new DialogInterface.OnClickListener()
 		{
 			public void onClick(DialogInterface dialog, int which)
 			{
@@ -57,10 +57,10 @@ class InterfaceSelector extends WaitableTask
 
 		final SharedPreferences preferences = Wrapper.getPreferences(prefsFile);
 
-		// Не спрашивать снова
+		// РќРµ СЃРїСЂР°С€РёРІР°С‚СЊ СЃРЅРѕРІР°
 		boolean prefNotAskAgain = preferences.getBoolean("notaskagain", false);
 
-		// Выбранный интерфейс
+		// Р’С‹Р±СЂР°РЅРЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ
 		int prefIface = preferences.getInt("selected", -1);
 
 		if (prefNotAskAgain && prefIface != -1 && prefIface != 2)
@@ -76,11 +76,11 @@ class InterfaceSelector extends WaitableTask
 		{
 			public void run()
 			{
-				final CharSequence[] items = { "Для планшетов", "Для телефонов (более крупный текст)" };
+				final CharSequence[] items = { "Р”Р»СЏ РїР»Р°РЅС€РµС‚РѕРІ", "Р”Р»СЏ С‚РµР»РµС„РѕРЅРѕРІ (Р±РѕР»РµРµ РєСЂСѓРїРЅС‹Р№ С‚РµРєСЃС‚)" };
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
 
-				builder.setTitle("Выберите интерфейс:");
+				builder.setTitle("Р’С‹Р±РµСЂРёС‚Рµ РёРЅС‚РµСЂС„РµР№СЃ:");
 				builder.setCancelable(false);
 				builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener()
 				{
