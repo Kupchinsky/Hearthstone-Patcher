@@ -5,7 +5,11 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
+import com.sun.deploy.util.StringUtils;
 import com.unity3d.player.UnityPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class VersionChangesHistory extends WaitableTask {
     private static final String prefsFile = "history_settings";
@@ -25,20 +29,26 @@ public class VersionChangesHistory extends WaitableTask {
         String key = "infoshown_" + versionCode + "_" + UpdateChecker.currentBuild;
 
         if (!preferences.getBoolean(key, false)) {
+            String firstPart = "Изменения в сборке " + versionCode + " (" + UpdateChecker.currentBuild + "):\n\n";
+            List<String> secondParts = new ArrayList<>();
+
             switch (versionCode) {
-                case 1060407: {
-                    HearthstoneAlert
-                            .showAlert(
-                                    "",
-                                    "Изменения в сборке " + versionCode + " (" + UpdateChecker.currentBuild + "):\n\n- Возможно исправлена проверка Failure to initialize! Your hardware does not support this application, sorry! (просьба отписаться в топике 4pda.ru, если у вас она была и исчезла)",
-                                    "ОК", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int item) {
-                                            dialog.dismiss();
-                                            endTask();
-                                        }
-                                    }, "", null, false);
+                case 1083307: {
                     break;
                 }
+            }
+
+            if (secondParts.size() != 0) {
+                HearthstoneAlert
+                        .showAlert(
+                                "",
+                                firstPart + StringUtils.join(secondParts, "\n"),
+                                "ОК", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int item) {
+                                        dialog.dismiss();
+                                        VersionChangesHistory.this.endTask();
+                                    }
+                                }, "", null, false);
             }
 
             SharedPreferences.Editor edit = preferences.edit();

@@ -1,11 +1,15 @@
 package ru.killer666.hearthstone;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DownloadManager;
+import android.content.*;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
+import com.unity3d.player.UnityPlayer;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -14,22 +18,7 @@ import org.apache.http.params.CoreProtocolPNames;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
-import com.unity3d.player.UnityPlayer;
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Environment;
-import android.util.Log;
+import java.io.*;
 
 import static ru.killer666.hearthstone.Wrapper.TAG;
 
@@ -105,7 +94,7 @@ public class UpdateChecker extends WaitableTask
 				"Hearthstone Android/" + versionCode + "." + currentBuild);
 
 		HttpGet httpget = new HttpGet(versionUrl);
-		JSONObject remoteData = null;
+		JSONObject remoteData;
 
 		try
 		{
@@ -121,9 +110,9 @@ public class UpdateChecker extends WaitableTask
 			return false;
 		}
 
-		int remoteVersionCode = 0;
-		int remoteVersionBuild = 0;
-		String remoteVersionName = null;
+		int remoteVersionCode;
+		int remoteVersionBuild;
+		String remoteVersionName;
 
 		try
 		{
