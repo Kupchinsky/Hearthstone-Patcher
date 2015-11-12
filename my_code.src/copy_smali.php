@@ -37,6 +37,18 @@
 			$classes[] = $filepath;
 	}
 
+	$rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(ROOT . 'ttorrent' . DIRECTORY_SEPARATOR . 'ttorrent-shaded' . DIRECTORY_SEPARATOR));
+	foreach ($rii as $file)
+	{
+		if ($file->isDir())
+			continue;
+
+		$filepath = $file->getPathname();
+
+		if (pathinfo($filepath, PATHINFO_EXTENSION) == 'class')
+			$classes[] = $filepath;
+	}
+
 	my_exec('rm -rf ' . escapeshellarg(TMP . '*'));
 	$result = my_exec('java -cp ' . escapeshellarg(DIST . 'dx.jar;' . DIST . 'gson-2.3.1.jar;' . DIST . '.') . ' dxrunjson ' . escapeshellarg(TMP . 'classes.dex'), json_encode($classes));
 
