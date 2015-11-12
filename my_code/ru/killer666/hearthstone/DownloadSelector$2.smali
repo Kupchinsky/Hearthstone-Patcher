@@ -1,4 +1,4 @@
-.class final Lru/killer666/hearthstone/DownloadSelector$2;
+.class Lru/killer666/hearthstone/DownloadSelector$2;
 .super Ljava/lang/Object;
 .source "DownloadSelector.java"
 
@@ -8,21 +8,35 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lru/killer666/hearthstone/DownloadSelector;->startP2P()V
+    value = Lru/killer666/hearthstone/DownloadSelector;->updateProgress(ILjava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Lru/killer666/hearthstone/DownloadSelector;
+
+.field final synthetic val$percent:I
+
+.field final synthetic val$text:Ljava/lang/String;
+
+
 # direct methods
-.method constructor <init>()V
-    .registers 1
+.method constructor <init>(Lru/killer666/hearthstone/DownloadSelector;ILjava/lang/String;)V
+    .registers 4
 
     .prologue
-    .line 95
+    .line 50
+    iput-object p1, p0, Lru/killer666/hearthstone/DownloadSelector$2;->this$0:Lru/killer666/hearthstone/DownloadSelector;
+
+    iput p2, p0, Lru/killer666/hearthstone/DownloadSelector$2;->val$percent:I
+
+    iput-object p3, p0, Lru/killer666/hearthstone/DownloadSelector$2;->val$text:Ljava/lang/String;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,32 +45,33 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .registers 3
 
     .prologue
-    .line 98
-    new-instance v0, Landroid/os/Handler;
+    .line 53
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$2;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    # setter for: Lru/killer666/hearthstone/DownloadSelector;->handler:Landroid/os/Handler;
-    invoke-static {v0}, Lru/killer666/hearthstone/DownloadSelector;->access$502(Landroid/os/Handler;)Landroid/os/Handler;
-
-    .line 99
-    # getter for: Lru/killer666/hearthstone/DownloadSelector;->handler:Landroid/os/Handler;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$500()Landroid/os/Handler;
+    # getter for: Lru/killer666/hearthstone/DownloadSelector;->m_progressBar:Landroid/widget/ProgressBar;
+    invoke-static {v0}, Lru/killer666/hearthstone/DownloadSelector;->access$500(Lru/killer666/hearthstone/DownloadSelector;)Landroid/widget/ProgressBar;
 
     move-result-object v0
 
-    # getter for: Lru/killer666/hearthstone/DownloadSelector;->repeatableProgressUpdate:Ljava/lang/Runnable;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$400()Ljava/lang/Runnable;
+    iget v1, p0, Lru/killer666/hearthstone/DownloadSelector$2;->val$percent:I
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    const-wide/16 v2, 0x3e8
+    .line 54
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$2;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    # getter for: Lru/killer666/hearthstone/DownloadSelector;->m_progressText:Landroid/widget/TextView;
+    invoke-static {v0}, Lru/killer666/hearthstone/DownloadSelector;->access$600(Lru/killer666/hearthstone/DownloadSelector;)Landroid/widget/TextView;
 
-    .line 100
+    move-result-object v0
+
+    iget-object v1, p0, Lru/killer666/hearthstone/DownloadSelector$2;->val$text:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 55
     return-void
 .end method

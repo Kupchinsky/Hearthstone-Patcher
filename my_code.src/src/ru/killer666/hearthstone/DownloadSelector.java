@@ -16,100 +16,83 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
 
 public class DownloadSelector extends WaitableTask {
-    public static boolean isP2P = false;
-    public static boolean isDownloadRequired = false;
+    public static boolean isSkipMarketDownload = false;
+    private boolean isP2P = false;
     static String torrentFileUrl;
 
-    private static File mainObb;
-    private static File patchObb;
+    private File mainObb;
+    private File patchObb;
 
-    private static final Runnable repeatableProgressUpdate = new Runnable() {
+    private final Runnable repeatableProgressUpdate = new Runnable() {
         @Override
         public void run() {
-            m_progressBar.setProgress((int) sharedTorrent.getCompletion());
-            m_progressText.setText("P2P: загружено " +
-                    Formatter.formatFileSize(UnityPlayer.currentActivity, sharedTorrent.getDownloaded()) + "/" +
-                    Formatter.formatFileSize(UnityPlayer.currentActivity, sharedTorrent.getLeft()) + ", " + sharedTorrent.getCompletion() + "%");
+            DownloadSelector.this.updateProgress((int) sharedTorrent.getCompletion(),
+                    "P2P: загружено " +
+                            Formatter.formatFileSize(UnityPlayer.currentActivity, sharedTorrent.getDownloaded()) + "/" +
+                            Formatter.formatFileSize(UnityPlayer.currentActivity, sharedTorrent.getLeft()) + ", " + sharedTorrent.getCompletion() + "%");
 
             if (isDownloading)
                 handler.postDelayed(repeatableProgressUpdate, 1000);
         }
     };
-    private static Handler handler;
-    private static ProgressBar m_progressBar;
-    private static TextView m_progressText;
-    private static SharedTorrent sharedTorrent;
-    private static boolean isDownloading = false;
+    private Handler handler;
+    private ProgressBar m_progressBar;
+    private TextView m_progressText;
+    private SharedTorrent sharedTorrent;
+    private boolean isDownloading = false;
 
-    @SuppressWarnings("unused")
-    public static void startP2P() {
+    private void updateProgress(final int percent, final String text) {
+        UnityPlayer.currentActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                DownloadSelector.this.m_progressBar.setProgress(percent);
+                DownloadSelector.this.m_progressText.setText(text);
+            }
+        });
+    }
 
-        Log.i(Wrapper.TAG, "Downloading torrent file from " + torrentFileUrl);
+    private void startDownload() throws Exception {
 
-        if (torrentFileUrl == null)
-            return;
+        if (DownloadSelector.torrentFileUrl == null)
+            throw new NullPointerException("Cancelled, torrentFileUrl == null");
 
         // Download torrent file
-        HttpGet httpget = new HttpGet(torrentFileUrl);
+        Log.i(Wrapper.TAG, "Downloading torrent file from " + DownloadSelector.torrentFileUrl);
+
+        this.updateProgress(0, "Скачивание торрент файла...");
+        HttpGet httpget = new HttpGet(DownloadSelector.torrentFileUrl);
         CachePathChecker.cachePath.mkdirs();
 
-        try {
-            HttpResponse response = UpdateChecker.httpclient.execute(httpget);
+        HttpResponse response = UpdateChecker.httpclient.execute(httpget);
 
-            InputStream instream = response.getEntity().getContent();
-            sharedTorrent = new SharedTorrent(IOUtils.toByteArray(instream), CachePathChecker.cachePath);
-            instream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
-        }
+        InputStream instream = response.getEntity().getContent();
+        this.sharedTorrent = new SharedTorrent(IOUtils.toByteArray(instream), CachePathChecker.cachePath);
+        instream.close();
 
-        //
-        final Client client;
-
-        try {
-            client = new Client(InetAddress.getLocalHost(), sharedTorrent);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        }
+        final Client client = new Client(InetAddress.getLocalHost(), this.sharedTorrent);
 
         client.setMaxDownloadRate(0.0);
         client.setMaxUploadRate(0.1);
 
-        Runtime.getRuntime().addShutdownHook(new Thread(new Client.ClientShutdown(client, null)));
+        Class loadingScreen = Class.forName("com.blizzard.wtcg.hearthstone.LoadingScreen");
 
-        try {
-            Class loadingScreen = Class.forName("com.blizzard.wtcg.hearthstone.LoadingScreen");
+        Field f_m_progressBar = loadingScreen.getDeclaredField("m_progressBar");
+        Field f_m_progressText = loadingScreen.getDeclaredField("m_progressText");
 
-            Field f_m_progressBar = loadingScreen.getDeclaredField("m_progressBar");
-            Field f_m_progressText = loadingScreen.getDeclaredField("m_progressText");
+        f_m_progressBar.setAccessible(true);
+        f_m_progressText.setAccessible(true);
 
-            f_m_progressBar.setAccessible(true);
-            f_m_progressText.setAccessible(true);
+        this.m_progressBar = (ProgressBar) f_m_progressBar.get(Wrapper.loadingScreen);
+        this.m_progressText = (TextView) f_m_progressText.get(Wrapper.loadingScreen);
 
-            m_progressBar = (ProgressBar) f_m_progressBar.get(Wrapper.loadingScreen);
-            m_progressText = (TextView) f_m_progressText.get(Wrapper.loadingScreen);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return;
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        sharedTorrent = client.getTorrent();
-        isDownloading = true;
+        this.isDownloading = true;
+        Thread shutdownHook = new Thread(new Client.ClientShutdown(client, null));
+        Runtime.getRuntime().addShutdownHook(shutdownHook);
 
         UnityPlayer.currentActivity.runOnUiThread(new Runnable() {
             @Override
@@ -122,9 +105,10 @@ public class DownloadSelector extends WaitableTask {
         client.download();
         client.waitForCompletion();
 
-        isDownloading = false;
+        this.isDownloading = false;
+        Runtime.getRuntime().removeShutdownHook(shutdownHook);
 
-        if (!client.getTorrent().isComplete()) {
+        if (!this.sharedTorrent.isComplete()) {
             HearthstoneAlert
                     .showAlert(
                             "",
@@ -136,18 +120,18 @@ public class DownloadSelector extends WaitableTask {
                                 }
                             }, "", null, false);
         } else {
-            try {
-                mainObb.createNewFile();
-                patchObb.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            this.mainObb.createNewFile();
+            this.patchObb.createNewFile();
+
+            this.endTask();
         }
     }
 
     @Override
     boolean doTask() {
         Log.i(Wrapper.TAG, "Okay, let's start");
+
+        boolean isDownloadRequired;
 
         try {
             Class loadingScreen = Class.forName("com.blizzard.wtcg.hearthstone.LoadingScreen");
@@ -158,10 +142,11 @@ public class DownloadSelector extends WaitableTask {
             m_mainObbPath.setAccessible(true);
             m_patchObbPath.setAccessible(true);
 
-            mainObb = new File((String) m_mainObbPath.get(Wrapper.loadingScreen));
-            patchObb = new File((String) m_patchObbPath.get(Wrapper.loadingScreen));
+            this.mainObb = new File((String) m_mainObbPath.get(Wrapper.loadingScreen));
+            this.patchObb = new File((String) m_patchObbPath.get(Wrapper.loadingScreen));
 
-            isDownloadRequired = !mainObb.exists() || !patchObb.exists();
+            isDownloadRequired = !this.mainObb.exists() || !this.patchObb.exists();
+            Log.i(Wrapper.TAG, "isDownloadRequired: " + isDownloadRequired);
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -174,28 +159,61 @@ public class DownloadSelector extends WaitableTask {
             return false;
         }
 
-        Log.i(Wrapper.TAG, "Showing dialog...");
+        if (isDownloadRequired) {
+            Log.i(Wrapper.TAG, "Showing dialog...");
 
-        UnityPlayer.currentActivity.runOnUiThread(new Runnable() {
-            public void run() {
-                final CharSequence[] items = {"Google Play маркет", "Торрент (сразу распакованный кэш)", "Не загружать"};
+            final Object waitObject = new Object();
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
+            UnityPlayer.currentActivity.runOnUiThread(new Runnable() {
+                public void run() {
+                    final CharSequence[] items = {"Google Play маркет", "Торрент (сразу распакованный кэш)", "Не загружать"};
 
-                builder.setTitle("Выберите способ загрузки кэша:");
-                builder.setCancelable(false);
-                builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {
-                        dialog.dismiss();
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(UnityPlayer.currentActivity);
 
-                        isP2P = item == 1;
-                        endTask();
-                    }
-                });
-                builder.create().show();
+                    builder.setTitle("Выберите способ загрузки кэша:");
+                    builder.setCancelable(false);
+                    builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            dialog.dismiss();
+
+                            DownloadSelector.isSkipMarketDownload = item > 0;
+                            DownloadSelector.this.isP2P = item == 1;
+
+                            synchronized (waitObject) {
+                                waitObject.notifyAll();
+                            }
+                        }
+                    });
+                    builder.create().show();
+                }
+            });
+
+            synchronized (waitObject) {
+                try {
+                    waitObject.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        });
 
-        return true;
+            if (this.isP2P) {
+                try {
+                    this.startDownload();
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                    HearthstoneAlert.showAlert("", "Ошибка при загрузке: " + e.getClass().getCanonicalName() + " ("
+                            + e.getMessage() + ")\n\nПовторите попытку, возможно поможет", "ОК", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            dialog.dismiss();
+                            DownloadSelector.this.endTask();
+                        }
+                    }, "", null, false);
+                }
+            } else
+                this.endTask();
+        }
+
+        return isDownloadRequired;
     }
 }

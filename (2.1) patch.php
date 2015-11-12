@@ -118,19 +118,14 @@
     invoke-static {v3}, Lru/killer666/hearthstone/Wrapper;->LoadingScreen_DownloadObbFromGoogle_run(Lcom/blizzard/wtcg/hearthstone/LoadingScreen;)V
 
     .line 778
-    sget-boolean v0, Lru/killer666/hearthstone/DownloadSelector;->isP2P:Z
+    sget-boolean v0, Lru/killer666/hearthstone/DownloadSelector;->isSkipMarketDownload:Z
 
-    if-eqz v0, :cond_d1
-	goto :cond_d0
-
-    .line 780
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->startP2P()V
+    if-eqz v0, :cond_d0
 
     .line 781
-    :cond_d0
     return-void
 
-	:cond_d1
+	:cond_d0
 ');
 
 	// To add buttons into "Not enough space message"

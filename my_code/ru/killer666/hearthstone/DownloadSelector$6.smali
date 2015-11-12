@@ -1,6 +1,6 @@
-.class Lru/killer666/hearthstone/UpdateChecker$2;
+.class Lru/killer666/hearthstone/DownloadSelector$6;
 .super Ljava/lang/Object;
-.source "UpdateChecker.java"
+.source "DownloadSelector.java"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lru/killer666/hearthstone/UpdateChecker;->doTask()Z
+    value = Lru/killer666/hearthstone/DownloadSelector;->doTask()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,16 +18,16 @@
 
 
 # instance fields
-.field final synthetic this$0:Lru/killer666/hearthstone/UpdateChecker;
+.field final synthetic this$0:Lru/killer666/hearthstone/DownloadSelector;
 
 
 # direct methods
-.method constructor <init>(Lru/killer666/hearthstone/UpdateChecker;)V
+.method constructor <init>(Lru/killer666/hearthstone/DownloadSelector;)V
     .registers 2
 
     .prologue
-    .line 215
-    iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
+    .line 206
+    iput-object p1, p0, Lru/killer666/hearthstone/DownloadSelector$6;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,14 +42,14 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 217
+    .line 208
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 218
-    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
+    .line 209
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$6;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
-    invoke-virtual {v0}, Lru/killer666/hearthstone/UpdateChecker;->endTask()V
+    invoke-virtual {v0}, Lru/killer666/hearthstone/DownloadSelector;->endTask()V
 
-    .line 219
+    .line 210
     return-void
 .end method

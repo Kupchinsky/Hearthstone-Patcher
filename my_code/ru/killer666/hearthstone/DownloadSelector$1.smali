@@ -1,4 +1,4 @@
-.class final Lru/killer666/hearthstone/DownloadSelector$1;
+.class Lru/killer666/hearthstone/DownloadSelector$1;
 .super Ljava/lang/Object;
 .source "DownloadSelector.java"
 
@@ -12,17 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Lru/killer666/hearthstone/DownloadSelector;
+
+
 # direct methods
-.method constructor <init>()V
-    .registers 1
+.method constructor <init>(Lru/killer666/hearthstone/DownloadSelector;)V
+    .registers 2
 
     .prologue
-    .line 27
+    .line 31
+    iput-object p1, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,14 +40,13 @@
     .registers 7
 
     .prologue
-    .line 30
-    # getter for: Lru/killer666/hearthstone/DownloadSelector;->m_progressBar:Landroid/widget/ProgressBar;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$100()Landroid/widget/ProgressBar;
+    .line 34
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
-    move-result-object v0
+    iget-object v1, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$000()Lcom/turn/ttorrent/client/SharedTorrent;
+    invoke-static {v1}, Lru/killer666/hearthstone/DownloadSelector;->access$000(Lru/killer666/hearthstone/DownloadSelector;)Lcom/turn/ttorrent/client/SharedTorrent;
 
     move-result-object v1
 
@@ -51,115 +56,120 @@
 
     float-to-int v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 31
-    # getter for: Lru/killer666/hearthstone/DownloadSelector;->m_progressText:Landroid/widget/TextView;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$200()Landroid/widget/TextView;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v0
+    const-string v3, "P2P: \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043e "
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string v2, "P2P: \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043e "
+    sget-object v3, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
+    iget-object v4, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$000()Lcom/turn/ttorrent/client/SharedTorrent;
+    invoke-static {v4}, Lru/killer666/hearthstone/DownloadSelector;->access$000(Lru/killer666/hearthstone/DownloadSelector;)Lcom/turn/ttorrent/client/SharedTorrent;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Lcom/turn/ttorrent/client/SharedTorrent;->getDownloaded()J
+    invoke-virtual {v4}, Lcom/turn/ttorrent/client/SharedTorrent;->getDownloaded()J
 
     move-result-wide v4
 
-    invoke-static {v2, v4, v5}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
-
-    # getter for: Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$000()Lcom/turn/ttorrent/client/SharedTorrent;
+    invoke-static {v3, v4, v5}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/turn/ttorrent/client/SharedTorrent;->getLeft()J
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
+
+    iget-object v4, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
+
+    # getter for: Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
+    invoke-static {v4}, Lru/killer666/hearthstone/DownloadSelector;->access$000(Lru/killer666/hearthstone/DownloadSelector;)Lcom/turn/ttorrent/client/SharedTorrent;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/turn/ttorrent/client/SharedTorrent;->getLeft()J
 
     move-result-wide v4
 
-    invoke-static {v2, v4, v5}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v3, v4, v5}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, ", "
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ", "
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    iget-object v3, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$000()Lcom/turn/ttorrent/client/SharedTorrent;
+    invoke-static {v3}, Lru/killer666/hearthstone/DownloadSelector;->access$000(Lru/killer666/hearthstone/DownloadSelector;)Lcom/turn/ttorrent/client/SharedTorrent;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/turn/ttorrent/client/SharedTorrent;->getCompletion()F
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/turn/ttorrent/client/SharedTorrent;->getCompletion()F
+    const-string v3, "%"
 
-    move-result v2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v2, "%"
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    # invokes: Lru/killer666/hearthstone/DownloadSelector;->updateProgress(ILjava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lru/killer666/hearthstone/DownloadSelector;->access$100(Lru/killer666/hearthstone/DownloadSelector;ILjava/lang/String;)V
 
-    move-result-object v1
+    .line 39
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 35
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->isDownloading:Z
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$300()Z
+    invoke-static {v0}, Lru/killer666/hearthstone/DownloadSelector;->access$200(Lru/killer666/hearthstone/DownloadSelector;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7b
+    if-eqz v0, :cond_80
 
-    .line 36
+    .line 40
+    iget-object v0, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
+
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->handler:Landroid/os/Handler;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$500()Landroid/os/Handler;
+    invoke-static {v0}, Lru/killer666/hearthstone/DownloadSelector;->access$400(Lru/killer666/hearthstone/DownloadSelector;)Landroid/os/Handler;
 
     move-result-object v0
 
+    iget-object v1, p0, Lru/killer666/hearthstone/DownloadSelector$1;->this$0:Lru/killer666/hearthstone/DownloadSelector;
+
     # getter for: Lru/killer666/hearthstone/DownloadSelector;->repeatableProgressUpdate:Ljava/lang/Runnable;
-    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->access$400()Ljava/lang/Runnable;
+    invoke-static {v1}, Lru/killer666/hearthstone/DownloadSelector;->access$300(Lru/killer666/hearthstone/DownloadSelector;)Ljava/lang/Runnable;
 
     move-result-object v1
 
@@ -167,7 +177,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 37
-    :cond_7b
+    .line 41
+    :cond_80
     return-void
 .end method

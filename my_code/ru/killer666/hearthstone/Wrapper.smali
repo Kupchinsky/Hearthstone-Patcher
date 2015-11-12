@@ -50,10 +50,10 @@
     .param p0, "loadingScreen"    # Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
 
     .prologue
-    .line 51
+    .line 52
     sput-object p0, Lru/killer666/hearthstone/Wrapper;->loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
 
-    .line 53
+    .line 54
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/VersionChangesHistory;
@@ -62,7 +62,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 54
+    .line 55
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/InterfaceSelector;
@@ -71,7 +71,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 55
+    .line 56
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/CachePathChecker;
@@ -80,7 +80,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 56
+    .line 57
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/UpdateChecker;
@@ -89,7 +89,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 57
+    .line 58
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/DownloadSelector;
@@ -98,10 +98,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 59
+    .line 60
     invoke-static {}, Lru/killer666/hearthstone/Wrapper;->runTasks()V
 
-    .line 60
+    .line 61
     return-void
 .end method
 

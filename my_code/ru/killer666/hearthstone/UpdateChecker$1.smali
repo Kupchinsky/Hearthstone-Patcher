@@ -30,7 +30,7 @@
     .registers 4
 
     .prologue
-    .line 140
+    .line 118
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1;->this$0:Lru/killer666/hearthstone/UpdateChecker;
 
     iput-object p2, p0, Lru/killer666/hearthstone/UpdateChecker$1;->val$activity:Landroid/app/Activity;
@@ -48,14 +48,14 @@
     .registers 4
 
     .prologue
-    .line 143
+    .line 120
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lru/killer666/hearthstone/UpdateChecker$1;->val$activity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 145
+    .line 122
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -121,12 +121,12 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 148
+    .line 125
     const-string v1, "Hearthstone"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 149
+    .line 126
     const-string v1, "\u0414\u0430"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$1;
@@ -135,7 +135,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 220
+    .line 190
     const-string v1, "\u041d\u0435\u0442"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$2;
@@ -144,18 +144,18 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 228
+    .line 196
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 229
+    .line 197
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 230
+    .line 198
     return-void
 .end method
