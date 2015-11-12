@@ -16,6 +16,9 @@
 		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
 		$pos2 = strpos($data1, $endmethod_comment, $pos1);
 
+		if ($pos1 === false || $pos2 === false)
+			throw new Exception('il_patchmethod');
+
 		$data1_first = substr($data1, 0, $pos1);
 		$data1_second = substr($data1, $pos2);
 

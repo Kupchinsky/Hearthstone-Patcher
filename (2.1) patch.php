@@ -18,6 +18,9 @@
 		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
 		$pos2 = strpos($data1, '.end method', $pos1) - 1;
 
+		if ($pos1 === false || $pos2 === false)
+			throw new Exception('il_patchmethod');
+
 		$data1_first = substr($data1, 0, $pos1);
 		$data1_second = substr($data1, $pos2);
 
@@ -29,6 +32,9 @@
 		$data1 = file_get_contents($filename);
 		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
 		$pos2 = strpos($data1, $after, $pos1) + strlen($after);
+
+		if ($pos1 === false || $pos2 === false)
+			throw new Exception('il_patchmethod');
 
 		$code_before = substr($data1, $pos2, strlen($newcode));
 
@@ -46,6 +52,9 @@
 		$data1 = file_get_contents($filename);
 		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
 		$pos2 = strpos($data1, $after, $pos1) + strlen($after);
+
+		if ($pos1 === false || $pos2 === false)
+			throw new Exception('il_patchmethod');
 
 		$replace_before = substr($data1, $pos2, strlen($replace));
 
