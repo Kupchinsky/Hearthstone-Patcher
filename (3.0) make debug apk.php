@@ -52,9 +52,9 @@
 	{
 		$line = trim($line);
 
-		if (substr($line, 'package="com.blizzard.wctg.hearthstone"'))
+		if (strpos($line, 'package="com.blizzard.wtcg.hearthstone"') !== false)
 		{
-			$line = str_replace('package="com.blizzard.wctg.hearthstone"', 'package="com.blizzard.wtcg.hearthstonedbg"', $line);
+			$line = str_replace('package="com.blizzard.wtcg.hearthstone"', 'package="com.blizzard.wtcg.hearthstonedbg"', $line);
 			break;
 		}
 	}

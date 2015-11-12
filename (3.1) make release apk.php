@@ -97,9 +97,11 @@
 
 	foreach ($manifest_file as &$line)
 	{
-		if (startsWith(trim($line), '<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android"'))
+		$line = trim($line);
+
+		if (strpos($line, 'package="com.blizzard.wtcg.hearthstonedbg"') !== false)
 		{
-			$line = preg_replace('/^<manifest (.*) package="(.*)" platformBuildVersionCode="(.*)" platformBuildVersionName="(.*)">/', '<manifest ${1} package="com.blizzard.wtcg.hearthstone" platformBuildVersionCode="${3}" platformBuildVersionName="${4}">', $line);
+			$line = str_replace('package="com.blizzard.wtcg.hearthstonedbg"', 'package="com.blizzard.wtcg.hearthstone"', $line);
 			break;
 		}
 	}
