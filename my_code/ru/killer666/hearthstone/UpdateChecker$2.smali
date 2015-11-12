@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 262
+    .line 251
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 265
+    .line 254
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 266
+    .line 255
     iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$2;->this$0:Lru/killer666/hearthstone/UpdateChecker;
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/UpdateChecker;->endTask()V
 
-    .line 267
+    .line 256
     return-void
 .end method

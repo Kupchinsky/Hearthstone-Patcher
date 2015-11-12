@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 34
+    .line 46
     iput-object p1, p0, Lru/killer666/hearthstone/VersionChangesHistory$1;->this$0:Lru/killer666/hearthstone/VersionChangesHistory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 36
+    .line 48
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 37
+    .line 49
     iget-object v0, p0, Lru/killer666/hearthstone/VersionChangesHistory$1;->this$0:Lru/killer666/hearthstone/VersionChangesHistory;
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/VersionChangesHistory;->endTask()V
 
-    .line 38
+    .line 50
     return-void
 .end method

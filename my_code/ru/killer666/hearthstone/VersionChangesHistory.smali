@@ -12,7 +12,7 @@
     .registers 1
 
     .prologue
-    .line 10
+    .line 14
     invoke-direct {p0}, Lru/killer666/hearthstone/WaitableTask;-><init>()V
 
     return-void
@@ -21,19 +21,15 @@
 
 # virtual methods
 .method doTask()Z
-    .registers 15
+    .registers 16
 
     .prologue
-    const/4 v13, 0x1
-
-    const/4 v6, 0x0
-
-    .line 14
+    .line 18
     sget-object v7, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
-    .line 18
+    .line 22
     .local v7, "activity":Landroid/app/Activity;
-    :try_start_4
+    :try_start_2
     invoke-virtual {v7}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -48,20 +44,20 @@
 
     move-result-object v0
 
-    iget v12, v0, Landroid/content/pm/PackageInfo;->versionCode:I
-    :try_end_13
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_13} :catch_4d
+    iget v14, v0, Landroid/content/pm/PackageInfo;->versionCode:I
+    :try_end_11
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_11} :catch_a1
 
-    .line 24
-    .local v12, "versionCode":I
+    .line 28
+    .local v14, "versionCode":I
     const-string v0, "history_settings"
 
     invoke-static {v0}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
 
-    move-result-object v11
+    move-result-object v12
 
-    .line 25
-    .local v11, "preferences":Landroid/content/SharedPreferences;
+    .line 29
+    .local v12, "preferences":Landroid/content/SharedPreferences;
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -72,7 +68,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -90,91 +86,85 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    .line 27
-    .local v10, "key":Ljava/lang/String;
-    invoke-interface {v11, v10, v6}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    .line 31
+    .local v11, "key":Ljava/lang/String;
+    const/4 v0, 0x0
+
+    invoke-interface {v12, v11, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-nez v0, :cond_4c
+    if-nez v0, :cond_a7
 
-    .line 28
-    packed-switch v12, :pswitch_data_88
+    .line 32
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 44
-    :goto_41
-    invoke-interface {v11}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v9
+    const-string v1, "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u0432 \u0441\u0431\u043e\u0440\u043a\u0435 "
 
-    .line 46
-    .local v9, "edit":Landroid/content/SharedPreferences$Editor;
-    invoke-interface {v9, v10, v13}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 47
-    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    move-result-object v0
 
-    move v6, v13
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 52
-    .end local v9    # "edit":Landroid/content/SharedPreferences$Editor;
-    .end local v10    # "key":Ljava/lang/String;
-    .end local v11    # "preferences":Landroid/content/SharedPreferences;
-    .end local v12    # "versionCode":I
-    :cond_4c
-    :goto_4c
-    return v6
+    move-result-object v0
 
-    .line 19
-    :catch_4d
-    move-exception v8
+    const-string v1, " ("
 
-    .line 20
-    .local v8, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v8}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move v6, v13
+    move-result-object v0
 
-    .line 21
-    goto :goto_4c
+    sget v1, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
 
-    .line 30
-    .end local v8    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v10    # "key":Ljava/lang/String;
-    .restart local v11    # "preferences":Landroid/content/SharedPreferences;
-    .restart local v12    # "versionCode":I
-    :pswitch_53
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "):\n\n"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    .line 33
+    .local v10, "firstPart":Ljava/lang/String;
+    new-instance v13, Ljava/util/ArrayList;
+
+    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
+
+    .line 41
+    .local v13, "secondParts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    invoke-interface {v13}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-eqz v0, :cond_94
+
+    .line 42
     const-string v0, ""
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u0432 \u0441\u0431\u043e\u0440\u043a\u0435 "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, "\n"
 
-    move-result-object v1
+    invoke-static {v13, v2}, Lcom/sun/deploy/util/StringUtils;->join(Ljava/util/Collection;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v2, " ("
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget v2, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "):\n\n- \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e \u0438\u0441\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 Failure to initialize! Your hardware does not support this application, sorry! (\u043f\u0440\u043e\u0441\u044c\u0431\u0430 \u043e\u0442\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0432 \u0442\u043e\u043f\u0438\u043a\u0435 4pda.ru, \u0435\u0441\u043b\u0438 \u0443 \u0432\u0430\u0441 \u043e\u043d\u0430 \u0431\u044b\u043b\u0430 \u0438 \u0438\u0441\u0447\u0435\u0437\u043b\u0430)"
+    move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -194,13 +184,58 @@
 
     const/4 v5, 0x0
 
+    const/4 v6, 0x0
+
     invoke-static/range {v0 .. v6}, Lcom/blizzard/wtcg/hearthstone/HearthstoneAlert;->showAlert(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Z)V
 
-    goto :goto_41
+    .line 54
+    :cond_94
+    invoke-interface {v12}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    .line 28
-    :pswitch_data_88
-    .packed-switch 0x102e37
-        :pswitch_53
-    .end packed-switch
+    move-result-object v9
+
+    .line 56
+    .local v9, "edit":Landroid/content/SharedPreferences$Editor;
+    const/4 v0, 0x1
+
+    invoke-interface {v9, v11, v0}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    .line 57
+    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 59
+    const/4 v0, 0x1
+
+    .line 62
+    .end local v9    # "edit":Landroid/content/SharedPreferences$Editor;
+    .end local v10    # "firstPart":Ljava/lang/String;
+    .end local v11    # "key":Ljava/lang/String;
+    .end local v12    # "preferences":Landroid/content/SharedPreferences;
+    .end local v13    # "secondParts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .end local v14    # "versionCode":I
+    :goto_a0
+    return v0
+
+    .line 23
+    :catch_a1
+    move-exception v8
+
+    .line 24
+    .local v8, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v8}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    .line 25
+    const/4 v0, 0x1
+
+    goto :goto_a0
+
+    .line 62
+    .end local v8    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v11    # "key":Ljava/lang/String;
+    .restart local v12    # "preferences":Landroid/content/SharedPreferences;
+    .restart local v14    # "versionCode":I
+    :cond_a7
+    const/4 v0, 0x0
+
+    goto :goto_a0
 .end method
