@@ -111,7 +111,26 @@
 		'.prologue
 ',
 		'    .line 777
-    invoke-static {}, Lru/killer666/hearthstone/Wrapper;->LoadingScreen_DownloadObbFromGoogle_run()V
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/blizzard/wtcg/hearthstone/LoadingScreen$2;->this$0:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
+
+    invoke-static {v3}, Lru/killer666/hearthstone/Wrapper;->LoadingScreen_DownloadObbFromGoogle_run(Lcom/blizzard/wtcg/hearthstone/LoadingScreen;)V
+
+    .line 778
+    sget-boolean v0, Lru/killer666/hearthstone/DownloadSelector;->isP2P:Z
+
+    if-eqz v0, :cond_d1
+	goto :cond_d0
+
+    .line 780
+    invoke-static {}, Lru/killer666/hearthstone/DownloadSelector;->startP2P()V
+
+    .line 781
+    :cond_d0
+    return-void
+
+	:cond_d1
 ');
 
 	// To add buttons into "Not enough space message"

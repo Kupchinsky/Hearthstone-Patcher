@@ -11,15 +11,20 @@ import com.blizzard.wtcg.hearthstone.HearthstoneAlert;
 import com.turn.ttorrent.client.Client;
 import com.turn.ttorrent.client.SharedTorrent;
 import com.unity3d.player.UnityPlayer;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.InetAddress;
 
 public class DownloadSelector extends WaitableTask {
     public static boolean isP2P = false;
     public static boolean isDownloadRequired = false;
+    static String torrentFileUrl;
 
     private static File mainObb;
     private static File patchObb;
@@ -45,17 +50,31 @@ public class DownloadSelector extends WaitableTask {
     @SuppressWarnings("unused")
     public static void startP2P() {
 
-        // Download torrent
+        Log.i(Wrapper.TAG, "Downloading torrent file from " + torrentFileUrl);
+
+        if (torrentFileUrl == null)
+            return;
+
+        // Download torrent file
+        HttpGet httpget = new HttpGet(torrentFileUrl);
         CachePathChecker.cachePath.mkdirs();
 
+        try {
+            HttpResponse response = UpdateChecker.httpclient.execute(httpget);
+
+            InputStream instream = response.getEntity().getContent();
+            sharedTorrent = new SharedTorrent(IOUtils.toByteArray(instream), CachePathChecker.cachePath);
+            instream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+        //
         final Client client;
 
         try {
-            client = new Client(
-                    InetAddress.getLocalHost(),
-                    SharedTorrent.fromFile(
-                            new File("/path/to/your.torrent"),
-                            CachePathChecker.cachePath));
+            client = new Client(InetAddress.getLocalHost(), sharedTorrent);
         } catch (IOException e) {
             e.printStackTrace();
             return;
