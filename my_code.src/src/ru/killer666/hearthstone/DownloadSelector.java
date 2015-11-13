@@ -61,6 +61,17 @@ public class DownloadSelector extends WaitableTask {
         if (DownloadSelector.torrentFileUrl == null)
             throw new NullPointerException("Cancelled, torrentFileUrl == null");
 
+        Class loadingScreen = Class.forName("com.blizzard.wtcg.hearthstone.LoadingScreen");
+
+        Field f_m_progressBar = loadingScreen.getDeclaredField("m_progressBar");
+        Field f_m_progressText = loadingScreen.getDeclaredField("m_progressText");
+
+        f_m_progressBar.setAccessible(true);
+        f_m_progressText.setAccessible(true);
+
+        this.m_progressBar = (ProgressBar) f_m_progressBar.get(Wrapper.loadingScreen);
+        this.m_progressText = (TextView) f_m_progressText.get(Wrapper.loadingScreen);
+
         // Download torrent file
         Log.i(Wrapper.TAG, "Downloading torrent file from " + DownloadSelector.torrentFileUrl);
 
@@ -78,17 +89,6 @@ public class DownloadSelector extends WaitableTask {
 
         client.setMaxDownloadRate(0.0);
         client.setMaxUploadRate(0.1);
-
-        Class loadingScreen = Class.forName("com.blizzard.wtcg.hearthstone.LoadingScreen");
-
-        Field f_m_progressBar = loadingScreen.getDeclaredField("m_progressBar");
-        Field f_m_progressText = loadingScreen.getDeclaredField("m_progressText");
-
-        f_m_progressBar.setAccessible(true);
-        f_m_progressText.setAccessible(true);
-
-        this.m_progressBar = (ProgressBar) f_m_progressBar.get(Wrapper.loadingScreen);
-        this.m_progressText = (TextView) f_m_progressText.get(Wrapper.loadingScreen);
 
         this.isDownloading = true;
         Thread shutdownHook = new Thread(new Client.ClientShutdown(client, null));

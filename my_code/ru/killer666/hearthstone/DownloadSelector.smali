@@ -199,8 +199,60 @@
 
     throw v0
 
-    .line 65
+    .line 64
     :cond_f
+    const-string v0, "com.blizzard.wtcg.hearthstone.LoadingScreen"
+
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v12
+
+    .line 66
+    .local v12, "loadingScreen":Ljava/lang/Class;
+    const-string v0, "m_progressBar"
+
+    invoke-virtual {v12, v0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v8
+
+    .line 67
+    .local v8, "f_m_progressBar":Ljava/lang/reflect/Field;
+    const-string v0, "m_progressText"
+
+    invoke-virtual {v12, v0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v9
+
+    .line 69
+    .local v9, "f_m_progressText":Ljava/lang/reflect/Field;
+    invoke-virtual {v8, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    .line 70
+    invoke-virtual {v9, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    .line 72
+    sget-object v0, Lru/killer666/hearthstone/Wrapper;->loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
+
+    invoke-virtual {v8, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ProgressBar;
+
+    iput-object v0, p0, Lru/killer666/hearthstone/DownloadSelector;->m_progressBar:Landroid/widget/ProgressBar;
+
+    .line 73
+    sget-object v0, Lru/killer666/hearthstone/Wrapper;->loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
+
+    invoke-virtual {v9, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lru/killer666/hearthstone/DownloadSelector;->m_progressText:Landroid/widget/TextView;
+
+    .line 76
     const-string v0, "HearthstoneWrapper"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -225,32 +277,32 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 67
+    .line 78
     const-string v0, "\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0440\u0440\u0435\u043d\u0442 \u0444\u0430\u0439\u043b\u0430..."
 
     invoke-direct {p0, v6, v0}, Lru/killer666/hearthstone/DownloadSelector;->updateProgress(ILjava/lang/String;)V
 
-    .line 68
+    .line 79
     new-instance v10, Lorg/apache/http/client/methods/HttpGet;
 
     sget-object v0, Lru/killer666/hearthstone/DownloadSelector;->torrentFileUrl:Ljava/lang/String;
 
     invoke-direct {v10, v0}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
 
-    .line 69
+    .line 80
     .local v10, "httpget":Lorg/apache/http/client/methods/HttpGet;
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 71
+    .line 82
     sget-object v0, Lru/killer666/hearthstone/UpdateChecker;->httpclient:Lorg/apache/http/client/HttpClient;
 
     invoke-interface {v0, v10}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
 
     move-result-object v13
 
-    .line 73
+    .line 84
     .local v13, "response":Lorg/apache/http/HttpResponse;
     invoke-interface {v13}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
 
@@ -260,7 +312,7 @@
 
     move-result-object v11
 
-    .line 74
+    .line 85
     .local v11, "instream":Ljava/io/InputStream;
     new-instance v0, Lcom/turn/ttorrent/client/SharedTorrent;
 
@@ -274,10 +326,10 @@
 
     iput-object v0, p0, Lru/killer666/hearthstone/DownloadSelector;->sharedTorrent:Lcom/turn/ttorrent/client/SharedTorrent;
 
-    .line 75
+    .line 86
     invoke-virtual {v11}, Ljava/io/InputStream;->close()V
 
-    .line 77
+    .line 88
     new-instance v7, Lcom/turn/ttorrent/client/Client;
 
     invoke-static {}, Ljava/net/InetAddress;->getLocalHost()Ljava/net/InetAddress;
@@ -288,68 +340,16 @@
 
     invoke-direct {v7, v0, v1}, Lcom/turn/ttorrent/client/Client;-><init>(Ljava/net/InetAddress;Lcom/turn/ttorrent/client/SharedTorrent;)V
 
-    .line 79
+    .line 90
     .local v7, "client":Lcom/turn/ttorrent/client/Client;
     const-wide/16 v0, 0x0
 
     invoke-virtual {v7, v0, v1}, Lcom/turn/ttorrent/client/Client;->setMaxDownloadRate(D)V
 
-    .line 80
+    .line 91
     const-wide v0, 0x3fb999999999999aL    # 0.1
 
     invoke-virtual {v7, v0, v1}, Lcom/turn/ttorrent/client/Client;->setMaxUploadRate(D)V
-
-    .line 82
-    const-string v0, "com.blizzard.wtcg.hearthstone.LoadingScreen"
-
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v12
-
-    .line 84
-    .local v12, "loadingScreen":Ljava/lang/Class;
-    const-string v0, "m_progressBar"
-
-    invoke-virtual {v12, v0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-
-    move-result-object v8
-
-    .line 85
-    .local v8, "f_m_progressBar":Ljava/lang/reflect/Field;
-    const-string v0, "m_progressText"
-
-    invoke-virtual {v12, v0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-
-    move-result-object v9
-
-    .line 87
-    .local v9, "f_m_progressText":Ljava/lang/reflect/Field;
-    invoke-virtual {v8, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-
-    .line 88
-    invoke-virtual {v9, v3}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-
-    .line 90
-    sget-object v0, Lru/killer666/hearthstone/Wrapper;->loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
-
-    invoke-virtual {v8, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ProgressBar;
-
-    iput-object v0, p0, Lru/killer666/hearthstone/DownloadSelector;->m_progressBar:Landroid/widget/ProgressBar;
-
-    .line 91
-    sget-object v0, Lru/killer666/hearthstone/Wrapper;->loadingScreen:Lcom/blizzard/wtcg/hearthstone/LoadingScreen;
-
-    invoke-virtual {v9, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lru/killer666/hearthstone/DownloadSelector;->m_progressText:Landroid/widget/TextView;
 
     .line 93
     iput-boolean v3, p0, Lru/killer666/hearthstone/DownloadSelector;->isDownloading:Z
