@@ -63,7 +63,7 @@
 
     .prologue
     .line 102
-    new-instance v0, Lorg/apache/commons/io/input/AutoCloseInputStream;
+    new-instance v0, Lru/killer666/apache/commons/io/input/AutoCloseInputStream;
 
     new-instance v1, Ljava/io/ByteArrayInputStream;
 
@@ -73,7 +73,7 @@
 
     invoke-direct {v1, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/io/input/AutoCloseInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v0, v1}, Lru/killer666/apache/commons/io/input/AutoCloseInputStream;-><init>(Ljava/io/InputStream;)V
 
     invoke-static {v0}, Lcom/turn/ttorrent/bcodec/BDecoder;->bdecode(Ljava/io/InputStream;)Lcom/turn/ttorrent/bcodec/BEValue;
 

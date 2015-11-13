@@ -375,7 +375,7 @@
     .line 185
     iget-object v0, p0, Lcom/turn/ttorrent/client/peer/PeerExchange;->channel:Ljava/nio/channels/SocketChannel;
 
-    invoke-static {v0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {v0}, Lru/killer666/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 188
     :cond_10

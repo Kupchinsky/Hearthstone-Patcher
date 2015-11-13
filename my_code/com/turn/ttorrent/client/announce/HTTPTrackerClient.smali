@@ -415,16 +415,16 @@
     .end local v6    # "ioe":Ljava/io/IOException;
     :cond_e1
     :try_start_e1
-    new-instance v2, Lorg/apache/commons/io/output/ByteArrayOutputStream;
+    new-instance v2, Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;
 
-    invoke-direct {v2}, Lorg/apache/commons/io/output/ByteArrayOutputStream;-><init>()V
+    invoke-direct {v2}, Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;-><init>()V
 
     .line 124
-    .local v2, "baos":Lorg/apache/commons/io/output/ByteArrayOutputStream;
-    invoke-virtual {v2, v5}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->write(Ljava/io/InputStream;)I
+    .local v2, "baos":Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;
+    invoke-virtual {v2, v5}, Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;->write(Ljava/io/InputStream;)I
 
     .line 127
-    invoke-virtual {v2}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {v2}, Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v12
 
@@ -507,7 +507,7 @@
     goto :goto_108
 
     .line 130
-    .end local v2    # "baos":Lorg/apache/commons/io/output/ByteArrayOutputStream;
+    .end local v2    # "baos":Lru/killer666/apache/commons/io/output/ByteArrayOutputStream;
     .end local v4    # "err":Ljava/io/InputStream;
     .end local v6    # "ioe":Ljava/io/IOException;
     .end local v7    # "message":Lcom/turn/ttorrent/common/protocol/http/HTTPTrackerMessage;

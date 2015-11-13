@@ -43,7 +43,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 680
-    invoke-static {}, Lorg/apache/commons/codec/digest/DigestUtils;->getSha1Digest()Ljava/security/MessageDigest;
+    invoke-static {}, Lru/killer666/apache/commons/codec/digest/DigestUtils;->getSha1Digest()Ljava/security/MessageDigest;
 
     move-result-object v0
 

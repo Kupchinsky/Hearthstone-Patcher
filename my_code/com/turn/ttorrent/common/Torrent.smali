@@ -1700,7 +1700,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p0, v1}, Lorg/apache/commons/codec/binary/Hex;->encodeHex([BZ)[C
+    invoke-static {p0, v1}, Lru/killer666/apache/commons/codec/binary/Hex;->encodeHex([BZ)[C
 
     move-result-object v1
 
@@ -2476,7 +2476,7 @@
 
     .prologue
     .line 405
-    invoke-static {p0}, Lorg/apache/commons/codec/digest/DigestUtils;->sha1([B)[B
+    invoke-static {p0}, Lru/killer666/apache/commons/codec/digest/DigestUtils;->sha1([B)[B
 
     move-result-object v0
 
@@ -3043,7 +3043,7 @@
 
     .prologue
     .line 490
-    invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->readFileToByteArray(Ljava/io/File;)[B
+    invoke-static {p0}, Lru/killer666/apache/commons/io/FileUtils;->readFileToByteArray(Ljava/io/File;)[B
 
     move-result-object v0
 

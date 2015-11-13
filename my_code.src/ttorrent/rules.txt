@@ -1,0 +1,1 @@
+rule org.apache.commons.** ru.killer666.apache.commons.@1

@@ -520,7 +520,7 @@
 
     .prologue
     .line 238
-    invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->readFileToByteArray(Ljava/io/File;)[B
+    invoke-static {p0}, Lru/killer666/apache/commons/io/FileUtils;->readFileToByteArray(Ljava/io/File;)[B
 
     move-result-object v0
 

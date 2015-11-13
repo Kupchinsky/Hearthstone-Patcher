@@ -451,14 +451,14 @@
     .line 158
     iget-object v0, p0, Lcom/turn/ttorrent/client/storage/FileStorage;->target:Ljava/io/File;
 
-    invoke-static {v0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
+    invoke-static {v0}, Lru/killer666/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 159
     iget-object v0, p0, Lcom/turn/ttorrent/client/storage/FileStorage;->current:Ljava/io/File;
 
     iget-object v1, p0, Lcom/turn/ttorrent/client/storage/FileStorage;->target:Ljava/io/File;
 
-    invoke-static {v0, v1}, Lorg/apache/commons/io/FileUtils;->moveFile(Ljava/io/File;Ljava/io/File;)V
+    invoke-static {v0, v1}, Lru/killer666/apache/commons/io/FileUtils;->moveFile(Ljava/io/File;Ljava/io/File;)V
 
     .line 161
     sget-object v0, Lcom/turn/ttorrent/client/storage/FileStorage;->logger:Lorg/slf4j/Logger;
@@ -508,7 +508,7 @@
     .line 169
     iget-object v0, p0, Lcom/turn/ttorrent/client/storage/FileStorage;->partial:Ljava/io/File;
 
-    invoke-static {v0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
+    invoke-static {v0}, Lru/killer666/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 170
     sget-object v0, Lcom/turn/ttorrent/client/storage/FileStorage;->logger:Lorg/slf4j/Logger;
