@@ -36,7 +36,12 @@
 	}
 
 	echo 'Current version: ' . $version_name . ' (' . $version_code . '), build ' . $build . PHP_EOL . 'Enter url: ';
-	$url = trim(fgets(STDIN));
+
+	if (defined('DOWNLOAD_URL')) {
+		$url = DOWNLOAD_URL;
+	} else {
+		$url = trim(fgets(STDIN));
+	}
 
 	file_put_contents(JSON_FILE, json_encode(array
 	(

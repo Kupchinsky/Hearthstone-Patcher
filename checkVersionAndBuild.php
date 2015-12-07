@@ -122,5 +122,6 @@
 	//
 	echo '(5) Updating JSON file...' . PHP_EOL;
 
+	define('DOWNLOAD_URL', 'http://hearthstone-update-server.killer666.ru/Hearthstone-' . $data_remote['version'] . '-' . $data_remote['build'] . '-' . getenv('BUILD_NUMBER') . '.apk');
 	require_once ROOT . '(5) update json file.php';
 	//
