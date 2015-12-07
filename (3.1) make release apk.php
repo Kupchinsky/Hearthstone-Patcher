@@ -5,7 +5,6 @@
 	define('SMALI', APK . 'smali' . DIRECTORY_SEPARATOR);
 	define('DIST', ROOT . 'dist' . DIRECTORY_SEPARATOR);
 	define('DIST_LIB', DIST . 'lib' . DIRECTORY_SEPARATOR);
-	define('JSON_FILE', ROOT . 'version.json');
 	define('UPDATER_FILE', SMALI . 'ru' . DIRECTORY_SEPARATOR . 'killer666' . DIRECTORY_SEPARATOR . 'hearthstone' . DIRECTORY_SEPARATOR . 'UpdateChecker.smali');
 	define('MANIFEST_FILE', APK . 'AndroidManifest.xml');
 
@@ -44,56 +43,19 @@
 		}
 	}
 
-	foreach (explode("\r\n", file_get_contents(UPDATER_FILE)) as $line)
+	$build = getenv('BUILD_NUMBER');
+	$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
+
+	foreach ($updater_file as &$line)
 	{
 		if (preg_match('/^.field static jenkinsBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
-			$build = (int)hexdec($matches[1]);
+			$line = preg_replace('/^.field static jenkinsBuild:I = 0x(.*)$/', '.field static jenkinsBuild:I = 0x' . dechex($build), $line);
 			break;
 		}
 	}
 
-	$old_version_data = json_decode(file_get_contents(JSON_FILE), true);
-
-	if ($version_code > $old_version_data['code'])
-	{
-		echo 'Version changed (was ' . $old_version_data['code'] . ', new ' . $version_code . ')! Reset build to 1? ';
-
-		if (defined('IS_INCLUDED')) {
-			$ask = 'yes';
-		} else {
-			$ask = trim(fgets(STDIN));
-		}
-
-		$mode = 1;
-	}
-	else
-	{
-		echo 'Old build number: ' . $build . '. Set new build to: ';
-		$ask = trim(fgets(STDIN));
-		$mode = 0;
-	}
-
-	if (isset($mode))
-	{
-		if ($mode == 0)
-			$build = intval(trim($ask));
-		else if ($ask == 'y' || $ask == 'yes')
-			$build = 1;
-
-		$updater_file = explode("\r\n", file_get_contents(UPDATER_FILE));
-
-		foreach ($updater_file as &$line)
-		{
-			if (preg_match('/^.field static jenkinsBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
-			{
-				$line = preg_replace('/^.field static jenkinsBuild:I = 0x(.*)$/', '.field static jenkinsBuild:I = 0x' . dechex($build), $line);
-				break;
-			}
-		}
-
-		file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
-	}
+	file_put_contents(UPDATER_FILE, implode("\r\n", $updater_file));
 
 	$manifest_file = explode("\r\n", file_get_contents(MANIFEST_FILE));
 

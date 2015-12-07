@@ -2,7 +2,8 @@
 	define('ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 	define('APK', ROOT . 'com.blizzard.wtcg.hearthstone' . DIRECTORY_SEPARATOR);
 	define('SMALI', APK . 'smali' . DIRECTORY_SEPARATOR);
-	define('JSON_FILE', ROOT . 'version.json');
+	define('RELEASES', ROOT . 'releases' . DIRECTORY_SEPARATOR);
+	define('JSON_FILE', RELEASES . 'version.json');
 
 	foreach (explode("\n", file_get_contents(APK . 'apktool.yml')) as $line)
 	{

@@ -1,10 +1,10 @@
 <?
 	define('ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 	define('DIST', ROOT . 'dist' . DIRECTORY_SEPARATOR);
-	define('JSON_FILE', ROOT . 'version.json');
 	define('APK', ROOT . 'com.blizzard.wtcg.hearthstone' . DIRECTORY_SEPARATOR);
 	define('MY_ASSEMBLIES', ROOT . 'my_assemblies' . DIRECTORY_SEPARATOR);
 	define('RELEASES', ROOT . 'releases' . DIRECTORY_SEPARATOR);
+	define('JSON_FILE', RELEASES . 'version.json');
 	define('IS_INCLUDED', true);
 	define('APK_STORAGE', ROOT . 'original-apks' . DIRECTORY_SEPARATOR);
 
