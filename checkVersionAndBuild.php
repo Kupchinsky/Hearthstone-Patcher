@@ -112,6 +112,8 @@
 
 	if (is_dir(RELEASES)) {
 		print_result(my_exec('del /q ' . escapeshellarg(RELEASES . '*')));
+	} else {
+		mkdir(RELEASES);
 	}
 
 	require_once ROOT . '(4) release.php';
