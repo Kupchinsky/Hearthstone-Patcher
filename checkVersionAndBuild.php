@@ -102,9 +102,15 @@
 	//
 	echo '(3.1) Making release APK...' . PHP_EOL;
 
+	require_once ROOT . '(3.1) make release apk.php';
+	//
+
+	//
+	echo '(4) Releasing...' . PHP_EOL;
+
 	if (is_dir(RELEASES)) {
 		print_result(my_exec('del /q ' . escapeshellarg(RELEASES . '*')));
 	}
 
-	require_once ROOT . '(3.1) make release apk.php';
+	require_once ROOT . '(4) release.php';
 	//
