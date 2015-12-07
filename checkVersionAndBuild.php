@@ -6,6 +6,7 @@
 	define('MY_ASSEMBLIES', ROOT . 'my_assemblies' . DIRECTORY_SEPARATOR);
 	define('RELEASES', ROOT . 'releases' . DIRECTORY_SEPARATOR);
 	define('IS_INCLUDED', true);
+	define('APK_STORAGE', ROOT . 'original-apks' . DIRECTORY_SEPARATOR);
 
 	function print_result($result) {
 		echo $result['stdout'] . PHP_EOL;
@@ -61,9 +62,15 @@
 	echo 'Building...' . PHP_EOL;
 
 	//
+	if (!is_dir(APK_STORAGE)) {
+		mkdir(APK_STORAGE);
+	} else {
+		print_result(my_exec('del /q ' . escapeshellarg(APK_STORAGE . '*')));
+	}
+
 	echo '(0) Downloading APK...' . PHP_EOL;
-	define('APK_NEW', ROOT . 'com.blizzard.wtcg.hearthstone_' . $data_remote['version'] . '_' . $data_remote['build'] . '.apk');
-	//file_put_contents(APK_NEW, fopen($data_remote['link'], 'r'));
+	define('APK_NEW', APK_STORAGE . 'com.blizzard.wtcg.hearthstone_' . $data_remote['version'] . '_' . $data_remote['build'] . '.apk');
+	file_put_contents(APK_NEW, fopen($data_remote['link'], 'r'));
 	//
 
 	//
