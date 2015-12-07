@@ -89,6 +89,8 @@
 
 	if (is_dir(MY_ASSEMBLIES)) {
 		print_result(my_exec('del /q ' . escapeshellarg(MY_ASSEMBLIES . '*')));
+	} else {
+		mkdir(MY_ASSEMBLIES);
 	}
 
 	require_once ROOT . '(2.0) patch assembly.php';
