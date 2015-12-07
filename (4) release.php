@@ -38,3 +38,7 @@
 	$target_path = RELEASES . 'Hearthstone-' . $version_name . '-' . $version_code . '-build-' . $build . '.apk';
 	echo 'Current version: ' . $version_name . ' (' . $version_code . '), build ' . $build . PHP_EOL . 'Target name: ' . basename($target_path) . PHP_EOL;
 	rename(APK_DIST . $apk_name . '-signed', $target_path);
+
+	if (defined('IS_INCLUDED')) {
+		copy($target_path, RELEASES . 'release.apk');
+	}

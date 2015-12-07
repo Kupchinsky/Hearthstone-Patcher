@@ -12,59 +12,65 @@
 	echo 'Copying my assemblies...' . PHP_EOL;
 	exec('cp -r ' . escapeshellarg(MY_ASSEMBLIES . '*.dll') . ' ' . escapeshellarg(ASSEMBLIES . '.'));
 
-	function patchmethod($filename, $method_prototype, $newbody)
-	{
-		$data1 = file_get_contents($filename);
-		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
-		$pos2 = strpos($data1, '.end method', $pos1) - 1;
+	if (!function_exists('patchmethod')) {
+		function patchmethod($filename, $method_prototype, $newbody)
+		{
+			$data1 = file_get_contents($filename);
+			$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
+			$pos2 = strpos($data1, '.end method', $pos1) - 1;
 
-		if ($pos1 === false || $pos2 === false)
-			throw new Exception('il_patchmethod');
+			if ($pos1 === false || $pos2 === false)
+				throw new Exception('il_patchmethod');
 
-		$data1_first = substr($data1, 0, $pos1);
-		$data1_second = substr($data1, $pos2);
+			$data1_first = substr($data1, 0, $pos1);
+			$data1_second = substr($data1, $pos2);
 
-		file_put_contents($filename, $data1_first . PHP_EOL . $newbody . PHP_EOL . $data1_second);
+			file_put_contents($filename, $data1_first . PHP_EOL . $newbody . PHP_EOL . $data1_second);
+		}
 	}
 
-	function patchmethodpart($filename, $method_prototype, $after, $newcode)
-	{
-		$data1 = file_get_contents($filename);
-		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
-		$pos2 = strpos($data1, $after, $pos1) + strlen($after);
+	if (!function_exists('patchmethodpart')) {
+		function patchmethodpart($filename, $method_prototype, $after, $newcode)
+		{
+			$data1 = file_get_contents($filename);
+			$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
+			$pos2 = strpos($data1, $after, $pos1) + strlen($after);
 
-		if ($pos1 === false || $pos2 === false)
-			throw new Exception('il_patchmethod');
+			if ($pos1 === false || $pos2 === false)
+				throw new Exception('il_patchmethod');
 
-		$code_before = substr($data1, $pos2, strlen($newcode));
+			$code_before = substr($data1, $pos2, strlen($newcode));
 
-		if (strcmp($code_before, $newcode) == 0)
-			return;
+			if (strcmp($code_before, $newcode) == 0)
+				return;
 
-		$data1_first = substr($data1, 0, $pos2);
-		$data1_second = substr($data1, $pos2);
+			$data1_first = substr($data1, 0, $pos2);
+			$data1_second = substr($data1, $pos2);
 
-		file_put_contents($filename, $data1_first . $newcode . PHP_EOL . $data1_second);
+			file_put_contents($filename, $data1_first . $newcode . PHP_EOL . $data1_second);
+		}
 	}
 
-	function patchmethodpart_replace($filename, $method_prototype, $after, $replace, $newcode)
-	{
-		$data1 = file_get_contents($filename);
-		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
-		$pos2 = strpos($data1, $after, $pos1) + strlen($after);
+	if (!function_exists('patchmethodpart_replace')) {
+		function patchmethodpart_replace($filename, $method_prototype, $after, $replace, $newcode)
+		{
+			$data1 = file_get_contents($filename);
+			$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
+			$pos2 = strpos($data1, $after, $pos1) + strlen($after);
 
-		if ($pos1 === false || $pos2 === false)
-			throw new Exception('il_patchmethod');
+			if ($pos1 === false || $pos2 === false)
+				throw new Exception('il_patchmethod');
 
-		$replace_before = substr($data1, $pos2, strlen($replace));
+			$replace_before = substr($data1, $pos2, strlen($replace));
 
-		if (strcmp($replace_before, $replace) != 0)
-			return;
+			if (strcmp($replace_before, $replace) != 0)
+				return;
 
-		$data1_first = substr($data1, 0, $pos2);
-		$data1_second = substr($data1, $pos2 + strlen($replace));
+			$data1_first = substr($data1, 0, $pos2);
+			$data1_second = substr($data1, $pos2 + strlen($replace));
 
-		file_put_contents($filename, $data1_first . $newcode . PHP_EOL . $data1_second);
+			file_put_contents($filename, $data1_first . $newcode . PHP_EOL . $data1_second);
+		}
 	}
 
 	// Disable updatechecker clinit

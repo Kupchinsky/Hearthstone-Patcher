@@ -7,3 +7,6 @@ com.blizzard.wtcg.hearthstone/
 releases/
 my_assemblies/
 *.jar
+4pdaUpload.config.js
+*.apk
+version.json

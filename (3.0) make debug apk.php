@@ -7,22 +7,24 @@
 	define('DIST_LIB', DIST . 'lib' . DIRECTORY_SEPARATOR);
 	define('MANIFEST_FILE', APK . 'AndroidManifest.xml');
 
-	function my_exec($cmd, $input = '')
-	{
-		$proc = proc_open($cmd, array( 0 => array('pipe', 'r'), 1 => array('pipe', 'w'), 2 => array('pipe', 'w')), $pipes);
+	if (!function_exists('my_exec')) {
+		function my_exec($cmd, $input = '')
+		{
+			$proc = proc_open($cmd, array( 0 => array('pipe', 'r'), 1 => array('pipe', 'w'), 2 => array('pipe', 'w')), $pipes);
 
-		fwrite($pipes[0], $input);
-		fclose($pipes[0]);
+			fwrite($pipes[0], $input);
+			fclose($pipes[0]);
 
-		$stdout = stream_get_contents($pipes[1]);
-		fclose($pipes[1]);
+			$stdout = stream_get_contents($pipes[1]);
+			fclose($pipes[1]);
 
-		$stderr = stream_get_contents($pipes[2]);
-		fclose($pipes[2]);
+			$stderr = stream_get_contents($pipes[2]);
+			fclose($pipes[2]);
 
-		$rtn = proc_close($proc);
+			$rtn = proc_close($proc);
 
-		return array('stdout' => $stdout, 'stderr' => $stderr, 'return' => $rtn);
+			return array('stdout' => $stdout, 'stderr' => $stderr, 'return' => $rtn);
+		}
 	}
 
 	foreach (explode("\n", file_get_contents(APK . 'apktool.yml')) as $line)
@@ -42,10 +44,12 @@
 
 	$manifest_file = explode("\r\n", file_get_contents(MANIFEST_FILE));
 
-	function startsWith($haystack, $needle)
-	{
-		$length = strlen($needle);
-		return (substr($haystack, 0, $length) === $needle);
+	if (!function_exists('startsWith')) {
+		function startsWith($haystack, $needle)
+		{
+			$length = strlen($needle);
+			return (substr($haystack, 0, $length) === $needle);
+		}
 	}
 
 	foreach ($manifest_file as &$line)
@@ -61,19 +65,21 @@
 
 	file_put_contents(MANIFEST_FILE, implode("\r\n", $manifest_file));
 
-	function patchmethod($filename, $method_prototype, $newbody)
-	{
-		$data1 = file_get_contents($filename);
-		$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
-		$pos2 = strpos($data1, '.end method', $pos1) - 1;
+	if (!function_exists('patchmethod')) {
+		function patchmethod($filename, $method_prototype, $newbody)
+		{
+			$data1 = file_get_contents($filename);
+			$pos1 = strpos($data1, $method_prototype) + strlen($method_prototype);
+			$pos2 = strpos($data1, '.end method', $pos1) - 1;
 
-		if ($pos1 === false || $pos2 === false)
-			throw new Exception('patchmethod');
+			if ($pos1 === false || $pos2 === false)
+				throw new Exception('patchmethod');
 
-		$data1_first = substr($data1, 0, $pos1);
-		$data1_second = substr($data1, $pos2);
+			$data1_first = substr($data1, 0, $pos1);
+			$data1_second = substr($data1, $pos2);
 
-		file_put_contents($filename, $data1_first . PHP_EOL . $newbody . PHP_EOL . $data1_second);
+			file_put_contents($filename, $data1_first . PHP_EOL . $newbody . PHP_EOL . $data1_second);
+		}
 	}
 
 	patchmethod(
