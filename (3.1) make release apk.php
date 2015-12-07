@@ -46,7 +46,7 @@
 
 	foreach (explode("\r\n", file_get_contents(UPDATER_FILE)) as $line)
 	{
-		if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+		if (preg_match('/^.field static jenkinsBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 		{
 			$build = (int)hexdec($matches[1]);
 			break;
@@ -85,9 +85,9 @@
 
 		foreach ($updater_file as &$line)
 		{
-			if (preg_match('/^.field static currentBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
+			if (preg_match('/^.field static jenkinsBuild:I = 0x(.*)$/', trim($line), $matches) != 0)
 			{
-				$line = preg_replace('/^.field static currentBuild:I = 0x(.*)$/', '.field static currentBuild:I = 0x' . dechex($build), $line);
+				$line = preg_replace('/^.field static jenkinsBuild:I = 0x(.*)$/', '.field static jenkinsBuild:I = 0x' . dechex($build), $line);
 				break;
 			}
 		}

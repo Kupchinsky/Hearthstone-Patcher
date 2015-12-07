@@ -80,9 +80,9 @@
 		'const/4 v0, 0x1
 
 ',
-		'    sput v0, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+		'    sput v0, Lru/killer666/hearthstone/UpdateChecker;->jenkinsBuild:I
 ',
-		'    # sput v0, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I');
+		'    # sput v0, Lru/killer666/hearthstone/UpdateChecker;->jenkinsBuild:I');
 
 	// MinSpec disable
 	patchmethod(

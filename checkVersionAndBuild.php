@@ -118,3 +118,9 @@
 
 	require_once ROOT . '(4) release.php';
 	//
+
+	//
+	echo '(5) Updating JSON file...' . PHP_EOL;
+
+	require_once ROOT . '(5) update json file.php';
+	//
