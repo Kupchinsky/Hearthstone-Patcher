@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 29
+    .line 24
     iput-object p1, p0, Lru/killer666/hearthstone/InterfaceSelector$1;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,20 +42,20 @@
     .param p2, "which"    # I
 
     .prologue
-    .line 32
+    .line 26
     const-string v2, "iface_settings"
 
     invoke-static {v2}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    .line 33
+    .line 27
     .local v1, "preferences":Landroid/content/SharedPreferences;
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 35
+    .line 29
     .local v0, "edit":Landroid/content/SharedPreferences$Editor;
     const-string v2, "notaskagain"
 
@@ -63,14 +63,14 @@
 
     invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 36
+    .line 30
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 38
+    .line 32
     iget-object v2, p0, Lru/killer666/hearthstone/InterfaceSelector$1;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     invoke-virtual {v2}, Lru/killer666/hearthstone/InterfaceSelector;->endTask()V
 
-    .line 39
+    .line 33
     return-void
 .end method

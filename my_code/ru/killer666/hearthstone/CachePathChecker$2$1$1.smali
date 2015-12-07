@@ -28,7 +28,7 @@
     .registers 3
 
     .prologue
-    .line 101
+    .line 88
     iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     iput-object p2, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->val$input:Landroid/widget/EditText;
@@ -46,7 +46,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 104
+    .line 90
     iget-object v0, p0, Lru/killer666/hearthstone/CachePathChecker$2$1$1;->this$2:Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     iget-object v0, v0, Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
@@ -66,6 +66,6 @@
     # invokes: Lru/killer666/hearthstone/CachePathChecker;->setCachePath(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lru/killer666/hearthstone/CachePathChecker;->access$000(Lru/killer666/hearthstone/CachePathChecker;Ljava/lang/String;)V
 
-    .line 105
+    .line 91
     return-void
 .end method

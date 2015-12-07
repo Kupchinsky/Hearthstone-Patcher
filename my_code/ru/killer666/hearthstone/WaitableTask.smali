@@ -17,14 +17,14 @@
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5
+    .line 4
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lru/killer666/hearthstone/WaitableTask;->waitObject:Ljava/lang/Object;
 
-    .line 6
+    .line 5
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lru/killer666/hearthstone/WaitableTask;->taskEnded:Z
@@ -41,29 +41,29 @@
     .registers 3
 
     .prologue
-    .line 12
+    .line 10
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lru/killer666/hearthstone/WaitableTask;->taskEnded:Z
 
-    .line 14
+    .line 12
     iget-object v1, p0, Lru/killer666/hearthstone/WaitableTask;->waitObject:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 16
+    .line 13
     :try_start_6
     iget-object v0, p0, Lru/killer666/hearthstone/WaitableTask;->waitObject:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 17
+    .line 14
     monitor-exit v1
 
-    .line 18
+    .line 15
     return-void
 
-    .line 17
+    .line 14
     :catchall_d
     move-exception v0
 
@@ -78,7 +78,7 @@
     .registers 2
 
     .prologue
-    .line 27
+    .line 18
     iget-boolean v0, p0, Lru/killer666/hearthstone/WaitableTask;->taskEnded:Z
 
     return v0
@@ -88,7 +88,7 @@
     .registers 2
 
     .prologue
-    .line 32
+    .line 26
     iget-object v0, p0, Lru/killer666/hearthstone/WaitableTask;->waitObject:Ljava/lang/Object;
 
     return-object v0

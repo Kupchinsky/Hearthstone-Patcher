@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 150
+    .line 122
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 156
+    .line 126
     :try_start_1
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
@@ -62,7 +62,7 @@
 
     move-result-object v6
 
-    .line 165
+    .line 133
     .local v6, "url":Ljava/lang/String;
     sget-object v7, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
@@ -72,7 +72,7 @@
 
     invoke-virtual {v7}, Ljava/io/File;->mkdirs()Z
 
-    .line 167
+    .line 135
     new-instance v4, Landroid/app/DownloadManager$Request;
 
     invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -81,7 +81,7 @@
 
     invoke-direct {v4, v7}, Landroid/app/DownloadManager$Request;-><init>(Landroid/net/Uri;)V
 
-    .line 169
+    .line 137
     .local v4, "request":Landroid/app/DownloadManager$Request;
     const/4 v7, 0x3
 
@@ -157,20 +157,20 @@
 
     invoke-virtual {v7, v8}, Landroid/app/DownloadManager$Request;->setDescription(Ljava/lang/CharSequence;)Landroid/app/DownloadManager$Request;
 
-    .line 176
+    .line 144
     const-string v7, "Hearthstone Mod Updater"
 
     invoke-virtual {v4, v7}, Landroid/app/DownloadManager$Request;->setTitle(Ljava/lang/CharSequence;)Landroid/app/DownloadManager$Request;
 
-    .line 177
+    .line 145
     invoke-virtual {v4}, Landroid/app/DownloadManager$Request;->allowScanningByMediaScanner()V
 
-    .line 178
+    .line 146
     const/4 v7, 0x1
 
     invoke-virtual {v4, v7}, Landroid/app/DownloadManager$Request;->setNotificationVisibility(I)Landroid/app/DownloadManager$Request;
 
-    .line 180
+    .line 148
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -211,7 +211,7 @@
 
     move-result-object v7
 
-    const-string v8, "-build-"
+    const-string v8, "-jenkins-build-"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -239,13 +239,13 @@
 
     move-result-object v5
 
-    .line 183
+    .line 151
     .local v5, "targetFilename":Ljava/lang/String;
     sget-object v7, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
     invoke-virtual {v4, v7, v5}, Landroid/app/DownloadManager$Request;->setDestinationInExternalPublicDir(Ljava/lang/String;Ljava/lang/String;)Landroid/app/DownloadManager$Request;
 
-    .line 185
+    .line 153
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
     iget-object v7, v7, Lru/killer666/hearthstone/UpdateChecker$1;->val$activity:Landroid/app/Activity;
@@ -258,16 +258,16 @@
 
     check-cast v2, Landroid/app/DownloadManager;
 
-    .line 187
+    .line 155
     .local v2, "manager":Landroid/app/DownloadManager;
     invoke-virtual {v2, v4}, Landroid/app/DownloadManager;->enqueue(Landroid/app/DownloadManager$Request;)J
 
-    .line 189
+    .line 157
     new-instance v3, Lru/killer666/hearthstone/UpdateChecker$1$1$1;
 
     invoke-direct {v3, p0, v5}, Lru/killer666/hearthstone/UpdateChecker$1$1$1;-><init>(Lru/killer666/hearthstone/UpdateChecker$1$1;Ljava/lang/String;)V
 
-    .line 207
+    .line 173
     .local v3, "receiver":Landroid/content/BroadcastReceiver;
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
@@ -281,7 +281,7 @@
 
     invoke-virtual {v7, v3, v8}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 209
+    .line 175
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
     iget-object v7, v7, Lru/killer666/hearthstone/UpdateChecker$1;->val$activity:Landroid/app/Activity;
@@ -294,7 +294,7 @@
 
     invoke-virtual {v7, v3, v8}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 212
+    .line 178
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
@@ -303,28 +303,28 @@
 
     invoke-direct {v0, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 213
+    .line 179
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
     const-string v7, "\u041e\u0436\u0438\u0434\u0430\u0439\u0442\u0435 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u043d\u043e\u0432\u043e\u0433\u043e APK..."
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 214
+    .line 180
     const-string v7, "Hearthstone"
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 216
+    .line 182
     invoke-virtual {v0, v10}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 217
+    .line 183
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v7
 
     invoke-virtual {v7}, Landroid/app/AlertDialog;->show()V
 
-    .line 218
+    .line 184
     .end local v0    # "dlgAlert":Landroid/app/AlertDialog$Builder;
     .end local v2    # "manager":Landroid/app/DownloadManager;
     .end local v3    # "receiver":Landroid/content/BroadcastReceiver;
@@ -334,15 +334,15 @@
     :goto_10f
     return-void
 
-    .line 158
+    .line 127
     :catch_110
     move-exception v1
 
-    .line 160
+    .line 128
     .local v1, "e":Lorg/json/JSONException;
     invoke-virtual {v1}, Lorg/json/JSONException;->printStackTrace()V
 
-    .line 161
+    .line 129
     iget-object v7, p0, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
 
     iget-object v7, v7, Lru/killer666/hearthstone/UpdateChecker$1;->this$0:Lru/killer666/hearthstone/UpdateChecker;

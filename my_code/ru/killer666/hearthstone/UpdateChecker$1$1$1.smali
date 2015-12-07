@@ -25,7 +25,7 @@
     .registers 3
 
     .prologue
-    .line 190
+    .line 157
     iput-object p1, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->this$2:Lru/killer666/hearthstone/UpdateChecker$1$1;
 
     iput-object p2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->val$targetFilename:Ljava/lang/String;
@@ -45,7 +45,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 193
+    .line 159
     new-instance v0, Ljava/io/File;
 
     sget-object v2, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
@@ -58,20 +58,20 @@
 
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 196
+    .line 162
     .local v0, "file":Ljava/io/File;
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2, v4}, Ljava/io/File;->setReadable(ZZ)Z
 
-    .line 198
+    .line 164
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.VIEW"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 199
+    .line 165
     .local v1, "newIntent":Landroid/content/Intent;
     invoke-static {v0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
@@ -81,7 +81,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 201
+    .line 167
     iget-object v2, p0, Lru/killer666/hearthstone/UpdateChecker$1$1$1;->this$2:Lru/killer666/hearthstone/UpdateChecker$1$1;
 
     iget-object v2, v2, Lru/killer666/hearthstone/UpdateChecker$1$1;->this$1:Lru/killer666/hearthstone/UpdateChecker$1;
@@ -90,9 +90,9 @@
 
     invoke-virtual {v2, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 203
+    .line 169
     invoke-static {v4}, Ljava/lang/System;->exit(I)V
 
-    .line 204
+    .line 170
     return-void
 .end method

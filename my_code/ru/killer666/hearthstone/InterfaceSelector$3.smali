@@ -28,7 +28,7 @@
     .registers 3
 
     .prologue
-    .line 76
+    .line 65
     iput-object p1, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     iput-object p2, p0, Lru/killer666/hearthstone/InterfaceSelector$3;->val$preferences:Landroid/content/SharedPreferences;
@@ -46,7 +46,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 79
+    .line 67
     const/4 v2, 0x2
 
     new-array v1, v2, [Ljava/lang/CharSequence;
@@ -61,7 +61,7 @@
 
     aput-object v3, v1, v2
 
-    .line 81
+    .line 69
     .local v1, "items":[Ljava/lang/CharSequence;
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -69,16 +69,16 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 83
+    .line 71
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
     const-string v2, "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441:"
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 84
+    .line 72
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 85
+    .line 73
     const/4 v2, -0x1
 
     new-instance v3, Lru/killer666/hearthstone/InterfaceSelector$3$1;
@@ -87,13 +87,13 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 100
+    .line 86
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
-    .line 101
+    .line 87
     return-void
 .end method

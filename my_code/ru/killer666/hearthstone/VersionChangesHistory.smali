@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    sget v1, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+    sget v1, Lru/killer666/hearthstone/UpdateChecker;->jenkinsBuild:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -119,7 +119,7 @@
 
     move-result-object v0
 
-    sget v1, Lru/killer666/hearthstone/UpdateChecker;->currentBuild:I
+    sget v1, Lru/killer666/hearthstone/UpdateChecker;->jenkinsBuild:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 

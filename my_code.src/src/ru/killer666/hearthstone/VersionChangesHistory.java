@@ -26,10 +26,10 @@ public class VersionChangesHistory extends WaitableTask {
         }
 
         SharedPreferences preferences = Wrapper.getPreferences(prefsFile);
-        String key = "infoshown_" + versionCode + "_" + UpdateChecker.currentBuild;
+        String key = "infoshown_" + versionCode + "_" + UpdateChecker.jenkinsBuild;
 
         if (!preferences.getBoolean(key, false)) {
-            String firstPart = "Изменения в сборке " + versionCode + " (" + UpdateChecker.currentBuild + "):\n\n";
+            String firstPart = "Изменения в сборке " + versionCode + " (" + UpdateChecker.jenkinsBuild + "):\n\n";
             List<String> secondParts = new ArrayList<>();
 
             switch (versionCode) {

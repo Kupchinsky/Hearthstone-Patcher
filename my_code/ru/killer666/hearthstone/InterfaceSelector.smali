@@ -22,7 +22,7 @@
     .registers 1
 
     .prologue
-    .line 13
+    .line 10
     new-instance v0, Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;
 
     invoke-direct {v0}, Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;-><init>()V
@@ -36,10 +36,10 @@
     .registers 1
 
     .prologue
-    .line 10
+    .line 9
     invoke-direct {p0}, Lru/killer666/hearthstone/WaitableTask;-><init>()V
 
-    .line 107
+    .line 93
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .param p1, "x1"    # I
 
     .prologue
-    .line 10
+    .line 9
     invoke-direct {p0, p1}, Lru/killer666/hearthstone/InterfaceSelector;->setInterface(I)V
 
     return-void
@@ -60,7 +60,7 @@
     .param p0, "x0"    # Lru/killer666/hearthstone/InterfaceSelector;
 
     .prologue
-    .line 10
+    .line 9
     invoke-direct {p0}, Lru/killer666/hearthstone/InterfaceSelector;->askToNotAsk()V
 
     return-void
@@ -70,14 +70,14 @@
     .registers 4
 
     .prologue
-    .line 23
+    .line 19
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     sget-object v1, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 25
+    .line 21
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -114,12 +114,12 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 27
+    .line 23
     const-string v1, "Hearthstone"
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 28
+    .line 24
     const-string v1, "\u0414\u0430"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$1;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 41
+    .line 35
     const-string v1, "\u041d\u0435\u0442"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$2;
@@ -137,22 +137,22 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 49
+    .line 41
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 50
+    .line 42
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 51
+    .line 43
     return-void
 
-    .line 25
+    .line 21
     :cond_50
     const-string v1, "\u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432"
 
@@ -164,7 +164,7 @@
     .param p1, "newInterface"    # I
 
     .prologue
-    .line 17
+    .line 14
     sget-object v1, Lru/killer666/hearthstone/InterfaceSelector;->selectedIface:Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;
 
     if-nez p1, :cond_8
@@ -174,10 +174,10 @@
     :goto_5
     iput-boolean v0, v1, Lru/killer666/hearthstone/InterfaceSelector$SelectedInterface;->isTablet:Z
 
-    .line 18
+    .line 15
     return-void
 
-    .line 17
+    .line 14
     :cond_8
     const/4 v0, 0x0
 
@@ -194,21 +194,21 @@
 
     const/4 v6, -0x1
 
-    .line 56
+    .line 47
     const-string v4, "HearthstoneWrapper"
 
     const-string v5, "Okay, let\'s start"
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 58
+    .line 49
     const-string v4, "iface_settings"
 
     invoke-static {v4}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
 
     move-result-object v2
 
-    .line 61
+    .line 52
     .local v2, "preferences":Landroid/content/SharedPreferences;
     const-string v4, "notaskagain"
 
@@ -216,7 +216,7 @@
 
     move-result v1
 
-    .line 64
+    .line 55
     .local v1, "prefNotAskAgain":Z
     const-string v4, "selected"
 
@@ -224,7 +224,7 @@
 
     move-result v0
 
-    .line 66
+    .line 57
     .local v0, "prefIface":I
     if-eqz v1, :cond_44
 
@@ -234,7 +234,7 @@
 
     if-eq v0, v4, :cond_44
 
-    .line 68
+    .line 58
     const-string v4, "HearthstoneWrapper"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -263,14 +263,14 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 69
+    .line 59
     invoke-direct {p0, v0}, Lru/killer666/hearthstone/InterfaceSelector;->setInterface(I)V
 
-    .line 104
+    .line 90
     :goto_43
     return v3
 
-    .line 73
+    .line 63
     :cond_44
     const-string v3, "HearthstoneWrapper"
 
@@ -278,7 +278,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
+    .line 65
     sget-object v3, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     new-instance v4, Lru/killer666/hearthstone/InterfaceSelector$3;
@@ -287,7 +287,7 @@
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 104
+    .line 90
     const/4 v3, 0x1
 
     goto :goto_43

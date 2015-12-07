@@ -22,23 +22,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 21
+    .line 20
     sput-object v1, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
+    .line 21
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lru/killer666/hearthstone/CachePathChecker;->restartRequired:Z
+
     .line 22
+    sput-object v1, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
+
+    .line 23
     new-instance v0, Lru/killer666/hearthstone/CachePathChecker$1;
 
     invoke-direct {v0}, Lru/killer666/hearthstone/CachePathChecker$1;-><init>()V
 
     sput-object v0, Lru/killer666/hearthstone/CachePathChecker;->setPathClick:Landroid/content/DialogInterface$OnClickListener;
-
-    .line 39
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lru/killer666/hearthstone/CachePathChecker;->restartRequired:Z
-
-    .line 40
-    sput-object v1, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
     return-void
 .end method
@@ -47,13 +47,13 @@
     .registers 1
 
     .prologue
-    .line 44
+    .line 39
     invoke-direct {p0}, Lru/killer666/hearthstone/WaitableTask;-><init>()V
 
-    .line 45
+    .line 40
     sput-object p0, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
-    .line 46
+    .line 41
     return-void
 .end method
 
@@ -63,7 +63,7 @@
     .param p1, "x1"    # Ljava/lang/String;
 
     .prologue
-    .line 19
+    .line 18
     invoke-direct {p0, p1}, Lru/killer666/hearthstone/CachePathChecker;->setCachePath(Ljava/lang/String;)V
 
     return-void
@@ -78,7 +78,7 @@
 
     const/4 v10, 0x0
 
-    .line 123
+    .line 107
     const-string v0, "HearthstoneWrapper"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -101,7 +101,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 127
+    .line 110
     :try_start_1a
     new-instance v0, Ljava/io/File;
 
@@ -109,12 +109,12 @@
 
     sput-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
-    .line 128
+    .line 111
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 130
+    .line 113
     new-instance v9, Ljava/io/File;
 
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
@@ -143,17 +143,17 @@
 
     invoke-direct {v9, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 132
+    .line 115
     .local v9, "file":Ljava/io/File;
     invoke-virtual {v9}, Ljava/io/File;->createNewFile()Z
 
-    .line 133
+    .line 116
     invoke-virtual {v9}, Ljava/io/File;->delete()Z
 
-    .line 135
+    .line 118
     invoke-virtual {p0}, Lru/killer666/hearthstone/CachePathChecker;->endTask()V
 
-    .line 137
+    .line 120
     const-string v0, "cache_settings"
 
     invoke-static {v0}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
@@ -164,16 +164,16 @@
 
     move-result-object v8
 
-    .line 139
+    .line 122
     .local v8, "edit":Landroid/content/SharedPreferences$Editor;
     const-string v0, "cache_path"
 
     invoke-interface {v8, v0, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 140
+    .line 123
     invoke-interface {v8}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 142
+    .line 125
     const-string v0, "HearthstoneWrapper"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -196,12 +196,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
+    .line 127
     sget-boolean v0, Lru/killer666/hearthstone/CachePathChecker;->restartRequired:Z
 
     if-eqz v0, :cond_8d
 
-    .line 146
+    .line 128
     const-string v0, ""
 
     const-string v1, "\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u043a"
@@ -222,18 +222,18 @@
     :try_end_8d
     .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_8d} :catch_8e
 
-    .line 172
+    .line 148
     .end local v8    # "edit":Landroid/content/SharedPreferences$Editor;
     .end local v9    # "file":Ljava/io/File;
     :cond_8d
     :goto_8d
     return-void
 
-    .line 155
+    .line 134
     :catch_8e
     move-exception v7
 
-    .line 157
+    .line 135
     .local v7, "e":Ljava/lang/Exception;
     const-string v0, "HearthstoneWrapper"
 
@@ -295,7 +295,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 161
+    .line 139
     const-string v0, ""
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -377,7 +377,7 @@
     .registers 5
 
     .prologue
-    .line 51
+    .line 45
     const-string v1, "cache_settings"
 
     invoke-static {v1}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
@@ -392,25 +392,25 @@
 
     move-result-object v0
 
-    .line 53
+    .line 47
     .local v0, "preferencesPath":Ljava/lang/String;
     if-eqz v0, :cond_18
 
-    .line 55
+    .line 48
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     sput-object v1, Lru/killer666/hearthstone/CachePathChecker;->cachePath:Ljava/io/File;
 
-    .line 56
+    .line 49
     const/4 v1, 0x0
 
-    .line 118
+    .line 103
     :goto_17
     return v1
 
-    .line 59
+    .line 52
     :cond_18
     sget-object v1, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
@@ -420,7 +420,7 @@
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 118
+    .line 103
     const/4 v1, 0x1
 
     goto :goto_17

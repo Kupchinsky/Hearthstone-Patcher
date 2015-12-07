@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 164
+    .line 141
     iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$4;->this$0:Lru/killer666/hearthstone/CachePathChecker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 167
+    .line 143
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 168
+    .line 144
     sget-object v0, Lru/killer666/hearthstone/CachePathChecker;->instance:Lru/killer666/hearthstone/CachePathChecker;
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/CachePathChecker;->doTask()Z
 
-    .line 169
+    .line 145
     return-void
 .end method

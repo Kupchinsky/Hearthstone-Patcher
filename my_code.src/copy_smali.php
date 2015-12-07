@@ -37,7 +37,12 @@
 			$classes[] = $filepath;
 	}
 
-	my_exec('rm -rf ' . escapeshellarg(TMP . '*'));
+	if (!is_dir(TMP)) {
+		mkdir(TMP);
+	} else {
+		my_exec('rm -rf ' . escapeshellarg(TMP . '*'));
+	}
+
 	$result = my_exec('java -cp ' . escapeshellarg(DIST . 'dx.jar;' . DIST . 'gson-2.3.1.jar;' . DIST . '.') . ' dxrunjson ' . escapeshellarg(TMP . 'classes.dex'), json_encode($classes));
 
 	if ($result['return'] != 0)

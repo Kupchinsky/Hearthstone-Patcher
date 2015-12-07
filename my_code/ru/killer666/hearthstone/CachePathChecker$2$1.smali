@@ -30,7 +30,7 @@
     .registers 4
 
     .prologue
-    .line 81
+    .line 71
     iput-object p1, p0, Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
 
     iput-object p2, p0, Lru/killer666/hearthstone/CachePathChecker$2$1;->val$items:Ljava/util/LinkedHashMap;
@@ -50,7 +50,7 @@
     .param p2, "item"    # I
 
     .prologue
-    .line 84
+    .line 73
     iget-object v3, p0, Lru/killer666/hearthstone/CachePathChecker$2$1;->val$items:Ljava/util/LinkedHashMap;
 
     iget-object v4, p0, Lru/killer666/hearthstone/CachePathChecker$2$1;->val$items_keys:[Ljava/lang/CharSequence;
@@ -63,45 +63,45 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 86
+    .line 75
     .local v2, "targetPath":Ljava/lang/String;
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 88
+    .line 77
     if-nez v2, :cond_66
 
-    .line 90
+    .line 78
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     sget-object v3, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 91
+    .line 79
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
     const-string v3, "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u0434\u043b\u044f \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u044f\u0449\u0438\u043a\u043e\u0432:"
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 92
+    .line 80
     const/4 v3, 0x0
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 94
+    .line 82
     new-instance v1, Landroid/widget/EditText;
 
     sget-object v3, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     invoke-direct {v1, v3}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
-    .line 95
+    .line 83
     .local v1, "input":Landroid/widget/EditText;
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Landroid/widget/EditText;->setInputType(I)V
 
-    .line 96
+    .line 84
     iget-object v3, p0, Lru/killer666/hearthstone/CachePathChecker$2$1;->this$1:Lru/killer666/hearthstone/CachePathChecker$2;
 
     iget-object v3, v3, Lru/killer666/hearthstone/CachePathChecker$2;->val$preferencesPath:Ljava/lang/String;
@@ -133,10 +133,10 @@
     :goto_49
     invoke-virtual {v1, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 99
+    .line 87
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 100
+    .line 88
     const-string v3, "\u041f\u0440\u0438\u043d\u044f\u0442\u044c"
 
     new-instance v4, Lru/killer666/hearthstone/CachePathChecker$2$1$1;
@@ -145,20 +145,20 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 108
+    .line 94
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v3
 
     invoke-virtual {v3}, Landroid/app/AlertDialog;->show()V
 
-    .line 111
+    .line 96
     .end local v0    # "builder":Landroid/app/AlertDialog$Builder;
     .end local v1    # "input":Landroid/widget/EditText;
     :goto_60
     return-void
 
-    .line 96
+    .line 84
     .restart local v0    # "builder":Landroid/app/AlertDialog$Builder;
     .restart local v1    # "input":Landroid/widget/EditText;
     :cond_61
@@ -168,7 +168,7 @@
 
     goto :goto_49
 
-    .line 110
+    .line 95
     .end local v0    # "builder":Landroid/app/AlertDialog$Builder;
     .end local v1    # "input":Landroid/widget/EditText;
     :cond_66

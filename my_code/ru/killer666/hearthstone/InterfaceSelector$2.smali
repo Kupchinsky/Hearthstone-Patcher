@@ -26,7 +26,7 @@
     .registers 2
 
     .prologue
-    .line 42
+    .line 35
     iput-object p1, p0, Lru/killer666/hearthstone/InterfaceSelector$2;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .param p2, "which"    # I
 
     .prologue
-    .line 45
+    .line 37
     iget-object v0, p0, Lru/killer666/hearthstone/InterfaceSelector$2;->this$0:Lru/killer666/hearthstone/InterfaceSelector;
 
     invoke-virtual {v0}, Lru/killer666/hearthstone/InterfaceSelector;->endTask()V
 
-    .line 46
+    .line 38
     return-void
 .end method
