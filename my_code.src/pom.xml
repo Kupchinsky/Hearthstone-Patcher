@@ -7,6 +7,7 @@
     <groupId>ru.killer666.hearthstone</groupId>
     <artifactId>modlauncher</artifactId>
     <version>1.0</version>
+	<packaging>jar</packaging>
 
     <build>
         <plugins>

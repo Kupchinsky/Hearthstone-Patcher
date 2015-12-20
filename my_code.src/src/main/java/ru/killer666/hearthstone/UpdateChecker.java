@@ -150,7 +150,8 @@ public class UpdateChecker extends WaitableTask {
 
                 try {
                     hash = this.md5hex(this.convertStreamToString(new FileInputStream(xposedFile.getFile())));
-                } catch (FileNotFoundException e) {
+                } catch (IOException e) {
+                    Log.i(TAG, xposedFile.getFileName() + ": " + e.getMessage());
                     continue;
                 }
 
