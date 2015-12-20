@@ -6,7 +6,7 @@
 # instance fields
 .field private taskEnded:Z
 
-.field private waitObject:Ljava/lang/Object;
+.field private final waitObject:Ljava/lang/Object;
 
 
 # direct methods
@@ -88,20 +88,8 @@
     .registers 2
 
     .prologue
-    .line 26
+    .line 22
     iget-object v0, p0, Lru/killer666/hearthstone/WaitableTask;->waitObject:Ljava/lang/Object;
 
     return-object v0
-.end method
-
-.method setEnded(Z)V
-    .registers 2
-    .param p1, "newvalue"    # Z
-
-    .prologue
-    .line 22
-    iput-boolean p1, p0, Lru/killer666/hearthstone/WaitableTask;->taskEnded:Z
-
-    .line 23
-    return-void
 .end method

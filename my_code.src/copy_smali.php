@@ -51,7 +51,7 @@
 		die;
 	}
 
-	copy(TMP . 'classes.dex', ROOT . 'classes.dex');
+	copy(TMP . 'classes.dex', ROOT . 'mod.dex');
 	$result = my_exec('java -jar ' . escapeshellarg(DIST . 'baksmali-2.0.5.jar') . ' ' . escapeshellarg(TMP . 'classes.dex') . ' -o ' . escapeshellarg(TMP . '.'));
 
 	if ($result['return'] != 0)

@@ -1,4 +1,4 @@
-.class Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
+.class Lru/killer666/hearthstone/UpdateChecker$TempStorage;
 .super Ljava/lang/Object;
 .source "UpdateChecker.java"
 
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x8
-    name = "CustomInfo"
+    name = "TempStorage"
 .end annotation
 
 
@@ -33,22 +33,22 @@
     .param p4, "remoteData"    # Lorg/json/JSONObject;
 
     .prologue
-    .line 392
+    .line 218
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 393
-    iput p1, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionCode:I
+    .line 219
+    iput p1, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionCode:I
 
-    .line 394
-    iput p2, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionBuild:I
+    .line 220
+    iput p2, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionBuild:I
 
-    .line 395
-    iput-object p3, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionName:Ljava/lang/String;
+    .line 221
+    iput-object p3, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionName:Ljava/lang/String;
 
-    .line 396
-    iput-object p4, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteData:Lorg/json/JSONObject;
+    .line 222
+    iput-object p4, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteData:Lorg/json/JSONObject;
 
-    .line 397
+    .line 223
     return-void
 .end method
 
@@ -58,8 +58,8 @@
     .registers 2
 
     .prologue
-    .line 412
-    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteData:Lorg/json/JSONObject;
+    .line 238
+    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteData:Lorg/json/JSONObject;
 
     return-object v0
 .end method
@@ -68,8 +68,8 @@
     .registers 2
 
     .prologue
-    .line 404
-    iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionBuild:I
+    .line 230
+    iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionBuild:I
 
     return v0
 .end method
@@ -78,8 +78,8 @@
     .registers 2
 
     .prologue
-    .line 400
-    iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionCode:I
+    .line 226
+    iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionCode:I
 
     return v0
 .end method
@@ -88,8 +88,8 @@
     .registers 2
 
     .prologue
-    .line 408
-    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionName:Ljava/lang/String;
+    .line 234
+    iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$TempStorage;->remoteVersionName:Ljava/lang/String;
 
     return-object v0
 .end method
