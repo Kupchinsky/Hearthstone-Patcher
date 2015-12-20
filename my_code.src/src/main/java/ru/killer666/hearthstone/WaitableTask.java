@@ -1,7 +1,7 @@
 package ru.killer666.hearthstone;
 
 abstract class WaitableTask {
-    private Object waitObject = new Object();
+    private final Object waitObject = new Object();
     private boolean taskEnded = false;
 
     abstract boolean doTask();
@@ -16,10 +16,6 @@ abstract class WaitableTask {
 
     boolean getEnded() {
         return taskEnded;
-    }
-
-    void setEnded(boolean newvalue) {
-        taskEnded = newvalue;
     }
 
     Object getWaitObject() {

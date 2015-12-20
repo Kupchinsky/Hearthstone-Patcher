@@ -11,6 +11,7 @@ import java.util.List;
 public class Wrapper {
     static final String TAG = "HearthstoneWrapper";
     private static final List<WaitableTask> tasks = new ArrayList<WaitableTask>();
+
     public static boolean isXposed = false;
     public static boolean isHasAssembly = true;
 
@@ -35,7 +36,7 @@ public class Wrapper {
                         task.getWaitObject().wait();
                     }
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "Interrupted while waiting", e);
                 }
             }
 
@@ -48,7 +49,7 @@ public class Wrapper {
     public static void LoadingScreen_DownloadObbFromGoogle_run() {
         tasks.add(isHasAssembly ? new InterfaceSelector() : new InterfaceNotAvailable());
         tasks.add(new CachePathChecker());
-        tasks.add(new UpdateChecker());
+        tasks.add(!isXposed ? new UpdateChecker() : new XposedUpdateChecker());
 
         runTasks();
     }
