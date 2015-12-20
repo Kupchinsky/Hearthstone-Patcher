@@ -9,4 +9,5 @@ my_assemblies/
 *.jar
 4pdaUpload.config.js
 *.apk
+*.dex
 **/version.json

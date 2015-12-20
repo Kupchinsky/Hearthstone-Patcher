@@ -12,6 +12,7 @@ public class Wrapper {
     static final String TAG = "HearthstoneWrapper";
     private static final List<WaitableTask> tasks = new ArrayList<WaitableTask>();
     public static boolean isXposed = false;
+    public static boolean isHasAssembly = true;
 
     static SharedPreferences getPreferences(String name) {
         return UnityPlayer.currentActivity.getSharedPreferences(name, Context.MODE_PRIVATE);
@@ -21,9 +22,9 @@ public class Wrapper {
         for (WaitableTask task : tasks) {
             Log.i(TAG, "Running task " + task.getClass().getSimpleName() + "...");
 
-            boolean isRequiredToRunning = task.doTask();
+            boolean isRequiredToWait = task.doTask();
 
-            if (!isRequiredToRunning) {
+            if (!isRequiredToWait) {
                 Log.i(TAG, "Skipped.");
                 continue;
             }
@@ -45,7 +46,7 @@ public class Wrapper {
     }
 
     public static void LoadingScreen_DownloadObbFromGoogle_run() {
-        tasks.add(new InterfaceSelector());
+        tasks.add(isHasAssembly ? new InterfaceSelector() : new InterfaceNotAvailable());
         tasks.add(new CachePathChecker());
         tasks.add(new UpdateChecker());
 
