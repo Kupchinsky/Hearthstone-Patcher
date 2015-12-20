@@ -11,6 +11,7 @@ import java.util.List;
 public class Wrapper {
     static final String TAG = "HearthstoneWrapper";
     private static final List<WaitableTask> tasks = new ArrayList<WaitableTask>();
+    public static boolean isXposed = false;
 
     static SharedPreferences getPreferences(String name) {
         return UnityPlayer.currentActivity.getSharedPreferences(name, Context.MODE_PRIVATE);
@@ -44,7 +45,6 @@ public class Wrapper {
     }
 
     public static void LoadingScreen_DownloadObbFromGoogle_run() {
-        tasks.add(new VersionChangesHistory());
         tasks.add(new InterfaceSelector());
         tasks.add(new CachePathChecker());
         tasks.add(new UpdateChecker());

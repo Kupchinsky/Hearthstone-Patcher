@@ -39,7 +39,6 @@
     .line 9
     invoke-direct {p0}, Lru/killer666/hearthstone/WaitableTask;-><init>()V
 
-    .line 93
     return-void
 .end method
 
@@ -83,7 +82,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u041f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f "
+    const-string v2, "\u0420\u045f\u0421\u0402\u0420\u0451\u0420\u0458\u0420\u00b5\u0420\u0405\u0420\u0451\u0421\u201a\u0421\u040a \u0420\u0451\u0420\u0405\u0421\u201a\u0420\u00b5\u0421\u0402\u0421\u201e\u0420\u00b5\u0420\u2116\u0421\u0403 \u0420\u0491\u0420\u00bb\u0421\u040f "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -95,14 +94,14 @@
 
     if-eqz v1, :cond_50
 
-    const-string v1, "\u043f\u043b\u0430\u043d\u0448\u0435\u0442\u043e\u0432"
+    const-string v1, "\u0420\u0457\u0420\u00bb\u0420\u00b0\u0420\u0405\u0421\u20ac\u0420\u00b5\u0421\u201a\u0420\u0455\u0420\u0406"
 
     :goto_1a
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    const-string v2, " \u0438 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u0441\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0442\u044c?"
+    const-string v2, " \u0420\u0451 \u0420\u00b1\u0420\u0455\u0420\u00bb\u0421\u040a\u0421\u20ac\u0420\u00b5 \u0420\u0405\u0420\u00b5 \u0421\u0403\u0420\u0457\u0421\u0402\u0420\u00b0\u0421\u20ac\u0420\u0451\u0420\u0406\u0420\u00b0\u0421\u201a\u0421\u040a?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -120,7 +119,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 24
-    const-string v1, "\u0414\u0430"
+    const-string v1, "\u0420\u201d\u0420\u00b0"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$1;
 
@@ -129,7 +128,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 35
-    const-string v1, "\u041d\u0435\u0442"
+    const-string v1, "\u0420\u045c\u0420\u00b5\u0421\u201a"
 
     new-instance v2, Lru/killer666/hearthstone/InterfaceSelector$2;
 
@@ -154,7 +153,7 @@
 
     .line 21
     :cond_50
-    const-string v1, "\u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432"
+    const-string v1, "\u0421\u201a\u0420\u00b5\u0420\u00bb\u0420\u00b5\u0421\u201e\u0420\u0455\u0420\u0405\u0420\u0455\u0420\u0406"
 
     goto :goto_1a
 .end method

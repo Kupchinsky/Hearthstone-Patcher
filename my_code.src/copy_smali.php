@@ -1,6 +1,6 @@
 <?
 	define('ROOT', dirname(__FILE__) . DIRECTORY_SEPARATOR);
-	define('BIN', ROOT . 'out' . DIRECTORY_SEPARATOR . 'production' . DIRECTORY_SEPARATOR . 'my_code.src' . DIRECTORY_SEPARATOR);
+	define('BIN', ROOT . 'target' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR);
 	define('TMP', ROOT . 'tmp' . DIRECTORY_SEPARATOR);
 	define('PATCHERROOT', realpath(ROOT . '..' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
 	define('DIST', PATCHERROOT . 'dist' . DIRECTORY_SEPARATOR);

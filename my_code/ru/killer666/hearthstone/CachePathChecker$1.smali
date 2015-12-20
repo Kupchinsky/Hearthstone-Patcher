@@ -39,6 +39,7 @@
     .line 26
     const-string v1, "cache_settings"
 
+    .line 27
     invoke-static {v1}, Lru/killer666/hearthstone/Wrapper;->getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
 
     move-result-object v1

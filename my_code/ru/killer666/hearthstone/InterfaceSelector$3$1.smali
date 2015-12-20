@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/InterfaceSelector$3;)V
     .registers 2
+    .param p1, "this$1"    # Lru/killer666/hearthstone/InterfaceSelector$3;
 
     .prologue
     .line 73

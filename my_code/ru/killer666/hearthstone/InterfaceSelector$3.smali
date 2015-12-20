@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/InterfaceSelector;Landroid/content/SharedPreferences;)V
     .registers 3
+    .param p1, "this$0"    # Lru/killer666/hearthstone/InterfaceSelector;
 
     .prologue
     .line 65
@@ -51,13 +52,13 @@
 
     new-array v1, v2, [Ljava/lang/CharSequence;
 
-    const-string v2, "\u0414\u043b\u044f \u043f\u043b\u0430\u043d\u0448\u0435\u0442\u043e\u0432"
+    const-string v2, "\u0420\u201d\u0420\u00bb\u0421\u040f \u0420\u0457\u0420\u00bb\u0420\u00b0\u0420\u0405\u0421\u20ac\u0420\u00b5\u0421\u201a\u0420\u0455\u0420\u0406"
 
     aput-object v2, v1, v4
 
     const/4 v2, 0x1
 
-    const-string v3, "\u0414\u043b\u044f \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u0432 (\u0431\u043e\u043b\u0435\u0435 \u043a\u0440\u0443\u043f\u043d\u044b\u0439 \u0442\u0435\u043a\u0441\u0442)"
+    const-string v3, "\u0420\u201d\u0420\u00bb\u0421\u040f \u0421\u201a\u0420\u00b5\u0420\u00bb\u0420\u00b5\u0421\u201e\u0420\u0455\u0420\u0405\u0420\u0455\u0420\u0406 (\u0420\u00b1\u0420\u0455\u0420\u00bb\u0420\u00b5\u0420\u00b5 \u0420\u0454\u0421\u0402\u0421\u0453\u0420\u0457\u0420\u0405\u0421\u2039\u0420\u2116 \u0421\u201a\u0420\u00b5\u0420\u0454\u0421\u0403\u0421\u201a)"
 
     aput-object v3, v1, v2
 
@@ -71,7 +72,7 @@
 
     .line 71
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v2, "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441:"
+    const-string v2, "\u0420\u2019\u0421\u2039\u0420\u00b1\u0420\u00b5\u0421\u0402\u0420\u0451\u0421\u201a\u0420\u00b5 \u0420\u0451\u0420\u0405\u0421\u201a\u0420\u00b5\u0421\u0402\u0421\u201e\u0420\u00b5\u0420\u2116\u0421\u0403:"
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 

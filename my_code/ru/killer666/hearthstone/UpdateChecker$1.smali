@@ -28,6 +28,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/UpdateChecker;Landroid/app/Activity;Lru/killer666/hearthstone/UpdateChecker$CustomInfo;)V
     .registers 4
+    .param p1, "this$0"    # Lru/killer666/hearthstone/UpdateChecker;
 
     .prologue
     .line 114
@@ -61,7 +62,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u041d\u0430\u0439\u0434\u0435\u043d\u0430 \u043d\u043e\u0432\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f "
+    const-string v2, "\u0420\u045c\u0420\u00b0\u0420\u2116\u0420\u0491\u0420\u00b5\u0420\u0405\u0420\u00b0 \u0420\u0405\u0420\u0455\u0420\u0406\u0420\u00b0\u0421\u040f \u0420\u0406\u0420\u00b5\u0421\u0402\u0421\u0403\u0420\u0451\u0421\u040f "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -85,6 +86,7 @@
 
     iget-object v2, p0, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 119
     invoke-virtual {v2}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionCode()I
 
     move-result v2
@@ -107,7 +109,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, ", \u0441\u0431\u043e\u0440\u043a\u0430 "
+    const-string v3, ", \u0421\u0403\u0420\u00b1\u0420\u0455\u0421\u0402\u0420\u0454\u0420\u00b0 "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -138,7 +140,7 @@
 
     move-result-object v1
 
-    const-string v2, "! \u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c?"
+    const-string v2, "! \u0420\u045b\u0420\u00b1\u0420\u0405\u0420\u0455\u0420\u0406\u0420\u0451\u0421\u201a\u0421\u040a?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -148,6 +150,7 @@
 
     move-result-object v1
 
+    .line 118
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 121
@@ -156,7 +159,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 122
-    const-string v1, "\u0414\u0430"
+    const-string v1, "\u0420\u201d\u0420\u00b0"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$1;
 
@@ -165,7 +168,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 186
-    const-string v1, "\u041d\u0435\u0442"
+    const-string v1, "\u0420\u045c\u0420\u00b5\u0421\u201a"
 
     new-instance v2, Lru/killer666/hearthstone/UpdateChecker$1$2;
 
@@ -188,7 +191,7 @@
     .line 194
     return-void
 
-    .line 118
+    .line 119
     :cond_8a
     const-string v1, ""
 

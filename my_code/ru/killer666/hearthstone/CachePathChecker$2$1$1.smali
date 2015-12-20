@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/CachePathChecker$2$1;Landroid/widget/EditText;)V
     .registers 3
+    .param p1, "this$2"    # Lru/killer666/hearthstone/CachePathChecker$2$1;
 
     .prologue
     .line 88

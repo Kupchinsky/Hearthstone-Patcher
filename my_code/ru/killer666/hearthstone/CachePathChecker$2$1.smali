@@ -28,6 +28,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/CachePathChecker$2;Ljava/util/LinkedHashMap;[Ljava/lang/CharSequence;)V
     .registers 4
+    .param p1, "this$1"    # Lru/killer666/hearthstone/CachePathChecker$2;
 
     .prologue
     .line 71
@@ -79,7 +80,7 @@
 
     .line 79
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const-string v3, "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u0434\u043b\u044f \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u044f\u0449\u0438\u043a\u043e\u0432:"
+    const-string v3, "\u0420\u0408\u0420\u0454\u0420\u00b0\u0420\u00b6\u0420\u0451\u0421\u201a\u0420\u00b5 \u0420\u0457\u0421\u0453\u0421\u201a\u0421\u040a \u0420\u0491\u0420\u00bb\u0421\u040f \u0421\u2026\u0421\u0402\u0420\u00b0\u0420\u0405\u0420\u00b5\u0420\u0405\u0420\u0451\u0421\u040f \u0421\u040f\u0421\u2030\u0420\u0451\u0420\u0454\u0420\u0455\u0420\u0406:"
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
@@ -137,7 +138,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 88
-    const-string v3, "\u041f\u0440\u0438\u043d\u044f\u0442\u044c"
+    const-string v3, "\u0420\u045f\u0421\u0402\u0420\u0451\u0420\u0405\u0421\u040f\u0421\u201a\u0421\u040a"
 
     new-instance v4, Lru/killer666/hearthstone/CachePathChecker$2$1$1;
 

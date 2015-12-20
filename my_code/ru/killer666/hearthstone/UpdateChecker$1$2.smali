@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1;)V
     .registers 2
+    .param p1, "this$1"    # Lru/killer666/hearthstone/UpdateChecker$1;
 
     .prologue
     .line 186

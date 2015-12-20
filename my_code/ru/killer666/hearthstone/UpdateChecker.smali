@@ -53,7 +53,6 @@
 
     iput-object v0, p0, Lru/killer666/hearthstone/UpdateChecker;->versionUrl:Ljava/lang/String;
 
-    .line 210
     return-void
 .end method
 

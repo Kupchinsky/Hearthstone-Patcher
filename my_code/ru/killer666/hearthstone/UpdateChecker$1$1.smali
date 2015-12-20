@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1;)V
     .registers 2
+    .param p1, "this$1"    # Lru/killer666/hearthstone/UpdateChecker$1;
 
     .prologue
     .line 122
@@ -89,6 +90,7 @@
 
     move-result-object v7
 
+    .line 139
     invoke-virtual {v7, v10}, Landroid/app/DownloadManager$Request;->setAllowedOverRoaming(Z)Landroid/app/DownloadManager$Request;
 
     move-result-object v7
@@ -97,7 +99,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u043e \u0432\u0435\u0440\u0441\u0438\u0438 "
+    const-string v9, "\u0420\u045b\u0420\u00b1\u0420\u0405\u0420\u0455\u0420\u0406\u0420\u00bb\u0420\u00b5\u0420\u0405\u0420\u0451\u0420\u00b5 \u0420\u0491\u0420\u0455 \u0420\u0406\u0420\u00b5\u0421\u0402\u0421\u0403\u0420\u0451\u0420\u0451 "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -107,6 +109,7 @@
 
     iget-object v9, v9, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 141
     invoke-virtual {v9}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionName()Ljava/lang/String;
 
     move-result-object v9
@@ -125,6 +128,7 @@
 
     iget-object v9, v9, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 142
     invoke-virtual {v9}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionCode()I
 
     move-result v9
@@ -133,7 +137,7 @@
 
     move-result-object v8
 
-    const-string v9, ", \u0441\u0431\u043e\u0440\u043a\u0430 "
+    const-string v9, ", \u0421\u0403\u0420\u00b1\u0420\u0455\u0421\u0402\u0420\u0454\u0420\u00b0 "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -143,6 +147,7 @@
 
     iget-object v9, v9, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 143
     invoke-virtual {v9}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionBuild()I
 
     move-result v9
@@ -155,6 +160,7 @@
 
     move-result-object v8
 
+    .line 140
     invoke-virtual {v7, v8}, Landroid/app/DownloadManager$Request;->setDescription(Ljava/lang/CharSequence;)Landroid/app/DownloadManager$Request;
 
     .line 144
@@ -203,6 +209,7 @@
 
     iget-object v8, v8, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 149
     invoke-virtual {v8}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionCode()I
 
     move-result v8
@@ -221,6 +228,7 @@
 
     iget-object v8, v8, Lru/killer666/hearthstone/UpdateChecker$1;->val$customInfo:Lru/killer666/hearthstone/UpdateChecker$CustomInfo;
 
+    .line 150
     invoke-virtual {v8}, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->getRemoteVersionBuild()I
 
     move-result v8
@@ -252,6 +260,7 @@
 
     const-string v8, "download"
 
+    .line 154
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
@@ -305,7 +314,7 @@
 
     .line 179
     .local v0, "dlgAlert":Landroid/app/AlertDialog$Builder;
-    const-string v7, "\u041e\u0436\u0438\u0434\u0430\u0439\u0442\u0435 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u043d\u043e\u0432\u043e\u0433\u043e APK..."
+    const-string v7, "\u0420\u045b\u0420\u00b6\u0420\u0451\u0420\u0491\u0420\u00b0\u0420\u2116\u0421\u201a\u0420\u00b5 \u0420\u00b7\u0420\u00b0\u0420\u0456\u0421\u0402\u0421\u0453\u0420\u00b7\u0420\u0454\u0420\u0451 \u0420\u0405\u0420\u0455\u0420\u0406\u0420\u0455\u0420\u0456\u0420\u0455 APK..."
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 

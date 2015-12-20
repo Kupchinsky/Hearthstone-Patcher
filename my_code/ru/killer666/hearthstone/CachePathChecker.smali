@@ -204,9 +204,9 @@
     .line 128
     const-string v0, ""
 
-    const-string v1, "\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u043a"
+    const-string v1, "\u0420\u045e\u0421\u0402\u0420\u00b5\u0420\u00b1\u0421\u0453\u0420\u00b5\u0421\u201a\u0421\u0403\u0421\u040f \u0420\u0457\u0420\u00b5\u0421\u0402\u0420\u00b5\u0420\u00b7\u0420\u00b0\u0420\u0457\u0421\u0453\u0421\u0403\u0420\u0454"
 
-    const-string v2, "\u041e\u041a"
+    const-string v2, "\u0420\u045b\u0420\u0459"
 
     new-instance v3, Lru/killer666/hearthstone/CachePathChecker$3;
 
@@ -257,6 +257,7 @@
 
     move-result-object v1
 
+    .line 136
     invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -275,6 +276,7 @@
 
     move-result-object v1
 
+    .line 137
     invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -293,6 +295,7 @@
 
     move-result-object v1
 
+    .line 135
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 139
@@ -302,7 +305,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u0412\u044b \u0432\u044b\u0431\u0440\u0430\u043b\u0438 \u043f\u0443\u0442\u044c: "
+    const-string v2, "\u0420\u2019\u0421\u2039 \u0420\u0406\u0421\u2039\u0420\u00b1\u0421\u0402\u0420\u00b0\u0420\u00bb\u0420\u0451 \u0420\u0457\u0421\u0453\u0421\u201a\u0421\u040a: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -312,12 +315,13 @@
 
     move-result-object v1
 
-    const-string v2, "\n\u041f\u0440\u0438 \u043f\u043e\u043f\u044b\u0442\u043a\u0435 \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0442\u0430\u043c \u0444\u0430\u0439\u043b \u043c\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u043b\u0438 \u043e\u0448\u0438\u0431\u043a\u0443: "
+    const-string v2, "\n\u0420\u045f\u0421\u0402\u0420\u0451 \u0420\u0457\u0420\u0455\u0420\u0457\u0421\u2039\u0421\u201a\u0420\u0454\u0420\u00b5 \u0421\u0403\u0420\u0455\u0420\u00b7\u0420\u0491\u0420\u00b0\u0421\u201a\u0421\u040a \u0421\u201a\u0420\u00b0\u0420\u0458 \u0421\u201e\u0420\u00b0\u0420\u2116\u0420\u00bb \u0420\u0458\u0421\u2039 \u0420\u0457\u0420\u0455\u0420\u00bb\u0421\u0453\u0421\u2021\u0420\u0451\u0420\u00bb\u0420\u0451 \u0420\u0455\u0421\u20ac\u0420\u0451\u0420\u00b1\u0420\u0454\u0421\u0453: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    .line 140
     invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -336,6 +340,7 @@
 
     move-result-object v1
 
+    .line 141
     invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
@@ -344,7 +349,7 @@
 
     move-result-object v1
 
-    const-string v2, ")\n\n\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043e\u0439 \u043f\u0443\u0442\u044c!"
+    const-string v2, ")\n\n\u0420\u0408\u0420\u0454\u0420\u00b0\u0420\u00b6\u0420\u0451\u0421\u201a\u0420\u00b5 \u0420\u0491\u0421\u0402\u0421\u0453\u0420\u0456\u0420\u0455\u0420\u2116 \u0420\u0457\u0421\u0453\u0421\u201a\u0421\u040a!"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -354,7 +359,7 @@
 
     move-result-object v1
 
-    const-string v2, "\u041e\u041a"
+    const-string v2, "\u0420\u045b\u0420\u0459"
 
     new-instance v3, Lru/killer666/hearthstone/CachePathChecker$4;
 
@@ -366,6 +371,7 @@
 
     move v6, v10
 
+    .line 139
     invoke-static/range {v0 .. v6}, Lcom/blizzard/wtcg/hearthstone/HearthstoneAlert;->showAlert(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;Z)V
 
     goto/16 :goto_8d

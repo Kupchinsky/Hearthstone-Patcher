@@ -23,6 +23,7 @@
 # direct methods
 .method constructor <init>(Lru/killer666/hearthstone/UpdateChecker$1$1;Ljava/lang/String;)V
     .registers 3
+    .param p1, "this$2"    # Lru/killer666/hearthstone/UpdateChecker$1$1;
 
     .prologue
     .line 157
@@ -50,6 +51,7 @@
 
     sget-object v2, Landroid/os/Environment;->DIRECTORY_DOWNLOADS:Ljava/lang/String;
 
+    .line 160
     invoke-static {v2}, Landroid/os/Environment;->getExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v2
