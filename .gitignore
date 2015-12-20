@@ -1,7 +1,8 @@
 *.iml
 *.class
 .idea/
-tmp/
+**/tmp/
+**/target/
 com.blizzard.wtcg.hearthstone-old/
 com.blizzard.wtcg.hearthstone/
 releases/

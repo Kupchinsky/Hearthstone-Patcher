@@ -6,6 +6,8 @@
 # static fields
 .field static final TAG:Ljava/lang/String; = "HearthstoneWrapper"
 
+.field public static isHasAssembly:Z
+
 .field public static isXposed:Z
 
 .field private static final tasks:Ljava/util/List;
@@ -37,6 +39,11 @@
 
     sput-boolean v0, Lru/killer666/hearthstone/Wrapper;->isXposed:Z
 
+    .line 15
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lru/killer666/hearthstone/Wrapper;->isHasAssembly:Z
+
     return-void
 .end method
 
@@ -54,16 +61,21 @@
     .registers 2
 
     .prologue
-    .line 48
-    sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
-
-    new-instance v1, Lru/killer666/hearthstone/InterfaceSelector;
-
-    invoke-direct {v1}, Lru/killer666/hearthstone/InterfaceSelector;-><init>()V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     .line 49
+    sget-object v1, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
+
+    sget-boolean v0, Lru/killer666/hearthstone/Wrapper;->isHasAssembly:Z
+
+    if-eqz v0, :cond_26
+
+    new-instance v0, Lru/killer666/hearthstone/InterfaceSelector;
+
+    invoke-direct {v0}, Lru/killer666/hearthstone/InterfaceSelector;-><init>()V
+
+    :goto_b
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 50
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/CachePathChecker;
@@ -72,7 +84,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 50
+    .line 51
     sget-object v0, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     new-instance v1, Lru/killer666/hearthstone/UpdateChecker;
@@ -81,11 +93,19 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 52
+    .line 53
     invoke-static {}, Lru/killer666/hearthstone/Wrapper;->runTasks()V
 
-    .line 53
+    .line 54
     return-void
+
+    .line 49
+    :cond_26
+    new-instance v0, Lru/killer666/hearthstone/InterfaceNotAvailable;
+
+    invoke-direct {v0}, Lru/killer666/hearthstone/InterfaceNotAvailable;-><init>()V
+
+    goto :goto_b
 .end method
 
 .method static getPreferences(Ljava/lang/String;)Landroid/content/SharedPreferences;
@@ -93,7 +113,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 17
+    .line 18
     sget-object v0, Lcom/unity3d/player/UnityPlayer;->currentActivity:Landroid/app/Activity;
 
     const/4 v1, 0x0
@@ -109,14 +129,14 @@
     .registers 7
 
     .prologue
-    .line 21
+    .line 22
     sget-object v3, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    .local v1, "isRequiredToRunning":Z
+    .local v1, "isRequiredToWait":Z
     .local v2, "task":Lru/killer666/hearthstone/WaitableTask;
     :goto_6
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
@@ -132,11 +152,11 @@
     .end local v2    # "task":Lru/killer666/hearthstone/WaitableTask;
     check-cast v2, Lru/killer666/hearthstone/WaitableTask;
 
-    .line 22
+    .line 23
     .restart local v2    # "task":Lru/killer666/hearthstone/WaitableTask;
     const-string v3, "HearthstoneWrapper"
 
-    .end local v1    # "isRequiredToRunning":Z
+    .end local v1    # "isRequiredToWait":Z
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -171,16 +191,16 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 24
+    .line 25
     invoke-virtual {v2}, Lru/killer666/hearthstone/WaitableTask;->doTask()Z
 
     move-result v1
 
-    .line 26
-    .restart local v1    # "isRequiredToRunning":Z
+    .line 27
+    .restart local v1    # "isRequiredToWait":Z
     if-nez v1, :cond_46
 
-    .line 27
+    .line 28
     const-string v3, "HearthstoneWrapper"
 
     const-string v5, "Skipped."
@@ -189,7 +209,7 @@
 
     goto :goto_6
 
-    .line 31
+    .line 32
     :cond_46
     :goto_46
     invoke-virtual {v2}, Lru/killer666/hearthstone/WaitableTask;->getEnded()Z
@@ -198,7 +218,7 @@
 
     if-nez v3, :cond_62
 
-    .line 33
+    .line 34
     :try_start_4c
     invoke-virtual {v2}, Lru/killer666/hearthstone/WaitableTask;->getWaitObject()Ljava/lang/Object;
 
@@ -208,7 +228,7 @@
     :try_end_51
     .catch Ljava/lang/InterruptedException; {:try_start_4c .. :try_end_51} :catch_5d
 
-    .line 34
+    .line 35
     :try_start_51
     invoke-virtual {v2}, Lru/killer666/hearthstone/WaitableTask;->getWaitObject()Ljava/lang/Object;
 
@@ -216,7 +236,7 @@
 
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
 
-    .line 35
+    .line 36
     monitor-exit v5
 
     goto :goto_46
@@ -233,17 +253,17 @@
     :try_end_5d
     .catch Ljava/lang/InterruptedException; {:try_start_5c .. :try_end_5d} :catch_5d
 
-    .line 36
+    .line 37
     :catch_5d
     move-exception v0
 
-    .line 37
+    .line 38
     .local v0, "e":Ljava/lang/InterruptedException;
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto :goto_46
 
-    .line 41
+    .line 42
     .end local v0    # "e":Ljava/lang/InterruptedException;
     :cond_62
     const-string v3, "HearthstoneWrapper"
@@ -254,12 +274,12 @@
 
     goto :goto_6
 
-    .line 44
+    .line 45
     :cond_6a
     sget-object v3, Lru/killer666/hearthstone/Wrapper;->tasks:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->clear()V
 
-    .line 45
+    .line 46
     return-void
 .end method

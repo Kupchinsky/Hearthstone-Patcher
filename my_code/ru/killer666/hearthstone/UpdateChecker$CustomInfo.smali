@@ -33,22 +33,22 @@
     .param p4, "remoteData"    # Lorg/json/JSONObject;
 
     .prologue
-    .line 216
+    .line 392
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 217
+    .line 393
     iput p1, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionCode:I
 
-    .line 218
+    .line 394
     iput p2, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionBuild:I
 
-    .line 219
+    .line 395
     iput-object p3, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionName:Ljava/lang/String;
 
-    .line 220
+    .line 396
     iput-object p4, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteData:Lorg/json/JSONObject;
 
-    .line 221
+    .line 397
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .registers 2
 
     .prologue
-    .line 236
+    .line 412
     iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteData:Lorg/json/JSONObject;
 
     return-object v0
@@ -68,7 +68,7 @@
     .registers 2
 
     .prologue
-    .line 228
+    .line 404
     iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionBuild:I
 
     return v0
@@ -78,7 +78,7 @@
     .registers 2
 
     .prologue
-    .line 224
+    .line 400
     iget v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionCode:I
 
     return v0
@@ -88,7 +88,7 @@
     .registers 2
 
     .prologue
-    .line 232
+    .line 408
     iget-object v0, p0, Lru/killer666/hearthstone/UpdateChecker$CustomInfo;->remoteVersionName:Ljava/lang/String;
 
     return-object v0
